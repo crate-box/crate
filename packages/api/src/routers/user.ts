@@ -1,5 +1,6 @@
 import { z } from "zod"
 
+import { defaultUserSelect } from "../selects"
 import { protectedProcedure, router } from "../trpc"
 
 export const userRouter = router({
@@ -10,16 +11,14 @@ export const userRouter = router({
           query: z.string(),
           limit: z.number().default(10),
           sort: z.array(
-            z
-              .object({
+            z.union([
+              z.object({
                 name: z.enum(["asc", "desc"]),
-              })
-              .default({ name: "asc" }),
-            z
-              .object({
+              }),
+              z.object({
                 email: z.enum(["asc", "desc"]),
-              })
-              .default({ email: "asc" })
+              }),
+            ])
           ),
         })
         .partial()
@@ -35,6 +34,7 @@ export const userRouter = router({
             { name: { contains: input.query, mode: "insensitive" } },
           ],
         },
+        select: defaultUserSelect,
         skip: 0,
         take: input.limit,
         orderBy: input.sort,
