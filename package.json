@@ -1,0 +1,23 @@
+{
+  "name": "crate",
+  "private": true,
+  "engines": {
+    "node": ">=v18.17.1"
+  },
+  "packageManager": "pnpm@8.6.12",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "clean": "git clean -xdf node_modules",
+    "clean:workspaces": "turbo run clean",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.0.2",
+    "turbo": "^1.10.12"
+  },
+  "dependencies": {
+    "typescript": "^5.1.6"
+  }
+}
