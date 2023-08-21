@@ -25,7 +25,7 @@ const formatGeneredCode: PlopTypes.CustomActionFunction = async (answers) => {
 }
 
 export default function generator(plop: PlopTypes.NodePlopAPI): void {
-  plop.setGenerator("init", {
+  plop.setGenerator("package", {
     description: "Generate a new package",
     prompts: [
       {
