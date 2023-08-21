@@ -73,7 +73,11 @@ export const pageRouter = router({
         where.trashed = input.trashed
       }
 
-      return ctx.prisma.page.findMany({ where, select: defaultPageSelect })
+      return ctx.prisma.page.findMany({
+        where,
+        select: defaultPageSelect,
+        orderBy: input?.sort,
+      })
     }),
   byId: protectedProcedure
     .input(z.object({ id: z.string() }))
