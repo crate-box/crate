@@ -1,6 +1,30 @@
+import type { PlopTypes } from '@turbo/gen'
 import { execSync } from 'node:child_process'
 
-export default function generator(plop) {
+const getPackageName: PlopTypes.CustomActionFunction = (answers) => {
+  if ("name" in answers && typeof answers.name === "string") {
+    if (answers.name.startsWith("@acme/")) {
+      answers.name = answers.name.replace("@acme/", "")
+    }
+  }
+  return "Config sanitized"
+}
+
+const formatGeneredCode: PlopTypes.CustomActionFunction = async (answers) => {
+        /**
+         * Install deps and format everything
+         */
+        if ("name" in answers && typeof answers.name === "string") {
+          execSync(
+            `pnpm prettier --write packages/${
+              answers.name
+            }/** --list-different`,
+          )
+        }
+        return "Package scaffolded";
+}
+
+export default function generator(plop: PlopTypes.NodePlopAPI): void {
   plop.setGenerator("init", {
     description: "Generate a new package",
     prompts: [
@@ -16,14 +40,7 @@ export default function generator(plop) {
       }
     ],
     actions: [
-      (answers) => {
-        if ("name" in answers && typeof answers.name === "string") {
-          if (answers.name.startsWith("@acme/")) {
-            answers.name = answers.name.replace("@acme/", "")
-          }
-        }
-        return "Config sanitized"
-      },
+      getPackageName,
       {
         type: "add",
         path: "packages/{{ name }}/package.json",
@@ -55,20 +72,7 @@ export default function generator(plop) {
           return JSON.stringify(pkg, null, 2);
         },
       },
-      async (answers) => {
-        /**
-         * Install deps and format everything
-         */
-        execSync("pnpm manypkg fix", {
-          stdio: "inherit",
-        });
-        execSync(
-          `pnpm prettier --write packages/${
-            answers.name
-          }/** --list-different`,
-        );
-        return "Package scaffolded";
-      },
+      formatGeneredCode,
     ]
   })
 }
