@@ -160,6 +160,46 @@ importers:
 
   configs/tsconfig: {}
 
+  packages/auth:
+    dependencies:
+      '@acme/db':
+        specifier: workspace:*
+        version: link:../db
+      '@auth/core':
+        specifier: ^0.12.0
+        version: 0.12.0
+      '@auth/prisma-adapter':
+        specifier: ^1.0.1
+        version: 1.0.1(@prisma/client@5.1.1)
+      next:
+        specifier: ^13.4.19
+        version: 13.4.19(react-dom@18.2.0)(react@18.2.0)
+      next-auth:
+        specifier: 0.0.0-manual.ffd05533
+        version: 0.0.0-manual.ffd05533(next@13.4.19)(react@18.2.0)
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+    devDependencies:
+      '@acme/eslint-config':
+        specifier: 0.2.0
+        version: link:../../configs/eslint
+      '@acme/prettier-config':
+        specifier: ^0.1.0
+        version: link:../../configs/prettier
+      '@acme/tsconfig':
+        specifier: ^0.1.0
+        version: link:../../configs/tsconfig
+      eslint:
+        specifier: ^8.47.0
+        version: 8.47.0
+      typescript:
+        specifier: ^5.1.6
+        version: 5.1.6
+
   packages/db:
     dependencies:
       '@prisma/client':
@@ -205,6 +245,65 @@ packages:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.19
+    dev: false
+
+  /@auth/core@0.0.0-manual.59d8da33:
+    resolution: {integrity: sha512-ZTaUedTobGEvQPhEeJLmnsdGbztG10T0rK8TA4wH87Eb8oBHInI//3zRngX6T9hEcZ+/OJnIANw0JrGDqUDREA==}
+    peerDependencies:
+      nodemailer: ^6.8.0
+    peerDependenciesMeta:
+      nodemailer:
+        optional: true
+    dependencies:
+      '@panva/hkdf': 1.1.1
+      cookie: 0.5.0
+      jose: 4.14.4
+      oauth4webapi: 2.3.0
+      preact: 10.11.3
+      preact-render-to-string: 5.2.3(preact@10.11.3)
+    dev: false
+
+  /@auth/core@0.12.0:
+    resolution: {integrity: sha512-XYipdAc/nKu014VOgpcPyLlj1ghWlnwyloaB1UjQd9ElZRZQ9YpSizzXGLON23t/a0FyabOBBl0/awD2tW58Rg==}
+    peerDependencies:
+      nodemailer: ^6.8.0
+    peerDependenciesMeta:
+      nodemailer:
+        optional: true
+    dependencies:
+      '@panva/hkdf': 1.1.1
+      cookie: 0.5.0
+      jose: 4.14.4
+      oauth4webapi: 2.3.0
+      preact: 10.11.3
+      preact-render-to-string: 5.2.3(preact@10.11.3)
+    dev: false
+
+  /@auth/core@0.9.0:
+    resolution: {integrity: sha512-W2WO0WCBg1T3P8+yjQPzurTQhPv6ecBYfJ2oE3uvXPAX5ZLWAMSjKFAIa9oLZy5pwrB+YehJZPnlIxVilhrVcg==}
+    peerDependencies:
+      nodemailer: ^6.8.0
+    peerDependenciesMeta:
+      nodemailer:
+        optional: true
+    dependencies:
+      '@panva/hkdf': 1.1.1
+      cookie: 0.5.0
+      jose: 4.14.4
+      oauth4webapi: 2.3.0
+      preact: 10.11.3
+      preact-render-to-string: 5.2.3(preact@10.11.3)
+    dev: false
+
+  /@auth/prisma-adapter@1.0.1(@prisma/client@5.1.1):
+    resolution: {integrity: sha512-sBp9l/jVr7l9y7rp2Pv6eoP7i8X2CgRNE3jDWJ0B/u+HnKRofXflD1cldPqRSAkJhqH3UxhVtMTEijT9FoofmQ==}
+    peerDependencies:
+      '@prisma/client': '>=2.26.0 || >=3 || >=4'
+    dependencies:
+      '@auth/core': 0.9.0
+      '@prisma/client': 5.1.1(prisma@5.1.1)
+    transitivePeerDependencies:
+      - nodemailer
     dev: false
 
   /@babel/code-frame@7.22.10:
@@ -645,6 +744,10 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
+
+  /@panva/hkdf@1.1.1:
+    resolution: {integrity: sha512-dhPeilub1NuIG0X5Kvhh9lH4iW3ZsHlnzwgwbOlgwQ2wG1IqFzsgHqmKPk3WzsdWAeaxKJxgM0+W433RmN45GA==}
+    dev: false
 
   /@pkgjs/parseargs@0.11.0:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -1383,6 +1486,11 @@ packages:
 
   /convert-source-map@1.9.0:
     resolution: {integrity: sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==}
+    dev: false
+
+  /cookie@0.5.0:
+    resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
+    engines: {node: '>= 0.6'}
     dev: false
 
   /core-js-pure@3.32.1:
@@ -2622,6 +2730,10 @@ packages:
     hasBin: true
     dev: false
 
+  /jose@4.14.4:
+    resolution: {integrity: sha512-j8GhLiKmUAh+dsFXlX1aJCbt5KMibuKb+d7j1JaOJG6s2UjX1PQlW+OKB/sD4a/5ZYF4RcmYmLSndOoU3Lt/3g==}
+    dev: false
+
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
     dev: false
@@ -2854,6 +2966,21 @@ packages:
     engines: {node: '>= 0.4.0'}
     dev: true
 
+  /next-auth@0.0.0-manual.ffd05533(next@13.4.19)(react@18.2.0):
+    resolution: {integrity: sha512-oTdpOP93rzABms/Qgp3z0udQG3tCZ3JxOCnwU04xLgX/xnC8+HuDHct7IcEpz+zxhZp6jxN0tdVkMCs5kubUfw==}
+    peerDependencies:
+      next: ^13.4.13
+      nodemailer: ^6.6.5
+      react: ^18.2.0
+    peerDependenciesMeta:
+      nodemailer:
+        optional: true
+    dependencies:
+      '@auth/core': 0.0.0-manual.59d8da33
+      next: 13.4.19(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+    dev: false
+
   /next@13.4.19(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-HuPSzzAbJ1T4BD8e0bs6B9C1kWQ6gv8ykZoRWs5AQoiIuqbGHHdQO7Ljuvg05Q0Z24E2ABozHe6FxDvI6HfyAw==}
     engines: {node: '>=16.8.0'}
@@ -2929,6 +3056,10 @@ packages:
   /normalize-range@0.1.2:
     resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /oauth4webapi@2.3.0:
+    resolution: {integrity: sha512-JGkb5doGrwzVDuHwgrR4nHJayzN4h59VCed6EW8Tql6iHDfZIabCJvg6wtbn5q6pyB2hZruI3b77Nudvq7NmvA==}
     dev: false
 
   /object-assign@4.1.1:
@@ -3239,6 +3370,19 @@ packages:
       source-map-js: 1.0.2
     dev: false
 
+  /preact-render-to-string@5.2.3(preact@10.11.3):
+    resolution: {integrity: sha512-aPDxUn5o3GhWdtJtW0svRC2SS/l8D9MAgo2+AWml+BhDImb27ALf04Q2d+AHqUUOc6RdSXFIBVa2gxzgMKgtZA==}
+    peerDependencies:
+      preact: '>=10'
+    dependencies:
+      preact: 10.11.3
+      pretty-format: 3.8.0
+    dev: false
+
+  /preact@10.11.3:
+    resolution: {integrity: sha512-eY93IVpod/zG3uMF22Unl8h9KkrcKIRs2EGar8hwLZZDU1lkjph303V9HZBwufh2s736U6VXuhD109LYqPoffg==}
+    dev: false
+
   /prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
@@ -3303,6 +3447,10 @@ packages:
     resolution: {integrity: sha512-o2YR9qtniXvwEZlOKbveKfDQVyqxbEIWn48Z8m3ZJjBjcCmUy3xZGIv+7AkaeuaTr6yPXJjwv07ZWlsWbEy1rQ==}
     engines: {node: '>=14'}
     hasBin: true
+
+  /pretty-format@3.8.0:
+    resolution: {integrity: sha512-WuxUnVtlWL1OfZFQFuqvnvs6MiAGk9UNsBostyBOB0Is9wb5uRESevA6rnl/rkksXaGX3GzZhPup5d6Vp1nFew==}
+    dev: false
 
   /prisma@5.1.1:
     resolution: {integrity: sha512-WJFG/U7sMmcc6TjJTTifTfpI6Wjoh55xl4AzopVwAdyK68L9/ogNo8QQ2cxuUjJf/Wa82z/uhyh3wMzvRIBphg==}
