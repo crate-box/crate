@@ -50,3 +50,19 @@ export const singleSpaceSelect = {
   ...defaultSpaceSelect,
   pages: { select: defaultPageSelect },
 } satisfies Prisma.SpaceSelect
+
+export const defaultSettingsSelect = {
+  id: true,
+  userId: true,
+  globalFontFamily: true,
+  globalFontSize: true,
+  globalColorscheme: true,
+  editorFontFamily: true,
+  editorFontSize: true,
+  editorTabSize: true,
+  editorAutocomplete: true,
+  editorHighlightActiveLine: true,
+  editorLineNumbers: true,
+  editorLineWrapping: true,
+  previewCodeblockTheme: true,
+} satisfies Prisma.SettingsSelect
