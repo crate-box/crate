@@ -1,12 +1,15 @@
 {
-  "name": "web",
-  "version": "1.0.0",
+  "name": "@acme/web",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
+    "clean": "rimraf node_modules .turbo .next",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --check \"**/*.{js,cjs,mjs,ts,tsx,md,json}\"",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "next": "^13.4.19",
@@ -14,10 +17,21 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@acme/eslint-config": "workspace:*",
+    "@acme/prettier-config": "workspace:*",
     "@acme/tsconfig": "workspace:*",
     "@types/node": "^20.5.1",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "typescript": "^5.1.6"
-  }
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@acme/eslint-config/base",
+      "@acme/eslint-config/nextjs",
+      "@acme/eslint-config/react"
+    ]
+  },
+  "prettier": "@acme/prettier-config"
 }
