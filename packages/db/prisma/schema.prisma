@@ -1,0 +1,113 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL") // uses connection pooling
+}
+
+model Page {
+  id        String   @id @default(cuid())
+  icon      String?
+  title     String
+  body      String   @db.Text
+  pinned    Boolean  @default(false)
+  trashed   Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  createdBy User     @relation("PageCreator", fields: [creatorId], references: [id], onDelete: Cascade)
+  creatorId String
+  editedBy  User?    @relation("PageEditor", fields: [editorId], references: [id], onDelete: NoAction)
+  editorId  String?
+  space     Space?   @relation(fields: [spaceId], references: [id], onDelete: Cascade)
+  spaceId   String?
+}
+
+model Space {
+  id          String   @id @default(cuid())
+  icon        String?
+  title       String
+  description String
+  pinned      Boolean  @default(false)
+  trashed     Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  createdBy   User     @relation("SpaceCreator", fields: [creatorId], references: [id], onDelete: Cascade)
+  creatorId   String
+  editedBy    User?    @relation("SpaceEditor", fields: [editorId], references: [id], onDelete: Cascade)
+  editorId    String?
+  members     User[]   @relation("SpaceMembers")
+  pages       Page[]
+}
+
+model Settings {
+  id                        String  @id @default(cuid())
+  user                      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId                    String  @unique
+  globalFontFamily          String  @default("Roboto, sans-serif")
+  globalFontSize            Int     @default(16)
+  globalColorscheme         String  @default("CruxAlpha")
+  editorFontFamily          String  @default("monospace")
+  editorFontSize            Int     @default(16)
+  editorTabSize             Int     @default(2)
+  editorHighlightActiveLine Boolean @default(true)
+  editorLineNumbers         Boolean @default(true)
+  editorAutocomplete        Boolean @default(true)
+  editorLineWrapping        Boolean @default(false)
+  previewCodeblockTheme     String  @default("dracula")
+}
+
+// NextAuth.js Models
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  ownPages      Page[]    @relation("PageCreator")
+  edittedPages  Page[]    @relation("PageEditor")
+  ownSpaces     Space[]   @relation("SpaceCreator")
+  edittedSpaces Space[]   @relation("SpaceEditor")
+  spaces        Space[]   @relation("SpaceMembers")
+  settings      Settings?
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
