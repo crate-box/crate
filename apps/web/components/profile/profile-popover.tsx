@@ -3,7 +3,7 @@ import { Button, PopoverContent, PopoverPortal } from "@acme/web-ui"
 import LogoutWrapper from "~/components/auth/logout-wrapper"
 import { getSession } from "~/lib/auth"
 
-export default async function Profile() {
+export default async function ProfilePopover() {
   const session = await getSession()
 
   if (!session?.user) return null
