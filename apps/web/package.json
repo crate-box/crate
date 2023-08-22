@@ -15,6 +15,7 @@
   "dependencies": {
     "@acme/api": "workspace:*",
     "@acme/auth": "workspace:*",
+    "@acme/db": "workspace:*",
     "@codemirror/autocomplete": "^6.9.0",
     "@codemirror/commands": "^6.2.4",
     "@codemirror/lang-markdown": "^6.2.0",

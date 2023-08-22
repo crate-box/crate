@@ -48,6 +48,9 @@ importers:
       '@acme/auth':
         specifier: workspace:*
         version: link:../../packages/auth
+      '@acme/db':
+        specifier: workspace:*
+        version: link:../../packages/db
       '@codemirror/autocomplete':
         specifier: ^6.9.0
         version: 6.9.0(@codemirror/language@6.9.0)(@codemirror/state@6.2.1)(@codemirror/view@6.16.0)(@lezer/common@1.0.4)
