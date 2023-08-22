@@ -6,18 +6,20 @@ import debounce from "debounce"
 
 import { useToast } from "@acme/web-ui/hooks"
 
+import type { RouterOutputs } from "~/lib/api"
 import { api } from "~/lib/api"
 import CodeMirror from "./codemirror"
 
-export default function Editor({ id }: { id: string }) {
+export default function Editor({
+  page,
+}: {
+  page: RouterOutputs["page"]["byId"]
+}) {
   const queryClient = useQueryClient()
 
   const { toast } = useToast()
 
   const context = api.useContext()
-  const [page] = api.page.byId.useSuspenseQuery({
-    id,
-  })
   const [settings] = api.settings.get.useSuspenseQuery()
 
   const { mutateAsync: updatePage } = api.page.update.useMutation({
