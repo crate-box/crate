@@ -1,6 +1,7 @@
+import Link from "next/link"
 import { redirect } from "next/navigation"
 
-import { Button } from "@acme/web-ui"
+import { buttonVariants } from "@acme/web-ui"
 
 import { getSession } from "~/lib/auth"
 
@@ -24,10 +25,20 @@ export default async function Home() {
           </h3>
         </div>
         <div className="flex items-center gap-4">
-          <Button size="lg">Open Workspace</Button>
-          <Button variant="secondary" size="lg">
-            Github Repository
-          </Button>
+          <Link
+            className={buttonVariants({ variant: "primary", size: "lg" })}
+            href="/welcome"
+          >
+            Open Workspace
+          </Link>
+          <a
+            className={buttonVariants({ variant: "secondary", size: "lg" })}
+            href="https://github.com/crate-box/crate"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Github Repo
+          </a>
         </div>
       </section>
     </main>
