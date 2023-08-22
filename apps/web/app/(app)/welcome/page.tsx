@@ -1,3 +1,5 @@
+import WelcomeScreen from "./welcome-screen"
+
 export default function Welcome() {
-  return <div>Welcome to Crate</div>
+  return <WelcomeScreen />
 }
