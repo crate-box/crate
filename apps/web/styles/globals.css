@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --global-font-family: Roboto;
+  --global-font-size: 16px;
+  --radix-toast-swipe-move-x: 16px;
+  --radix-toast-swipe-move-y: 16px;
+  --radix-toast-swipe-end-x: 16px;
+  --radix-toast-swipe-end-y: 16px;
+}
+
+html {
+  font-size: var(--global-font-size);
+}
