@@ -21,8 +21,11 @@
   },
   "devDependencies": {
     "@acme/prettier-config": "workspace:*",
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
     "@turbo/gen": "^1.10.12",
     "dotenv-cli": "^7.3.0",
+    "husky": "^8.0.3",
     "prettier": "^3.0.2",
     "turbo": "^1.10.12"
   },
