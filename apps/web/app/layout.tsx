@@ -1,6 +1,9 @@
 import { IBM_Plex_Sans, Inter } from "next/font/google"
+import { headers } from "next/headers"
 
 import "~/styles/globals.css"
+
+import { ApiProvider } from "./providers"
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -21,7 +24,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${fontSans.variable} ${fontHeading.variable}`}>
-      <body>{children}</body>
+      <body>
+        <ApiProvider headers={headers()}>{children}</ApiProvider>
+      </body>
     </html>
   )
 }
