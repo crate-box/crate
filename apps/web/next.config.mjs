@@ -11,6 +11,7 @@ const config = {
   typescript: { ignoreBuildErrors: true },
   // Set output to run inside docker container
   output: "standalone",
+  experimental: { serverActions: true },
 }
 
 export default config
