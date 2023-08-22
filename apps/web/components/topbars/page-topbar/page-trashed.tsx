@@ -60,8 +60,7 @@ export default function PageTrashed({
 
   const onRestorePage = async () => {
     if (!page) return
-    router.push("/welcome")
-    await updatePage({ id: page.id, data: { trashed: true } })
+    await updatePage({ id: page.id, data: { trashed: false } })
   }
 
   const onDeletePage = async () => {
