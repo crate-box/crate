@@ -44,6 +44,7 @@ export const defaultSpaceSelect = {
   createdAt: true,
   updatedAt: true,
   createdBy: { select: defaultUserSelect },
+  editedBy: { select: defaultUserSelect },
 } satisfies Prisma.SpaceSelect
 
 export const singleSpaceSelect = {
