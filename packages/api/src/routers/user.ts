@@ -43,7 +43,9 @@ export const userRouter = router({
   update: protectedProcedure
     .input(
       z.object({
-        data: z.object({ name: z.string().min(1), email: z.string().email() }),
+        data: z
+          .object({ name: z.string().min(1), email: z.string().email() })
+          .partial(),
       })
     )
     .mutation(({ ctx, input }) => {
