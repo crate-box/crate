@@ -48,7 +48,7 @@ model Settings {
   id                        String  @id @default(cuid())
   user                      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId                    String  @unique
-  globalFontFamily          String  @default("Roboto, sans-serif")
+  globalFontFamily          String  @default("Inter, sans-serif")
   globalFontSize            Int     @default(16)
   globalColorscheme         String  @default("CruxAlpha")
   editorFontFamily          String  @default("monospace")

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --global-font-family: Roboto;
+  --global-font-family: Inter;
   --global-font-size: 16px;
   --radix-toast-swipe-move-x: 16px;
   --radix-toast-swipe-move-y: 16px;

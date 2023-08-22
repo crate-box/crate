@@ -66,7 +66,7 @@ export default function AppearanceSettings() {
         description="Change global font family (needs refresh)"
       >
         <Input
-          placeholder="Roboto, sans-serif"
+          placeholder="Inter, sans-serif"
           value={globalFontFamily}
           onChange={onUpdateGlobalFontFamily}
         />
