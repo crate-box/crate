@@ -2,19 +2,9 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { usePathname, useRouter } from "next/navigation"
+import { useRouter } from "next/navigation"
 
 import {
-  AlertAction,
-  AlertCancel,
-  AlertContent,
-  AlertDescription,
-  AlertOverlay,
-  AlertPortal,
-  AlertRoot,
-  AlertTitle,
-  AlertTrigger,
-  Button,
   HoverCardArrow,
   HoverCardContent,
   HoverCardPortal,
@@ -38,7 +28,6 @@ import {
   ShortcutIcon,
   StarIcon,
   TrashIcon,
-  UndoIcon,
 } from "@acme/web-ui/icons"
 
 import Icon from "~/components/icon"
@@ -57,7 +46,6 @@ export default function PageActions({
   page: RouterOutputs["page"]["byId"]
 }) {
   const router = useRouter()
-  const pathname = usePathname()
   const { toast } = useToast()
 
   const { mode, setMode } = useStore()
@@ -72,22 +60,6 @@ export default function PageActions({
       toast({
         variant: "destructive",
         title: "Cannot update this page",
-        description: err.message,
-      })
-    },
-  })
-  const { mutateAsync: deletePage } = api.page.delete.useMutation({
-    async onSuccess(data) {
-      if (data.id === pathname.replace("/", "")) {
-        router.push("/welcome")
-      }
-      await context.page.byId.invalidate({ id: data.id })
-      await context.page.all.invalidate()
-    },
-    onError(err) {
-      toast({
-        variant: "destructive",
-        title: "Cannot delete this page",
         description: err.message,
       })
     },
@@ -121,11 +93,6 @@ export default function PageActions({
     if (!page) return
     if (trashed) router.push("/welcome")
     await updatePage({ id: page.id, data: { trashed } })
-  }
-
-  const onDeletePage = async () => {
-    if (!page) return
-    await deletePage({ id: page.id })
   }
 
   const onCopyLink = async () => {
@@ -162,41 +129,6 @@ export default function PageActions({
           <span>{page.space.title}</span>
         </Link>
       )}
-      {page.trashed && (
-        <>
-          <IconButton onClick={() => onUpdatePageTrashed(false)}>
-            <UndoIcon className="h-6 w-6" />
-          </IconButton>
-          <AlertRoot>
-            <AlertTrigger asChild>
-              <IconButton>
-                <TrashIcon className="h-6 w-6" />
-              </IconButton>
-            </AlertTrigger>
-            <AlertPortal>
-              <AlertOverlay />
-              <AlertContent>
-                <AlertTitle>Delete Page</AlertTitle>
-                <AlertDescription>
-                  This will delete the page permanently. This action cannot be
-                  undone.
-                </AlertDescription>
-                <div className="flex items-center justify-end gap-2">
-                  <AlertAction asChild>
-                    <Button variant="destructive" onClick={onDeletePage}>
-                      Delete
-                    </Button>
-                  </AlertAction>
-                  <AlertCancel asChild>
-                    <Button variant="text">Cancel</Button>
-                  </AlertCancel>
-                </div>
-              </AlertContent>
-            </AlertPortal>
-          </AlertRoot>
-        </>
-      )}
-
       <HoverCardRoot>
         <HoverCardTrigger asChild>
           <div className="select-none text-slate-400">
@@ -229,7 +161,7 @@ export default function PageActions({
         <Tooltip text="More actions">
           <PopoverTrigger asChild>
             <IconButton>
-              <MoreHorizIcon className="h-6 w-6" />
+              <MoreHorizIcon className="h-5 w-5" />
             </IconButton>
           </PopoverTrigger>
         </Tooltip>
