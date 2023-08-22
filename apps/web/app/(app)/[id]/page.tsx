@@ -6,7 +6,7 @@ import { prisma } from "@acme/db"
 
 import Preview from "~/components/preview"
 import AppLoading from "../loading"
-import PageContent from "./page-content"
+import SinglePage from "./single-page"
 
 export default async function Page({ params }: { params: { id: string } }) {
   const session = await auth()
@@ -16,12 +16,12 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <Suspense fallback={<AppLoading />}>
-      <PageContent params={params}>
+      <SinglePage params={params}>
         <Preview
           body={page.body}
           settings={{ previewCodeblockTheme: settings.previewCodeblockTheme }}
         />
-      </PageContent>
+      </SinglePage>
     </Suspense>
   )
 }
