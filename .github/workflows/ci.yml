@@ -13,9 +13,9 @@ env:
 
 jobs:
   build-lint:
-    runs-on: ubuntu-latest
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
@@ -42,6 +42,9 @@ jobs:
 
       - name: Install deps (with cache)
         run: pnpm install
+
+      - name: Generate prisma client
+        run: pnpm run db:generate
 
       - name: Build, lint and type-check
         run: pnpm turbo run build lint typecheck
