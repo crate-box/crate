@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${fontSans.variable} ${fontHeading.variable}`}>
-      <body>
+      <body className="bg-slate-900 font-sans text-base text-slate-200">
         <ApiProvider headers={headers()}>{children}</ApiProvider>
       </body>
     </html>
