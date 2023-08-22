@@ -7,12 +7,14 @@
     "dev": "pnpm with-env next dev",
     "build": "pnpm with-env next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "dotenv -v SKIP_ENV_VALIDATION=1 next lint",
     "format": "prettier --check \"**/*.{js,cjs,mjs,ts,tsx,md,json}\"",
     "typecheck": "tsc --noEmit",
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
+    "@acme/api": "workspace:*",
+    "@acme/auth": "workspace:*",
     "@codemirror/autocomplete": "^6.9.0",
     "@codemirror/commands": "^6.2.4",
     "@codemirror/lang-markdown": "^6.2.0",
@@ -23,6 +25,7 @@
     "@codemirror/view": "^6.16.0",
     "@hookform/resolvers": "^3.2.0",
     "@lezer/highlight": "^1.1.6",
+    "@t3-oss/env-nextjs": "^0.6.1",
     "@tanstack/react-query": "^4.33.0",
     "@tanstack/react-query-devtools": "^4.33.0",
     "@tanstack/react-query-next-experimental": "5.0.0-alpha.80",

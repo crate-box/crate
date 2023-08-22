@@ -6,6 +6,8 @@ import NextAuth from "next-auth"
 
 import { prisma } from "@acme/db"
 
+import { env } from "./env.mjs"
+
 export type { Session } from "next-auth"
 
 export const providers = ["github", "discord"] as const
@@ -27,12 +29,12 @@ export const {
   adapter: PrismaAdapter(prisma),
   providers: [
     Github({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
+      clientId: env.GITHUB_ID,
+      clientSecret: env.GITHUB_SECRET,
     }),
     Discord({
-      clientId: process.env.DISCORD_CLIENT_ID,
-      clientSecret: process.env.DISCORD_CLIENT_SECRET,
+      clientId: env.DISCORD_CLIENT_ID,
+      clientSecret: env.DISCORD_CLIENT_SECRET,
     }),
   ],
   callbacks: {
