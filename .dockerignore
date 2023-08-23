@@ -6,6 +6,7 @@
 **/build
 **/.turbo
 **/node_modules
+**/.DS_Store
 **/Dockerfile
 *.log
 README.md
