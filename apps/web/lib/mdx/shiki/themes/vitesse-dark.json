@@ -294,13 +294,20 @@
       }
     },
     {
-      "scope": ["string", "string punctuation.section.embedded source", "attribute.value"],
+      "scope": [
+        "string",
+        "string punctuation.section.embedded source",
+        "attribute.value"
+      ],
       "settings": {
         "foreground": "#c98a7d"
       }
     },
     {
-      "scope": ["punctuation.definition.string", "punctuation.support.type.property-name"],
+      "scope": [
+        "punctuation.definition.string",
+        "punctuation.support.type.property-name"
+      ],
       "settings": {
         "foreground": "#c98a7d99"
       }
@@ -351,7 +358,11 @@
       }
     },
     {
-      "scope": ["keyword.operator", "keyword.operator.assignment.compound", "meta.var.expr.ts"],
+      "scope": [
+        "keyword.operator",
+        "keyword.operator.assignment.compound",
+        "meta.var.expr.ts"
+      ],
       "settings": {
         "foreground": "#cb7676"
       }
@@ -498,14 +509,22 @@
       }
     },
     {
-      "scope": ["markup.deleted", "meta.diff.header.from-file", "punctuation.definition.deleted"],
+      "scope": [
+        "markup.deleted",
+        "meta.diff.header.from-file",
+        "punctuation.definition.deleted"
+      ],
       "settings": {
         "background": "#86181d",
         "foreground": "#fdaeb7"
       }
     },
     {
-      "scope": ["markup.inserted", "meta.diff.header.to-file", "punctuation.definition.inserted"],
+      "scope": [
+        "markup.inserted",
+        "meta.diff.header.to-file",
+        "punctuation.definition.inserted"
+      ],
       "settings": {
         "background": "#144620",
         "foreground": "#85e89d"

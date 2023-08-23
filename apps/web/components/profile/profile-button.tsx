@@ -1,4 +1,10 @@
-import { Avatar, PopoverRoot, PopoverTrigger } from "@acme/web-ui"
+import {
+  Avatar,
+  PopoverContent,
+  PopoverPortal,
+  PopoverRoot,
+  PopoverTrigger,
+} from "@acme/web-ui"
 
 import { getSession } from "~/lib/auth"
 import ProfilePopover from "./profile-popover"
@@ -20,7 +26,14 @@ export default async function ProfileButton() {
           <p className="font-medium leading-none">{session.user.name}</p>
         </button>
       </PopoverTrigger>
-      <ProfilePopover />
+      <PopoverPortal>
+        <PopoverContent
+          sideOffset={4}
+          className="ml-4 flex flex-col items-stretch gap-4"
+        >
+          <ProfilePopover />
+        </PopoverContent>
+      </PopoverPortal>
     </PopoverRoot>
   )
 }

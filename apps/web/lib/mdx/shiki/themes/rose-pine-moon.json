@@ -660,7 +660,12 @@
       }
     },
     {
-      "scope": ["variable.other", "variable.language", "variable.function", "variable.argument"],
+      "scope": [
+        "variable.other",
+        "variable.language",
+        "variable.function",
+        "variable.argument"
+      ],
       "settings": {
         "foreground": "#e0def4"
       }

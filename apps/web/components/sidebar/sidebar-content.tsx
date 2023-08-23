@@ -4,8 +4,14 @@ import { Suspense } from "react"
 import { useRouter } from "next/navigation"
 
 import {
+  DialogContent,
+  DialogOverlay,
+  DialogPortal,
   DialogRoot,
+  DialogTitle,
   DialogTrigger,
+  PopoverContent,
+  PopoverPortal,
   PopoverRoot,
   PopoverTrigger,
 } from "@acme/web-ui"
@@ -87,13 +93,25 @@ export default function SidebarContent() {
           <DialogTrigger asChild>
             <SidebarButton icon={SearchIcon}>Search</SidebarButton>
           </DialogTrigger>
-          <Search />
+          <DialogPortal>
+            <DialogOverlay />
+            <DialogContent className="flex max-h-[80vh] min-h-[40vh] min-w-[540px] flex-col items-stretch">
+              <DialogTitle>Search</DialogTitle>
+              <Search />
+            </DialogContent>
+          </DialogPortal>
         </DialogRoot>
         <DialogRoot>
           <DialogTrigger asChild>
             <SidebarButton icon={CogIcon}>Settings</SidebarButton>
           </DialogTrigger>
-          <Settings />
+          <DialogPortal>
+            <DialogOverlay />
+            <DialogContent className="h-[80vh] min-w-[600px]">
+              <DialogTitle>Settings</DialogTitle>
+              <Settings />
+            </DialogContent>
+          </DialogPortal>
         </DialogRoot>
         <SidebarButton icon={AddIcon} onClick={onCreatePage}>
           New Page
@@ -110,13 +128,29 @@ export default function SidebarContent() {
           <PopoverTrigger asChild>
             <SidebarButton icon={PageIcon}>Pages</SidebarButton>
           </PopoverTrigger>
-          <Pages />
+          <PopoverPortal>
+            <PopoverContent
+              side="right"
+              sideOffset={12}
+              className="flex h-[40vh] min-w-[480px] flex-col items-stretch border border-slate-800 bg-slate-900 shadow-2xl"
+            >
+              <Pages />
+            </PopoverContent>
+          </PopoverPortal>
         </PopoverRoot>
         <PopoverRoot>
           <PopoverTrigger asChild>
             <SidebarButton icon={DashboardIcon}>Spaces</SidebarButton>
           </PopoverTrigger>
-          <Spaces />
+          <PopoverPortal>
+            <PopoverContent
+              side="right"
+              sideOffset={12}
+              className="flex h-[40vh] min-w-[480px] flex-col items-stretch border border-slate-800 bg-slate-900 shadow-2xl"
+            >
+              <Spaces />
+            </PopoverContent>
+          </PopoverPortal>
         </PopoverRoot>
         <PopoverRoot>
           <PopoverTrigger asChild>
@@ -128,7 +162,15 @@ export default function SidebarContent() {
           <PopoverTrigger asChild>
             <SidebarButton icon={TrashIcon}>Trash</SidebarButton>
           </PopoverTrigger>
-          <Trash />
+          <PopoverPortal>
+            <PopoverContent
+              side="right"
+              sideOffset={12}
+              className="flex h-[40vh] min-w-[540px] flex-col items-stretch gap-2 border border-slate-800 bg-slate-900 shadow-2xl"
+            >
+              <Trash />
+            </PopoverContent>
+          </PopoverPortal>
         </PopoverRoot>
       </div>
     </div>
