@@ -9,7 +9,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "clean": "rimraf node_modules",
-    "clean:workspaces": "turbo run clean",
+    "clean:workspaces": "turbo run clean && pnpm run clean",
     "db:push": "pnpm -F db push",
     "db:generate": "pnpm -F db generate",
     "db:studio": "pnpm -F db studio",
