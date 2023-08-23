@@ -1,2 +1,11 @@
 .git
+.github
+.husky
+**/.next
+**/dist
+**/build
+**/.turbo
 **/node_modules
+**/Dockerfile
+*.log
+README.md
