@@ -9,6 +9,7 @@ import { setGlobalCssVar } from "~/lib/utils"
 import SettingsOption from "./settings-option"
 
 const DEFAULT_EDITOR_FONT_SIZE = 16
+const DEFAULT_EDITOR_LINE_HEIGHT = 1.5
 
 export default function EditorSettings() {
   const { toast } = useToast()
@@ -34,6 +35,9 @@ export default function EditorSettings() {
   const [editorFontSize, setEditorFontSize] = React.useState(
     settings.editorFontSize.toString()
   )
+  const [editorLineHeight, setEditorLineHeight] = React.useState(
+    settings.editorLineHeight.toString()
+  )
 
   const onUpdateEditorFontFamily = async (
     e: React.ChangeEvent<HTMLInputElement>
@@ -52,6 +56,16 @@ export default function EditorSettings() {
     setEditorFontSize(value)
     setGlobalCssVar({ "--editor-font-size": `${numValue}px` })
     await debouncedUpdateSettings({ data: { editorFontSize: numValue } })
+  }
+
+  const onUpdateEditorLineHeight = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const value = e.target.value
+    const numValue = parseFloat(value) || DEFAULT_EDITOR_LINE_HEIGHT
+    setEditorLineHeight(value)
+    setGlobalCssVar({ "--editor-line-height": `${numValue}` })
+    await debouncedUpdateSettings({ data: { editorLineHeight: numValue } })
   }
 
   const onUpdateEditorTabSize = async (value: string) => {
@@ -91,6 +105,16 @@ export default function EditorSettings() {
           placeholder={DEFAULT_EDITOR_FONT_SIZE.toString()}
           value={editorFontSize}
           onChange={onUpdateEditorFontSize}
+        />
+      </SettingsOption>
+      <SettingsOption
+        title="Line Height"
+        description="Change editor line height"
+      >
+        <Input
+          placeholder={DEFAULT_EDITOR_LINE_HEIGHT.toString()}
+          value={editorLineHeight}
+          onChange={onUpdateEditorLineHeight}
         />
       </SettingsOption>
       <SettingsOption

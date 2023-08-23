@@ -14,6 +14,7 @@ export default function Init() {
       "--global-font-size": `${settings.globalFontSize}px`,
       "--editor-font-family": settings.editorFontFamily,
       "--editor-font-size": `${settings.editorFontSize}px`,
+      "--editor-line-height": `${settings.editorLineHeight.toString()}`,
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
