@@ -11,7 +11,10 @@ const config = {
   typescript: { ignoreBuildErrors: true },
   // Set output to run inside docker container
   output: "standalone",
-  experimental: { serverActions: true },
+  experimental: {
+    serverActions: true,
+    serverComponentsExternalPackages: ["shiki", "vscode-oniguruma"],
+  },
 }
 
 export default config
