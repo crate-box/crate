@@ -48,3 +48,50 @@ jobs:
 
       - name: Build, lint and type-check
         run: pnpm turbo run build lint typecheck
+
+  build-image-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Touch .env file
+        run: |
+          touch .env
+          echo DATABASE_URL="${{ secrets.DATABASE_URL }}" >> .env
+          echo NEXTAUTH_URL="${{ secrets.NEXTAUTH_URL }}" >> .env
+          echo NEXTAUTH_SECRET="${{ secrets.NEXTAUTH_SECRET }}" >> .env
+          echo GITHUB_ID="${{ secrets.OAUTH_GITHUB_ID }}" >> .env
+          echo GITHUB_SECRET="${{ secrets.OAUTH_GITHUB_SECRET }}" >> .env
+          echo DISCORD_CLIENT_ID="${{ secrets.DISCORD_CLIENT_ID }}" >> .env
+          echo DISCORD_CLIENT_SECRET="${{ secrets.DISCORD_CLIENT_SECRET }}" >> .env
+          cat .env
+
+      - name: Build the image
+        run: docker-compose build
+
+      - name: Login DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_PASS }}
+
+      - name: Push the image
+        run: docker push dangminhngo/crate-web:latest
+
+  deploy:
+    needs: build-image-and-push
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: SSH connect, pull docker image and deploy it
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            docker pull dangminhngo/crate-web:latest
+            docker run -p 3000:3000 --name crate-web dangminhngo/crate-web:latest
