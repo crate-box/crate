@@ -18,15 +18,16 @@ export const settingsRouter = router({
         data: z
           .object({
             globalFontFamily: z.string(),
-            globalFontSize: z.number().int(),
+            globalFontSize: z.number().int().min(8),
             globalColorscheme: z.string().min(1),
             editorFontFamily: z.string(),
-            editorFontSize: z.number().int(),
+            editorFontSize: z.number().int().min(8),
             editorTabSize: z.number().int(),
             editorHighlightActiveLine: z.boolean(),
             editorLineNumbers: z.boolean(),
             editorAutocomplete: z.boolean(),
             editorLineWrapping: z.boolean(),
+            editorLineHeight: z.number().min(1),
             previewCodeblockTheme: z.string().min(1),
           })
           .partial(),

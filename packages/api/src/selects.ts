@@ -65,5 +65,6 @@ export const defaultSettingsSelect = {
   editorHighlightActiveLine: true,
   editorLineNumbers: true,
   editorLineWrapping: true,
+  editorLineHeight: true,
   previewCodeblockTheme: true,
 } satisfies Prisma.SettingsSelect
