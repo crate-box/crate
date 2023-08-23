@@ -77,7 +77,7 @@ export default function PageActions({
       })
     },
   })
-  const [_, copy] = useClipboard()
+  const { copy } = useClipboard()
 
   const toggleMode = () => {
     setMode(mode === "EDIT" ? "PREVIEW" : "EDIT")
@@ -97,7 +97,21 @@ export default function PageActions({
 
   const onCopyLink = async () => {
     try {
-      await copy(window.location.href)
+      const isSuccess = await copy(window.location.href)
+      if (isSuccess) {
+        toast({
+          variant: "success",
+          title: "Copy link to clipboard",
+          description: "The page's link has been copied to clipboard",
+        })
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Cannot copy link to clipboard",
+          description:
+            "There was an error copying the page's link to clipboard",
+        })
+      }
     } catch (err) {
       toast({
         variant: "destructive",
