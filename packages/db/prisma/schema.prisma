@@ -58,6 +58,7 @@ model Settings {
   editorLineNumbers         Boolean @default(true)
   editorAutocomplete        Boolean @default(true)
   editorLineWrapping        Boolean @default(false)
+  editorLineHeight          Decimal @default(1.5)
   previewCodeblockTheme     String  @default("dracula")
 }
 
