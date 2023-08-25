@@ -19,7 +19,7 @@ RUN pnpm i
 COPY --from=builder /app/out/full/ .
 COPY turbo.json turbo.json
 ARG DATABASE_URL
-RUN DATABASE_URL=${DATABASE_URL} pnpm run db:generate
+RUN SKIP_ENV_VALIDATION=1 pnpm run db:generate
 RUN SKIP_ENV_VALIDATION=1 turbo run build --filter=@acme/web...
 
 FROM base AS runner
@@ -40,5 +40,6 @@ COPY --from=installer --chown=nextjs:nodejs /app/apps/web/public ./apps/web/publ
 USER nextjs
 
 EXPOSE 3000
+ENV HOSTNAME 0.0.0.0
  
 CMD node apps/web/server.js
