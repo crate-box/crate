@@ -24,7 +24,7 @@ declare module "next-auth" {
 export const {
   handlers: { GET, POST },
   auth,
-  CSRF_experimental,
+  CSRF_experimental, // will be removed in the future
 } = NextAuth({
   adapter: PrismaAdapter(prisma),
   providers: [
