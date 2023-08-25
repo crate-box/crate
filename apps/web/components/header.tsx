@@ -15,7 +15,7 @@ export default function Header() {
         <MainNav />
         <div className="ml-auto flex items-center gap-4">
           <Link
-            href="/auth/signin"
+            href="/sign-in"
             className={buttonVariants({ variant: "text", size: "base" })}
           >
             Sign In

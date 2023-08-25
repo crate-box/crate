@@ -6,7 +6,7 @@ export default async function AuthGuard({ children }: React.PropsWithChildren) {
   const session = await getSession()
 
   if (!session) {
-    return redirect("/auth/signin")
+    return redirect("/sign-in")
   }
 
   return <>{children}</>
