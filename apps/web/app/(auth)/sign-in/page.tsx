@@ -1,7 +1,7 @@
-import { DiscordIcon, GithubIcon } from "@acme/web-ui/icons"
 import Logo from "@acme/web-ui/logo"
 
-import OauthButton from "~/components/auth/oauth-button"
+import DiscordLoginButton from "~/components/auth/discord-login-button"
+import GithubLoginButton from "~/components/auth/github-login-button"
 
 export default function SignIn({
   searchParams,
@@ -23,17 +23,8 @@ export default function SignIn({
         )}
         <div className="mt-8 self-stretch">
           <div className="flex flex-col items-stretch gap-3">
-            <OauthButton provider="github" icon={GithubIcon}>
-              Continue with Github
-            </OauthButton>
-            <OauthButton
-              provider="discord"
-              icon={DiscordIcon}
-              fg="#e6edf3"
-              bg="#5865f2"
-            >
-              Continue with Discord
-            </OauthButton>
+            <GithubLoginButton />
+            <DiscordLoginButton />
           </div>
         </div>
       </div>

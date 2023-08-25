@@ -1,3 +1,5 @@
+import * as React from "react"
+
 import {
   Avatar,
   PopoverContent,
@@ -31,7 +33,7 @@ export default async function ProfileButton() {
           sideOffset={4}
           className="ml-4 flex flex-col items-stretch gap-4"
         >
-          <ProfilePopover />
+          <ProfilePopover session={session} />
         </PopoverContent>
       </PopoverPortal>
     </PopoverRoot>
