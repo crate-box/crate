@@ -60,5 +60,9 @@ export const {
     //   return !!auth?.user
     // }
   },
+  pages: {
+    signIn: "/sign-in",
+    error: "/sign-in",
+  },
   debug: process.env.NODE_ENV === "development",
 })
