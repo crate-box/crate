@@ -15,11 +15,13 @@ export const buttonVariants = cva(
           "border border-primary text-primary hover:bg-primary hover:text-slate-800",
         text: "text-inherit hover:bg-slate-800",
         destructive: "bg-destructive text-slate-800 hover:bg-destructive-dark",
+        unstyled: "",
       },
       size: {
         base: "h-8 px-4",
         sm: "h-7 px-3",
         lg: "h-10 px-6",
+        xl: "h-11 px-8",
       },
     },
     defaultVariants: {
@@ -29,7 +31,7 @@ export const buttonVariants = cva(
   }
 )
 
-interface ButtonProps
+export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {}
 
