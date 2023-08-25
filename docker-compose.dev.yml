@@ -1,17 +1,6 @@
 version: "3.9"
 
 services:
-  postgres:
-    container_name: postgres
-    image: postgres:15.3-alpine3.18
-    restart: always
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-    ports:
-      - 5432:5432
-    volumes:
-      - pgdata:/var/lib/postgresql/data
   pgadmin:
     container_name: pgadmin
     image: dpage/pgadmin4
@@ -25,7 +14,5 @@ services:
       - pgadmin:/var/lib/pgadmin
 
 volumes:
-  pgdata:
-    driver: local
   pgadmin:
     driver: local

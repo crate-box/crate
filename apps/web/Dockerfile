@@ -13,14 +13,14 @@ WORKDIR /app
 RUN yarn global add pnpm turbo
 
 COPY .gitignore .gitignore
-COPY .env .env
 COPY --from=builder /app/out/json/ .
 COPY --from=builder /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
 RUN pnpm i
 COPY --from=builder /app/out/full/ .
 COPY turbo.json turbo.json
-RUN pnpm run db:generate
-RUN turbo run build --filter=@acme/web...
+ARG DATABASE_URL
+RUN DATABASE_URL=${DATABASE_URL} pnpm run db:generate
+RUN SKIP_ENV_VALIDATION=1 turbo run build --filter=@acme/web...
 
 FROM base AS runner
 WORKDIR /app
@@ -33,7 +33,6 @@ RUN adduser --system --uid 1001 nextjs
 COPY --from=installer /app/apps/web/next.config.mjs .
 COPY --from=installer /app/apps/web/package.json .
 
-COPY --from=installer --chown=nextjs:nodejs /app/.env ./.env
 COPY --from=installer --chown=nextjs:nodejs /app/apps/web/.next/standalone ./
 COPY --from=installer --chown=nextjs:nodejs /app/apps/web/.next/static ./apps/web/.next/static
 COPY --from=installer --chown=nextjs:nodejs /app/apps/web/public ./apps/web/public
