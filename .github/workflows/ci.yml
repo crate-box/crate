@@ -93,7 +93,16 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            touch ~/env/crate/.env
+            echo DATABASE_URL="${{ secrets.DATABASE_URL }}" >> ~/env/crate/.env
+            echo NEXTAUTH_URL="${{ secrets.NEXTAUTH_URL }}" >> ~/env/crate/.env
+            echo NEXTAUTH_SECRET="${{ secrets.NEXTAUTH_SECRET }}" >> ~/env/crate/.env
+            echo GITHUB_ID="${{ secrets.OAUTH_GITHUB_ID }}" >> ~/env/crate/.env
+            echo GITHUB_SECRET="${{ secrets.OAUTH_GITHUB_SECRET }}" >> ~/env/crate/.env
+            echo DISCORD_CLIENT_ID="${{ secrets.DISCORD_CLIENT_ID }}" >> ~/env/crate/.env
+            echo DISCORD_CLIENT_SECRET="${{ secrets.DISCORD_CLIENT_SECRET }}" >> ~/env/crate/.env
+            cat ~/env/crate/.env
             docker pull dangminhngo/crate-web:latest
             docker stop crate-web
             docker rm crate-web
-            docker run -p 3000:3000 --name crate-web dangminhngo/crate-web:latest
+            docker run --env-file ~/env/crate/.env -p 3000:3000 --name crate-web dangminhngo/crate-web:latest
