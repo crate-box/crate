@@ -84,7 +84,7 @@ export default function SpaceTitle({
         </PopoverTrigger>
         <PopoverPortal>
           <PopoverContent side="bottom" className="w-auto p-2">
-            <div className="mb-2 font-semibold">Pick a icon</div>
+            <div className="mb-2 font-semibold">Choose an icon</div>
             <EmojiPicker
               onSelect={(emojiData) => onUpdateSpaceIcon(emojiData.unified)}
             />
