@@ -8,13 +8,11 @@ import {
   PopoverTrigger,
 } from "@acme/web-ui"
 
-import { getSession } from "~/lib/auth"
+import { api } from "~/lib/api"
 import ProfilePopover from "./profile-popover"
 
-export default async function ProfileButton() {
-  const session = await getSession()
-
-  if (!session?.user) return null
+export default function ProfileButton() {
+  const [session] = api.session.get.useSuspenseQuery()
 
   return (
     <PopoverRoot>
