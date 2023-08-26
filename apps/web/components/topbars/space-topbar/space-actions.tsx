@@ -13,6 +13,7 @@ import {
   HoverCardTrigger,
   IconButton,
   PopoverArrow,
+  PopoverClose,
   PopoverContent,
   PopoverPortal,
   PopoverRoot,
@@ -22,6 +23,7 @@ import {
 import { useToast } from "@acme/web-ui/hooks"
 import {
   AddIcon,
+  ClearIcon,
   MoreHorizIcon,
   PageIcon,
   StarIcon,
@@ -124,6 +126,14 @@ export default function SpaceActions({
         <PopoverPortal>
           <PopoverContent sideOffset={4} className="min-w-[440px]">
             <SpaceMembersPopover space={space} />
+            <PopoverClose asChild>
+              <IconButton
+                size="sm"
+                className="absolute right-2 top-2 text-slate-500 hover:text-slate-300"
+              >
+                <ClearIcon className="h-[18px] w-[18px]" />
+              </IconButton>
+            </PopoverClose>
           </PopoverContent>
         </PopoverPortal>
       </PopoverRoot>
@@ -179,13 +189,19 @@ export default function SpaceActions({
               </MenuButton>
               <PopoverRoot>
                 <PopoverTrigger asChild>
-                  <MenuButton icon={PageIcon} onClick={onNewPage}>
-                    Add an existing page
-                  </MenuButton>
+                  <MenuButton icon={PageIcon}>Add an existing page</MenuButton>
                 </PopoverTrigger>
                 <PopoverPortal>
                   <PopoverContent side="left" sideOffset={12}>
                     <AddPagePopover space={space} />
+                    <PopoverClose asChild>
+                      <IconButton
+                        size="sm"
+                        className="absolute right-2 top-2 text-slate-500 hover:text-slate-300"
+                      >
+                        <ClearIcon className="h-[18px] w-[18px]" />
+                      </IconButton>
+                    </PopoverClose>
                   </PopoverContent>
                 </PopoverPortal>
               </PopoverRoot>

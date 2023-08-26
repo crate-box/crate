@@ -12,6 +12,7 @@ import {
   HoverCardTrigger,
   IconButton,
   PopoverArrow,
+  PopoverClose,
   PopoverContent,
   PopoverPortal,
   PopoverRoot,
@@ -20,6 +21,7 @@ import {
 } from "@acme/web-ui"
 import { useToast } from "@acme/web-ui/hooks"
 import {
+  ClearIcon,
   CodeIcon,
   CopyIcon,
   EyeIcon,
@@ -195,11 +197,20 @@ export default function PageActions({
                 </PopoverTrigger>
                 <PopoverPortal>
                   <PopoverContent side="left" sideOffset={12}>
+                    <h3 className="font-medium">Move to</h3>
                     <React.Suspense
                       fallback={<Spinner text="Loading spaces" />}
                     >
                       <PageMovePopover page={page} />
                     </React.Suspense>
+                    <PopoverClose asChild>
+                      <IconButton
+                        size="sm"
+                        className="absolute right-2 top-2 text-slate-500 hover:text-slate-300"
+                      >
+                        <ClearIcon className="h-[18px] w-[18px]" />
+                      </IconButton>
+                    </PopoverClose>
                   </PopoverContent>
                 </PopoverPortal>
               </PopoverRoot>

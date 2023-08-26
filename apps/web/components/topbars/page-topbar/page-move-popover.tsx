@@ -43,37 +43,32 @@ export default function PageMovePopover({
     })
   }
 
-  return (
-    <>
-      <h3 className="font-medium">Move to</h3>
-      {spaces?.length && spaces.length > 0 ? (
-        <div className="mt-2 flex flex-col items-stretch gap-1">
-          {spaces?.map((space) => (
-            <PopoverClose
-              key={space.id}
-              className={`flex h-8 select-none items-center justify-between rounded px-2 leading-none transition-colors duration-200 hover:bg-slate-700 ${
-                page.space?.id === space.id
-                  ? "pointer-events-none opacity-30"
-                  : "pointer-events-auto opacity-100"
-              }`}
-              onClick={() => onMovePage(space.id)}
-            >
-              <div className="flex items-center gap-3">
-                <Icon type="Space" icon={space.icon} />
-                <span>{space.title}</span>
-              </div>
-              <time
-                dateTime={space.createdAt.toISOString()}
-                className="text-slate-400"
-              >
-                {formatDate(space.createdAt)}
-              </time>
-            </PopoverClose>
-          ))}
-        </div>
-      ) : (
-        <p className="text-center">You have no spaces</p>
-      )}
-    </>
+  return spaces?.length && spaces.length > 0 ? (
+    <div className="mt-2 flex flex-col items-stretch gap-1">
+      {spaces?.map((space) => (
+        <PopoverClose
+          key={space.id}
+          className={`flex h-8 select-none items-center justify-between rounded px-2 leading-none transition-colors duration-200 hover:bg-slate-700 ${
+            page.space?.id === space.id
+              ? "pointer-events-none opacity-30"
+              : "pointer-events-auto opacity-100"
+          }`}
+          onClick={() => onMovePage(space.id)}
+        >
+          <div className="flex items-center gap-3">
+            <Icon type="Space" icon={space.icon} />
+            <span>{space.title}</span>
+          </div>
+          <time
+            dateTime={space.createdAt.toISOString()}
+            className="text-slate-400"
+          >
+            {formatDate(space.createdAt)}
+          </time>
+        </PopoverClose>
+      ))}
+    </div>
+  ) : (
+    <p className="text-center">You have no spaces</p>
   )
 }

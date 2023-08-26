@@ -12,9 +12,14 @@ const iconButtonVariants = cva(
         rounded: "rounded",
         circle: "rounded-full",
       },
+      size: {
+        base: "w-7 h-7",
+        sm: "w-6 h-6",
+      },
     },
     defaultVariants: {
       variant: "rounded",
+      size: "base",
     },
   }
 )
@@ -25,13 +30,13 @@ interface IconButtonProps
 
 const IconButton = React.forwardRef(
   (
-    { className, variant, ...props }: IconButtonProps,
+    { className, variant, size, ...props }: IconButtonProps,
     ref: React.ForwardedRef<HTMLButtonElement>
   ) => {
     return (
       <button
         ref={ref}
-        className={cn(iconButtonVariants({ variant }), className)}
+        className={cn(iconButtonVariants({ variant, size }), className)}
         {...props}
       />
     )

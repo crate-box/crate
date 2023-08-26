@@ -4,12 +4,15 @@ import { Suspense } from "react"
 import { useRouter } from "next/navigation"
 
 import {
+  DialogClose,
   DialogContent,
   DialogOverlay,
   DialogPortal,
   DialogRoot,
   DialogTitle,
   DialogTrigger,
+  IconButton,
+  PopoverClose,
   PopoverContent,
   PopoverPortal,
   PopoverRoot,
@@ -18,6 +21,7 @@ import {
 import { useToast } from "@acme/web-ui/hooks"
 import {
   AddIcon,
+  ClearIcon,
   CogIcon,
   DashboardIcon,
   ImportExportIcon,
@@ -98,6 +102,14 @@ export default function SidebarContent() {
             <DialogContent className="flex max-h-[80vh] min-h-[40vh] min-w-[540px] flex-col items-stretch">
               <DialogTitle>Search</DialogTitle>
               <Search />
+              <DialogClose asChild>
+                <IconButton
+                  size="sm"
+                  className="absolute right-2 top-2 text-slate-500 hover:text-slate-300"
+                >
+                  <ClearIcon className="h-[18px] w-[18px]" />
+                </IconButton>
+              </DialogClose>
             </DialogContent>
           </DialogPortal>
         </DialogRoot>
@@ -110,6 +122,14 @@ export default function SidebarContent() {
             <DialogContent className="h-[80vh] min-w-[600px]">
               <DialogTitle>Settings</DialogTitle>
               <Settings />
+              <DialogClose asChild>
+                <IconButton
+                  size="sm"
+                  className="absolute right-2 top-2 text-slate-500 hover:text-slate-300"
+                >
+                  <ClearIcon className="h-[18px] w-[18px]" />
+                </IconButton>
+              </DialogClose>
             </DialogContent>
           </DialogPortal>
         </DialogRoot>
@@ -135,6 +155,14 @@ export default function SidebarContent() {
               className="flex h-[40vh] min-w-[480px] flex-col items-stretch border border-slate-800 bg-slate-900 shadow-2xl"
             >
               <Pages />
+              <PopoverClose asChild>
+                <IconButton
+                  size="sm"
+                  className="absolute right-2 top-2 text-slate-500 hover:text-slate-300"
+                >
+                  <ClearIcon className="h-[18px] w-[18px]" />
+                </IconButton>
+              </PopoverClose>
             </PopoverContent>
           </PopoverPortal>
         </PopoverRoot>
@@ -149,6 +177,14 @@ export default function SidebarContent() {
               className="flex h-[40vh] min-w-[480px] flex-col items-stretch border border-slate-800 bg-slate-900 shadow-2xl"
             >
               <Spaces />
+              <PopoverClose asChild>
+                <IconButton
+                  size="sm"
+                  className="absolute right-2 top-2 text-slate-500 hover:text-slate-300"
+                >
+                  <ClearIcon className="h-[18px] w-[18px]" />
+                </IconButton>
+              </PopoverClose>
             </PopoverContent>
           </PopoverPortal>
         </PopoverRoot>
@@ -156,7 +192,23 @@ export default function SidebarContent() {
           <PopoverTrigger asChild>
             <SidebarButton icon={ImportExportIcon}>Import</SidebarButton>
           </PopoverTrigger>
-          <Import />
+          <PopoverPortal>
+            <PopoverContent
+              side="right"
+              sideOffset={12}
+              className="flex h-[25vh] min-w-[400px] flex-col items-stretch border border-slate-800 bg-slate-900 shadow-2xl"
+            >
+              <Import />
+              <PopoverClose asChild>
+                <IconButton
+                  size="sm"
+                  className="absolute right-2 top-2 text-slate-500 hover:text-slate-300"
+                >
+                  <ClearIcon className="h-[18px] w-[18px]" />
+                </IconButton>
+              </PopoverClose>
+            </PopoverContent>
+          </PopoverPortal>
         </PopoverRoot>
         <PopoverRoot>
           <PopoverTrigger asChild>
@@ -169,6 +221,14 @@ export default function SidebarContent() {
               className="flex h-[40vh] min-w-[540px] flex-col items-stretch gap-2 border border-slate-800 bg-slate-900 shadow-2xl"
             >
               <Trash />
+              <PopoverClose asChild>
+                <IconButton
+                  size="sm"
+                  className="absolute right-2 top-2 text-slate-500 hover:text-slate-300"
+                >
+                  <ClearIcon className="h-[18px] w-[18px]" />
+                </IconButton>
+              </PopoverClose>
             </PopoverContent>
           </PopoverPortal>
         </PopoverRoot>
