@@ -22,6 +22,7 @@ import {
   PopoverTrigger,
 } from "@acme/web-ui"
 import { useToast } from "@acme/web-ui/hooks"
+import { MenuIcon } from "@acme/web-ui/icons"
 
 import Icon from "~/components/icon"
 import type { RouterOutputs } from "~/lib/api"
@@ -76,6 +77,9 @@ export default function SpaceTitle({
 
   return (
     <div className="flex items-center">
+      <IconButton className="mr-4">
+        <MenuIcon className="" />
+      </IconButton>
       <PopoverRoot>
         <PopoverTrigger asChild>
           <IconButton>

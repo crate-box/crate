@@ -7,6 +7,10 @@ interface AppState {
   setMode: (mode: Mode) => void
   isMobileNavOpen: boolean
   setIsMobileNavOpen: (value: boolean) => void
+  isSidebarOpen: boolean
+  setIsSidebarOpen: (value: boolean) => void
+  sidebarWidth: number
+  setSidebarWidth: (value: number) => void
 }
 
 export const useStore = create<AppState>()((set) => ({
@@ -15,4 +19,10 @@ export const useStore = create<AppState>()((set) => ({
   isMobileNavOpen: false,
   setIsMobileNavOpen: (value: boolean) =>
     set((state) => ({ ...state, isMobileNavOpen: value })),
+  isSidebarOpen: true,
+  setIsSidebarOpen: (value: boolean) =>
+    set((state) => ({ ...state, isSidebarOpen: value })),
+  sidebarWidth: 240,
+  setSidebarWidth: (value: number) =>
+    set((state) => ({ ...state, sidebarWidth: value })),
 }))
