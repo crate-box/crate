@@ -72,7 +72,7 @@ export default function PageTitle({
           </IconButton>
         </PopoverTrigger>
         <PopoverPortal>
-          <PopoverContent side="bottom" className="w-auto p-2">
+          <PopoverContent side="bottom" className="w-auto">
             <div className="mb-2 font-semibold">Choose an icon</div>
             <EmojiPicker
               onSelect={(emojiData) => onUpdatePageIcon(emojiData.unified)}
