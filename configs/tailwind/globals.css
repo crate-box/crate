@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --global-font-family: Inter;
+  --global-font-size: 16px;
+  --radix-toast-swipe-move-x: 16px;
+  --radix-toast-swipe-move-y: 16px;
+  --radix-toast-swipe-end-x: 16px;
+  --radix-toast-swipe-end-y: 16px;
+
+  --clr-primary: 84, 44%, 61%;
+  --clr-primary-light: 84, 44%, 72%;
+  --clr-primary-dark: 84, 44%, 50%;
+  --clr-secondary: 202, 30%, 12%;
+  --clr-secondary-light: 202, 30%, 20%;
+  --clr-secondary-dark: 202, 30%, 6%;
+  --clr-success: 84, 44%, 61%;
+  --clr-success-light: 84, 44%, 72%;
+  --clr-success-dark: 84, 44%, 53%;
+  --clr-warning: 48, 77%, 65%;
+  --clr-warning-light: 48, 77%, 74%;
+  --clr-warning-dark: 48, 77%, 54%;
+  --clr-info: 217, 88%, 67%;
+  --clr-info-light: 217, 88%, 77%;
+  --clr-info-dark: 217, 88%, 56%;
+  --clr-destructive: 359, 68%, 70%;
+  --clr-destructive-light: 359, 68%, 78%;
+  --clr-destructive-dark: 359, 68%, 62%;
+  --clr-slate-50: 202, 30%, 93%;
+  --clr-slate-100: 202, 30%, 84%;
+  --clr-slate-200: 202, 30%, 73%;
+  --clr-slate-300: 202, 30%, 64%;
+  --clr-slate-400: 202, 30%, 52%;
+  --clr-slate-500: 202, 30%, 40%;
+  --clr-slate-600: 202, 30%, 24%;
+  --clr-slate-700: 202, 30%, 16%;
+  --clr-slate-800: 202, 30%, 12%;
+  --clr-slate-900: 202, 30%, 7%;
+  --clr-slate-950: 202, 30%, 5%;
+}
+
+html {
+  font-size: var(--global-font-size);
+}
+
+.EmojiPickerReact {
+  --epr-highlight-color: hsl(var(--clr-primary)) !important;
+  --epr-hover-bg-color: hsl(var(--clr-slate-600)) !important;
+  --epr-focus-bg-color: hsl(var(--clr-slate-500)) !important;
+  --epr-bg-color: hsl(var(--clr-slate-800)) !important;
+  --epr-text-color: hsl(var(--clr-slate-200)) !important;
+  --epr-search-input-bg-color: hsl(var(--clr-slate-700)) !important;
+  --epr-picker-border-color: transparent !important;
+  --epr-category-icon-active-color: hsl(var(--clr-primary)) !important;
+  --epr-skin-tone-picker-menu-color: hsl(var(--clr-slate-600)) !important;
+  --epr-horizontal-padding: 8px !important;
+  --epr-picker-border-radius: 0px !important;
+  --epr-search-border-color: transparent !important;
+  --epr-header-padding: var(--epr-horizontal-padding) !important;
+  --epr-search-input-padding: 0 32px !important;
+  --epr-search-input-height: 36px !important;
+  --epr-category-label-bg-color: hsl(var(--clr-slate-700)) !important;
+  --epr-category-label-height: 36px !important;
+  --epr-category-padding: 8px 0px !important;
+  --epr-preview-text-padding: 0 32px !important;
+  --epr-category-navigation-button-size: 26px !important;
+  --epr-emoji-size: 24px !important;
+}
+
+.epr-preview {
+  display: none !important;
+}
