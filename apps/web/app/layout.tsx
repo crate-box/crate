@@ -1,7 +1,7 @@
 import { IBM_Plex_Sans, Inter } from "next/font/google"
 import { headers } from "next/headers"
 
-import "~/styles/globals.css"
+import "@acme/tailwind-config/globals.css"
 
 import { ApiProvider } from "./providers"
 
