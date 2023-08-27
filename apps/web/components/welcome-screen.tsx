@@ -7,6 +7,7 @@ import { useToast } from "@acme/web-ui/hooks"
 import { ProductLaunch } from "@acme/web-ui/illustrations"
 
 import { api } from "~/lib/api"
+import Topbar from "./topbars/topbar"
 
 export default function WelcomeScreen() {
   const router = useRouter()
@@ -58,17 +59,22 @@ export default function WelcomeScreen() {
   }
 
   return (
-    <div className="flex h-full w-full flex-1 flex-col items-center justify-center">
-      <div className="flex flex-col items-center gap-2">
-        <ProductLaunch className="h-[320px] text-primary" />
-        <p className="text-lg">Welcome back! Ready to boost your workspace?</p>
+    <>
+      <Topbar />
+      <div className="flex h-full w-full flex-1 flex-col items-center justify-center">
+        <div className="flex flex-col items-center gap-2">
+          <ProductLaunch className="h-[320px] text-primary" />
+          <p className="text-lg">
+            Welcome back! Ready to boost your workspace?
+          </p>
+        </div>
+        <div className="mt-6 flex items-center gap-4">
+          <Button onClick={onCreatePage}>New Page</Button>
+          <Button variant="secondary" onClick={onCreateSpace}>
+            New Space
+          </Button>
+        </div>
       </div>
-      <div className="mt-6 flex items-center gap-4">
-        <Button onClick={onCreatePage}>New Page</Button>
-        <Button variant="secondary" onClick={onCreateSpace}>
-          New Space
-        </Button>
-      </div>
-    </div>
+    </>
   )
 }
