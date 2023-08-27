@@ -14,7 +14,7 @@ export default function PageContent({
   const mode = useStore((state) => state.mode)
 
   return (
-    <div>
+    <div className="max-h-[calc(100vh-40px)] flex-1">
       {mode === "EDIT" && (
         <Suspense fallback={<Spinner text="Loading editor" />}>
           <Editor page={page} />

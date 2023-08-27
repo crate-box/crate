@@ -11,7 +11,7 @@ export default function SinglePage({
   const [page] = api.page.byId.useSuspenseQuery({ id: params.id })
 
   return (
-    <div className="h-full w-full">
+    <div className="flex h-full w-full flex-col items-stretch">
       <PageTopbar page={page} />
       <PageContent page={page}>{children}</PageContent>
     </div>
