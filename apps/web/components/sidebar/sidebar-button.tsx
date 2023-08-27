@@ -19,7 +19,7 @@ const SidebarButton = React.forwardRef(
         className="flex h-8 select-none items-center gap-3 rounded px-2 leading-none transition-colors duration-200 hover:bg-slate-800"
         {...props}
       >
-        <span className="inline-flex h-6 w-6 items-center justify-center">
+        <span className="inline-flex aspect-square h-6 items-center justify-center">
           <Icon className="h-[18px] w-[18px]" />
         </span>
         <div>{children}</div>

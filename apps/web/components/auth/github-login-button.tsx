@@ -22,7 +22,7 @@ export default function GithubLoginButton(props: ButtonProps) {
       }}
       {...props}
     >
-      <span className="inline-flex h-5 w-5 items-center justify-center">
+      <span className="inline-flex aspect-square h-5 items-center justify-center">
         {isLoading ? (
           <Logo className="h-4 w-4 animate-spin" />
         ) : (

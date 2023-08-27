@@ -21,7 +21,7 @@ export default function SidebarPinned() {
           key={page.id}
           className="flex h-8 select-none items-center gap-3 rounded px-2 leading-normal transition-colors duration-200 hover:bg-slate-800"
         >
-          <span className="inline-flex h-6 w-6 items-center justify-center">
+          <span className="inline-flex aspect-square h-6 items-center justify-center">
             <Icon type="Page" icon={page.icon} />
           </span>
           <div className="truncate">{page.title}</div>
@@ -33,7 +33,7 @@ export default function SidebarPinned() {
           key={space.id}
           className="flex h-8 select-none items-center gap-3 rounded px-2 leading-normal transition-colors duration-200 hover:bg-slate-800"
         >
-          <span className="inline-flex h-6 w-6 items-center justify-center">
+          <span className="inline-flex aspect-square h-6 items-center justify-center">
             <Icon type="Space" icon={space.icon} />
           </span>
           <div className="truncate">{space.title}</div>
