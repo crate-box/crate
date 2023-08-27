@@ -23,7 +23,7 @@ const PopoverContent = React.forwardRef(
       <RadixPopover.Content
         ref={ref}
         className={cn(
-          "data-[side=bottom]:animate-slideTopAndFade relative w-[320px] rounded bg-slate-800 p-4 shadow-xl will-change-[opacity,transform] focus:shadow-2xl focus:outline-none focus-visible:outline-none data-[side=left]:animate-slideRightAndFade data-[side=right]:animate-slideLeftAndFade data-[side=top]:animate-slideDownAndFade",
+          "data-[side=bottom]:animate-slideTopAndFade relative z-30 w-[320px] rounded bg-slate-800 p-4 shadow-xl will-change-[opacity,transform] focus:shadow-2xl focus:outline-none focus-visible:outline-none data-[side=left]:animate-slideRightAndFade data-[side=right]:animate-slideLeftAndFade data-[side=top]:animate-slideDownAndFade",
           className
         )}
         {...props}

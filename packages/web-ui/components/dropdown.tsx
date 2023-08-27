@@ -24,7 +24,7 @@ const DropdownContent = React.forwardRef(
       <RadixDropdown.Content
         ref={ref}
         className={cn(
-          "data-[side=bottom]:animate-slideTopAndFade min-w-[240px] rounded bg-slate-800 p-2 shadow-xl will-change-[opacity,transform] data-[side=left]:animate-slideRightAndFade data-[side=right]:animate-slideLeftAndFade data-[side=top]:animate-slideDownAndFade",
+          "data-[side=bottom]:animate-slideTopAndFade z-30 min-w-[240px] rounded bg-slate-800 p-2 shadow-xl will-change-[opacity,transform] data-[side=left]:animate-slideRightAndFade data-[side=right]:animate-slideLeftAndFade data-[side=top]:animate-slideDownAndFade",
           className
         )}
         {...props}
