@@ -12,8 +12,12 @@ export const spaceRouter = router({
       z.object({
         data: z.object({
           icon: z.string().optional(),
-          title: z.string().min(1),
-          description: z.string().min(1),
+          title: z.string().min(1, {
+            message: "Space title must not empty",
+          }),
+          description: z.string().min(1, {
+            message: "Space description must not empty",
+          }),
         }),
       })
     )
@@ -95,7 +99,11 @@ export const spaceRouter = router({
       })
     }),
   byId: protectedProcedure
-    .input(z.object({ id: z.string() }))
+    .input(
+      z.object({
+        id: z.string().min(1, { message: "Space ID must not empty" }),
+      })
+    )
     .query(async ({ ctx, input }) => {
       const space = await ctx.prisma.space.findUnique({
         where: {
@@ -125,8 +133,12 @@ export const spaceRouter = router({
         data: z
           .object({
             icon: z.string(),
-            title: z.string().min(1),
-            description: z.string().min(1),
+            title: z.string().min(1, {
+              message: "Space title must not empty",
+            }),
+            description: z.string().min(1, {
+              message: "Space description must not empty",
+            }),
             pinned: z.boolean(),
             trashed: z.boolean(),
           })
@@ -149,7 +161,12 @@ export const spaceRouter = router({
       })
     }),
   addMember: protectedProcedure
-    .input(z.object({ id: z.string(), memberId: z.string() }))
+    .input(
+      z.object({
+        id: z.string().min(1, { message: "Space ID must not empty" }),
+        memberId: z.string().min(1, { message: "Member ID must not empty" }),
+      })
+    )
     .mutation(({ ctx, input }) => {
       return ctx.prisma.space.update({
         where: {
@@ -168,7 +185,12 @@ export const spaceRouter = router({
       })
     }),
   removeMember: protectedProcedure
-    .input(z.object({ id: z.string(), memberId: z.string() }))
+    .input(
+      z.object({
+        id: z.string().min(1, { message: "Space ID must not empty" }),
+        memberId: z.string().min(1, { message: "Member ID must not empty" }),
+      })
+    )
     .mutation(async ({ ctx, input }) => {
       const space = await ctx.prisma.space.findUnique({
         where: {
@@ -198,7 +220,12 @@ export const spaceRouter = router({
       })
     }),
   addPage: protectedProcedure
-    .input(z.object({ pageId: z.string(), id: z.string() }))
+    .input(
+      z.object({
+        pageId: z.string().min(1, { message: "Page ID must not empty" }),
+        id: z.string().min(1, { message: "Space ID must not empty" }),
+      })
+    )
     .mutation(({ ctx, input }) => {
       return ctx.prisma.space.update({
         where: {
@@ -214,7 +241,12 @@ export const spaceRouter = router({
       })
     }),
   removePage: protectedProcedure
-    .input(z.object({ pageId: z.string(), id: z.string() }))
+    .input(
+      z.object({
+        pageId: z.string().min(1, { message: "Page ID must not empty" }),
+        id: z.string().min(1, { message: "Space ID must not empty" }),
+      })
+    )
     .mutation(({ ctx, input }) => {
       return ctx.prisma.space.update({
         where: {
@@ -230,7 +262,11 @@ export const spaceRouter = router({
       })
     }),
   delete: protectedProcedure
-    .input(z.object({ id: z.string() }))
+    .input(
+      z.object({
+        id: z.string().min(1, { message: "Space ID must not empty" }),
+      })
+    )
     .mutation(({ ctx, input }) => {
       return ctx.prisma.space.delete({
         where: { id: input.id, creatorId: ctx.session.user.id },

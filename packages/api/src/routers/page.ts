@@ -12,7 +12,9 @@ export const pageRouter = router({
       z.object({
         data: z.object({
           icon: z.string().optional(),
-          title: z.string().min(1),
+          title: z.string().min(1, {
+            message: "Page title must not empty",
+          }),
           body: z.string().optional(),
         }),
       })
@@ -80,7 +82,11 @@ export const pageRouter = router({
       })
     }),
   byId: protectedProcedure
-    .input(z.object({ id: z.string() }))
+    .input(
+      z.object({
+        id: z.string().min(1, { message: "Page ID must not empty" }),
+      })
+    )
     .query(async ({ ctx, input }) => {
       const page = await ctx.prisma.page.findUnique({
         where: {
@@ -106,8 +112,12 @@ export const pageRouter = router({
         data: z
           .object({
             icon: z.string(),
-            title: z.string(),
-            description: z.string(),
+            title: z.string().min(1, {
+              message: "Page title must not empty",
+            }),
+            description: z.string().min(1, {
+              message: "Page description must not empty",
+            }),
             body: z.string(),
             pinned: z.boolean(),
             trashed: z.boolean(),
@@ -126,7 +136,11 @@ export const pageRouter = router({
       })
     }),
   delete: protectedProcedure
-    .input(z.object({ id: z.string() }))
+    .input(
+      z.object({
+        id: z.string().min(1, { message: "Page ID must not empty" }),
+      })
+    )
     .mutation(({ ctx, input }) => {
       return ctx.prisma.page.delete({
         where: { id: input.id, creatorId: ctx.session.user.id },

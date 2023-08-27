@@ -18,17 +18,31 @@ export const settingsRouter = router({
         data: z
           .object({
             globalFontFamily: z.string(),
-            globalFontSize: z.number().int().min(8),
-            globalColorscheme: z.string().min(1),
+            globalFontSize: z
+              .number()
+              .int({ message: "Global font size must be integer" })
+              .min(8, { message: "Global font size must be at least 8px" }),
+            globalColorscheme: z.string().min(1, {
+              message: "Global colorscheme must not empty",
+            }),
             editorFontFamily: z.string(),
-            editorFontSize: z.number().int().min(8),
-            editorTabSize: z.number().int(),
+            editorFontSize: z
+              .number()
+              .int({ message: "Global font size must be integer" })
+              .min(8, { message: "Editor font size must be at least 8px" }),
+            editorTabSize: z
+              .number()
+              .int({ message: "Global font size must be integer" }),
             editorHighlightActiveLine: z.boolean(),
             editorLineNumbers: z.boolean(),
             editorAutocomplete: z.boolean(),
             editorLineWrapping: z.boolean(),
-            editorLineHeight: z.number().min(1),
-            previewCodeblockTheme: z.string().min(1),
+            editorLineHeight: z
+              .number()
+              .min(1, { message: "Editor line height must be at least 1.0" }),
+            previewCodeblockTheme: z
+              .string()
+              .min(1, { message: "Preview codeblock theme must not empty" }),
           })
           .partial(),
       })
