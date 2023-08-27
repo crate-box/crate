@@ -10,7 +10,7 @@ import { cn } from "../utils"
 const ToastProvider = RadixToast.Provider
 
 const toastVariants = cva(
-  "z-40 relative grid min-w-[400px] grid-cols-[auto_max-content] items-center gap-x-4 rounded px-4 py-2 shadow-xl [grid-template-areas:_'title_action'_'description_action'] data-[swipe=cancel]:translate-x-0 data-[swipe=move]:translate-x-[var(--radix-toast-wipe-move)] data-[state=closed]:animate-hide data-[state=open]:animate-slideIn data-[swipe=end]:animate-swipeOut data-[swipe=cancel]:transition-[transform_200ms_ease-out]",
+  "z-40 relative grid min-w-[400px] max-w-[50vw] grid-cols-[auto_max-content] items-center gap-x-4 rounded px-4 py-2 shadow-xl [grid-template-areas:_'title_action'_'description_action'] data-[swipe=cancel]:translate-x-0 data-[swipe=move]:translate-x-[var(--radix-toast-wipe-move)] data-[state=closed]:animate-hide data-[state=open]:animate-slideIn data-[swipe=end]:animate-swipeOut data-[swipe=cancel]:transition-[transform_200ms_ease-out]",
   {
     variants: {
       variant: {
