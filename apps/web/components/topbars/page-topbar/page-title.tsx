@@ -14,6 +14,7 @@ import {
   PopoverPortal,
   PopoverRoot,
   PopoverTrigger,
+  Tooltip,
 } from "@acme/web-ui"
 import { useToast } from "@acme/web-ui/hooks"
 
@@ -82,11 +83,17 @@ export default function PageTitle({
         </PopoverPortal>
       </PopoverRoot>
       <PopoverRoot>
-        <PopoverTrigger asChild>
-          <Button variant="text" size="sm" className="font-medium leading-none">
-            {page.title}
-          </Button>
-        </PopoverTrigger>
+        <Tooltip text={page.title}>
+          <PopoverTrigger asChild>
+            <Button
+              variant="text"
+              size="sm"
+              className="max-w-[320px] font-medium leading-normal"
+            >
+              <span className="truncate">{page.title}</span>
+            </Button>
+          </PopoverTrigger>
+        </Tooltip>
         <PopoverPortal>
           <PopoverContent>
             <form

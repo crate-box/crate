@@ -41,10 +41,12 @@ export default function TrashPage({
         >
           <div className="flex min-h-[32px] items-center gap-2">
             <Icon type="Page" icon={page.icon} />
-            <div className="font-medium leading-none">{page.title}</div>
+            <div className="truncate font-medium leading-normal">
+              {page.title}
+            </div>
           </div>
           {page.space?.title && (
-            <div className="text-slate-500">{page.space.title}</div>
+            <div className="truncate text-slate-500">{page.space.title}</div>
           )}
         </Link>
       </PopoverClose>

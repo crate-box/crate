@@ -21,7 +21,7 @@ export default function PageList() {
             >
               <div className="inline-flex items-center gap-2">
                 <Icon type="Page" icon={page.icon} />
-                <span className="font-medium">{page.title}</span>
+                <span className="truncate font-medium">{page.title}</span>
               </div>
               <div className="space-x-4">
                 <time

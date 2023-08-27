@@ -55,7 +55,7 @@ export default function AddPagePopover({
             >
               <div className="flex items-center gap-3">
                 <Icon type="Page" icon={page.icon} />
-                <span>{page.title}</span>
+                <span className="truncate">{page.title}</span>
               </div>
               <time
                 dateTime={page.createdAt.toISOString()}

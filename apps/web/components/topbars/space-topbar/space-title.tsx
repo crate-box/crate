@@ -99,15 +99,16 @@ export default function SpaceTitle({
               <Button
                 variant="text"
                 size="sm"
-                className="font-medium leading-none"
+                className="max-w-[320px] font-medium leading-normal"
               >
-                {space.title}
+                <span className="truncate">{space.title}</span>
               </Button>
             </PopoverTrigger>
           </HoverCardTrigger>
           <HoverCardPortal>
             <HoverCardContent>
-              {space.description}
+              <p className="font-medium">{space.title}</p>
+              <p className="text-slate-400">{space.description}</p>
               <HoverCardArrow />
             </HoverCardContent>
           </HoverCardPortal>

@@ -56,7 +56,9 @@ export default function TrashspaceItem({
         >
           <div className="flex items-center gap-2">
             <Icon type="Space" icon={space.icon} />
-            <div className="font-medium leading-none">{space.title}</div>
+            <div className="truncate font-medium leading-normal">
+              {space.title}
+            </div>
           </div>
         </Link>
       </PopoverClose>

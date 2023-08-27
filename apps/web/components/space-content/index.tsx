@@ -66,7 +66,7 @@ export default function SpaceContent({
             >
               <div className="flex items-center gap-3">
                 <Icon type="Page" icon={page.icon} />
-                <span className="font-medium">{page.title}</span>
+                <span className="truncate font-medium">{page.title}</span>
               </div>
               <time dateTime={page.createdAt.toISOString()}>
                 {formatDate(page.createdAt)}

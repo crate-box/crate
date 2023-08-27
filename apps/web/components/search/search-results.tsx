@@ -27,7 +27,7 @@ export default function SearchResults({ query }: { query: string }) {
           >
             <div className="inline-flex items-center gap-2">
               <Icon type="Page" icon={page.icon} />
-              <span className="font-medium">{page.title}</span>
+              <span className="truncate font-medium">{page.title}</span>
             </div>
             <div className="space-x-4">
               <span>Page</span>
@@ -49,7 +49,7 @@ export default function SearchResults({ query }: { query: string }) {
           >
             <div className="inline-flex items-center gap-2">
               <Icon type="Space" icon={space.icon} />
-              <span className="font-medium">{space.title}</span>
+              <span className="truncate font-medium">{space.title}</span>
             </div>
             <div className="space-x-4">
               <span>Space</span>

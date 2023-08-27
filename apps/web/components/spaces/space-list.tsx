@@ -21,7 +21,7 @@ export default function SpaceList() {
             >
               <div className="inline-flex items-center gap-2">
                 <Icon type="Space" icon={space.icon} />
-                <span className="font-medium">{space.title}</span>
+                <span className="truncate font-medium">{space.title}</span>
               </div>
               <div className="space-x-4">
                 <time

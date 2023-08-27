@@ -139,10 +139,10 @@ export default function PageActions({
       {page.space && (
         <Link
           href={`/space/${page.space.id}`}
-          className="inline-flex h-7 items-center justify-center gap-3 rounded px-2 font-medium leading-none transition-colors duration-200 ease-out hover:bg-slate-800"
+          className="inline-flex h-7 items-center justify-center gap-3 rounded px-2 font-medium leading-normal transition-colors duration-200 ease-out hover:bg-slate-800"
         >
           <Icon type="Space" icon={page.space.icon} />
-          <span>{page.space.title}</span>
+          <span className="truncate">{page.space.title}</span>
         </Link>
       )}
       <HoverCardRoot>
