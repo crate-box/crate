@@ -75,6 +75,14 @@ export default {
       "6xl": "3.5rem",
       "7xl": "4rem",
     },
+    screens: {
+      xs: "480px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
     extend: {
       keyframes: {
         slideDownAndFade: {
