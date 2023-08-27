@@ -11,6 +11,7 @@ export default function Sidebar() {
   return (
     <Resizable
       className="relative min-w-[240px] bg-slate-950"
+      defaultSize={{ width: 240, height: "auto" }}
       minWidth={240}
       maxWidth={400}
       enable={{
