@@ -17,7 +17,7 @@ export default function PreviewSettings() {
       toast({
         variant: "destructive",
         title: "Cannot update preview settings",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })

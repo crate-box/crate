@@ -33,7 +33,7 @@ export default function TrashList({ query }: { query: string }) {
       toast({
         variant: "destructive",
         title: "Cannot restore the page",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })
@@ -49,7 +49,7 @@ export default function TrashList({ query }: { query: string }) {
       toast({
         variant: "destructive",
         title: "Cannot delete the page permanently",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })
@@ -62,7 +62,7 @@ export default function TrashList({ query }: { query: string }) {
       toast({
         variant: "destructive",
         title: "Cannot restore the space",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })
@@ -78,7 +78,7 @@ export default function TrashList({ query }: { query: string }) {
       toast({
         variant: "destructive",
         title: "Cannot delete the space permanently",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })

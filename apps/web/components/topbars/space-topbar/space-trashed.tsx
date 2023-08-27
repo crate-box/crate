@@ -37,7 +37,7 @@ export default function SpaceTrashed({
       toast({
         variant: "destructive",
         title: "Cannot update this space",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })
@@ -53,7 +53,7 @@ export default function SpaceTrashed({
       toast({
         variant: "destructive",
         title: "Cannot delete this space",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })

@@ -52,7 +52,7 @@ export default function PageTitle({
       toast({
         variant: "destructive",
         title: "Cannot update this page",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })

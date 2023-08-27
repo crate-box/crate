@@ -43,7 +43,7 @@ export default function ImportForm() {
       toast({
         variant: "destructive",
         title: "Cannot create page from uploaded file",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })
@@ -75,7 +75,7 @@ export default function ImportForm() {
         toast({
           variant: "destructive",
           title: "Cannot create page from the uploaded file",
-          description: err.message,
+          description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
         })
       }
     }

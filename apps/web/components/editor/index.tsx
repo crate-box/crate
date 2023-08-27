@@ -39,7 +39,7 @@ export default function Editor({
       toast({
         variant: "destructive",
         title: "Cannot update the page body",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })

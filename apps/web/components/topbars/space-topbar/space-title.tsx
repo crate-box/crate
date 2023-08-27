@@ -51,7 +51,7 @@ export default function SpaceTitle({
       toast({
         variant: "destructive",
         title: "Cannot update space",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })

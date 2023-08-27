@@ -22,7 +22,7 @@ export default function AppearanceSettings() {
       toast({
         variant: "destructive",
         title: "Cannot update appearance settings",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })

@@ -48,7 +48,7 @@ export default function AccountSettings() {
       toast({
         variant: "destructive",
         title: "Cannot update account",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })
@@ -60,7 +60,7 @@ export default function AccountSettings() {
       toast({
         variant: "destructive",
         title: "Cannot delete account",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })
@@ -72,7 +72,7 @@ export default function AccountSettings() {
       toast({
         variant: "destructive",
         title: "Cannot log out of all sessions",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })

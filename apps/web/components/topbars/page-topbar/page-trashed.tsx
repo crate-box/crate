@@ -37,7 +37,7 @@ export default function PageTrashed({
       toast({
         variant: "destructive",
         title: "Cannot update this page",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })
@@ -53,7 +53,7 @@ export default function PageTrashed({
       toast({
         variant: "destructive",
         title: "Cannot delete this page",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })

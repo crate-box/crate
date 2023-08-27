@@ -55,7 +55,7 @@ export default function SidebarContent() {
       toast({
         variant: "destructive",
         title: "Cannot create page",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })
@@ -68,7 +68,7 @@ export default function SidebarContent() {
       toast({
         variant: "destructive",
         title: "Cannot create space",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })

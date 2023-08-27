@@ -45,7 +45,7 @@ export default function SpaceMembersPopover({
       toast({
         variant: "destructive",
         title: "Cannot add member",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })
@@ -57,7 +57,7 @@ export default function SpaceMembersPopover({
       toast({
         variant: "destructive",
         title: "Cannot remove member",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })

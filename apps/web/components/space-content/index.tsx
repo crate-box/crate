@@ -41,7 +41,8 @@ export default function SpaceContent({
         toast({
           variant: "destructive",
           title: "Cannot remove the page from this space",
-          description: err.message,
+          description:
+            err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
         })
       },
     }

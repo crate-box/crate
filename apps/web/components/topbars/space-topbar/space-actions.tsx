@@ -56,7 +56,7 @@ export default function SpaceActions({
       toast({
         variant: "destructive",
         title: "Cannot create new page",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })
@@ -68,7 +68,7 @@ export default function SpaceActions({
       toast({
         variant: "destructive",
         title: "Cannot add page to this space",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })
@@ -81,7 +81,7 @@ export default function SpaceActions({
       toast({
         variant: "destructive",
         title: "Cannot update space",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })

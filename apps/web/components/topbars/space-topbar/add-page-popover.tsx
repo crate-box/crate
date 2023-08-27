@@ -28,7 +28,7 @@ export default function AddPagePopover({
       toast({
         variant: "destructive",
         title: "Cannot add page to this space",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })

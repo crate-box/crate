@@ -24,7 +24,7 @@ export default function EditorSettings() {
       toast({
         variant: "destructive",
         title: "Cannot update editor settings",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })

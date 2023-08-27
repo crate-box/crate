@@ -28,7 +28,7 @@ export default function PageMovePopover({
       toast({
         variant: "destructive",
         title: "Cannot move the page",
-        description: err.message,
+        description: err.data?.zodError?.fieldErrors?.data?.[0] ?? err.message,
       })
     },
   })
