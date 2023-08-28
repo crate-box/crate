@@ -121,6 +121,7 @@ export const spaceRouter = router({
       if (!space) {
         throw new TRPCError({
           code: "NOT_FOUND",
+          message: "The space does not exist",
         })
       }
 
@@ -267,7 +268,18 @@ export const spaceRouter = router({
         id: z.string().min(1, { message: "Space ID must not empty" }),
       })
     )
-    .mutation(({ ctx, input }) => {
+    .mutation(async ({ ctx, input }) => {
+      const space = await ctx.prisma.space.findUnique({
+        where: { id: input.id, creatorId: ctx.session.user.id },
+      })
+
+      if (!space) {
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: "The space to delete does not exist",
+        })
+      }
+
       return ctx.prisma.space.delete({
         where: { id: input.id, creatorId: ctx.session.user.id },
       })

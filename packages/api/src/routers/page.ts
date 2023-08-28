@@ -100,7 +100,10 @@ export const pageRouter = router({
       })
 
       if (!page) {
-        throw new TRPCError({ code: "NOT_FOUND" })
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: "The page does not exist",
+        })
       }
 
       return page
@@ -141,7 +144,17 @@ export const pageRouter = router({
         id: z.string().min(1, { message: "Page ID must not empty" }),
       })
     )
-    .mutation(({ ctx, input }) => {
+    .mutation(async ({ ctx, input }) => {
+      const page = await ctx.prisma.page.findUnique({
+        where: { id: input.id, creatorId: ctx.session.user.id },
+      })
+
+      if (!page) {
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: "The page to delete does not exist",
+        })
+      }
       return ctx.prisma.page.delete({
         where: { id: input.id, creatorId: ctx.session.user.id },
         select: defaultPageSelect,
