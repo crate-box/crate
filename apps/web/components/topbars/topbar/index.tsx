@@ -15,7 +15,7 @@ export default function Topbar() {
 
   return (
     <div className="flex h-10 items-center justify-between border-b border-slate-800 px-4 leading-none">
-      <IconButton onClick={toggleSidebar}>
+      <IconButton onClick={toggleSidebar} aria-label="Toggle sidebar">
         <MenuIcon className="h-6 w-6" />
       </IconButton>
     </div>

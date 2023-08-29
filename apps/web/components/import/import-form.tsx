@@ -104,7 +104,9 @@ export default function ImportForm() {
           className="hidden"
           {...register("files")}
         />
-        <Button variant="outline">Import page</Button>
+        <Button aria-label="Import page from local file" variant="outline">
+          Import page
+        </Button>
       </form>
     </div>
   )

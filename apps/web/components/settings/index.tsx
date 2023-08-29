@@ -21,19 +21,19 @@ export default function Settings() {
     <div className="mt-2 h-[calc(100%-30px)]">
       <TabsRoot defaultValue="appearance" className="h-full">
         <TabsList>
-          <TabsTrigger value="appearance">
+          <TabsTrigger value="appearance" aria-label="Appearance">
             <PaletteIcon className="h-5 w-5" />
             Appearances
           </TabsTrigger>
-          <TabsTrigger value="editor">
+          <TabsTrigger value="editor" aria-label="Editor">
             <CodeIcon className="h-5 w-5" />
             Editor
           </TabsTrigger>
-          <TabsTrigger value="preview">
+          <TabsTrigger value="preview" aria-label="Preview">
             <EyeIcon className="h-5 w-5" />
             Preview
           </TabsTrigger>
-          <TabsTrigger value="account">
+          <TabsTrigger value="account" aria-label="Account">
             <AccountSettingsIcon className="h-5 w-5" />
             Account
           </TabsTrigger>

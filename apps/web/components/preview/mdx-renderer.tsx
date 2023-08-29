@@ -14,7 +14,10 @@ export default function MdxRenderer({
   source: MDXRemoteSerializeResult
 }) {
   return (
-    <div className="h-[100vh-40px] max-h-[100vh-40px] min-w-full max-w-full overflow-auto p-4 text-lg">
+    <div
+      aria-label="Preview"
+      className="h-[100vh-40px] max-h-[100vh-40px] min-w-full max-w-full overflow-auto p-4 text-lg"
+    >
       <div className="mx-auto max-w-[720px]">
         <MDXRemote {...source} components={components} />
       </div>

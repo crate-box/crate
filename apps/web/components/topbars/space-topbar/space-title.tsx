@@ -77,12 +77,12 @@ export default function SpaceTitle({
 
   return (
     <div className="flex items-center">
-      <IconButton className="mr-4">
-        <MenuIcon className="" />
+      <IconButton className="mr-4" aria-label="Toggle sidebar">
+        <MenuIcon className="h-6 w-6" />
       </IconButton>
       <PopoverRoot>
         <PopoverTrigger asChild>
-          <IconButton>
+          <IconButton aria-label="Change space icon">
             <Icon type="Space" icon={space.icon} />
           </IconButton>
         </PopoverTrigger>
@@ -104,6 +104,7 @@ export default function SpaceTitle({
                 variant="text"
                 size="sm"
                 className="max-w-[320px] font-medium leading-normal"
+                aria-label="Change space title"
               >
                 <span className="truncate">{space.title}</span>
               </Button>
@@ -129,6 +130,7 @@ export default function SpaceTitle({
                   {...spaceForm.register("title")}
                   placeholder="Space title"
                   className="bg-slate-900"
+                  aria-label="Space title"
                 />
               </div>
               <div className="space-y-2">
@@ -137,9 +139,10 @@ export default function SpaceTitle({
                   {...spaceForm.register("description")}
                   placeholder="Space description"
                   className="bg-slate-900"
+                  aria-label="Space description"
                 />
               </div>
-              <Button>Save</Button>
+              <Button aria-label="Save">Save</Button>
             </form>
             <PopoverArrow />
           </PopoverContent>

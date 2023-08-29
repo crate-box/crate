@@ -71,12 +71,21 @@ export default function SpaceTrashed({
   return space.trashed ? (
     <div className="flex items-center justify-center gap-2 text-destructive">
       <p>This space is currently in your trash.</p>{" "}
-      <Button size="sm" variant="text" onClick={onRestoreSpace}>
+      <Button
+        size="sm"
+        variant="text"
+        onClick={onRestoreSpace}
+        aria-label="Restore space"
+      >
         Restore space
       </Button>
       <AlertRoot>
         <AlertTrigger asChild>
-          <Button variant="destructive" size="sm">
+          <Button
+            variant="destructive"
+            size="sm"
+            aria-label="Delete space permanently"
+          >
             Delete permanently
           </Button>
         </AlertTrigger>
@@ -90,12 +99,18 @@ export default function SpaceTrashed({
             </AlertDescription>
             <div className="flex items-center justify-end gap-2">
               <AlertAction asChild>
-                <Button variant="destructive" onClick={onDeleteSpace}>
+                <Button
+                  variant="destructive"
+                  onClick={onDeleteSpace}
+                  aria-label="Delete space"
+                >
                   Delete
                 </Button>
               </AlertAction>
               <AlertCancel asChild>
-                <Button variant="text">Cancel</Button>
+                <Button variant="text" aria-label="Cancel">
+                  Cancel
+                </Button>
               </AlertCancel>
             </div>
           </AlertContent>

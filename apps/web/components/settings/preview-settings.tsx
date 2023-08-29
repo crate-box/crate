@@ -33,6 +33,7 @@ export default function PreviewSettings() {
         description="Change preview codeblock theme"
       >
         <Select
+          aria-label="Select codeblock theme"
           className="min-w-full"
           defaultValue="dracula"
           value={settings.previewCodeblockTheme}

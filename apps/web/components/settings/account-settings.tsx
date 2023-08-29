@@ -116,8 +116,15 @@ export default function AccountSettings() {
                   className="rounded"
                 />
               </label>
-              <input id="image" type="file" name="image" className="hidden" />
+              <input
+                aria-label="Profile Image"
+                id="image"
+                type="file"
+                name="image"
+                className="hidden"
+              />
               <button
+                aria-label="Remove Profile Image"
                 type="button"
                 className="pointer-events-none absolute -right-[9px] top-[-9px] grid h-[18px] w-[18px] place-items-center rounded-full bg-slate-800 opacity-0 transition-colors duration-100 hover:bg-slate-700 group-hover:pointer-events-auto group-hover:opacity-100"
               >
@@ -129,6 +136,7 @@ export default function AccountSettings() {
             <div className="space-y-1">
               <Label htmlFor="name">Preferred Name</Label>
               <Input
+                aria-labelledby="name"
                 id="name"
                 placeholder="Your preferred name"
                 value={name}
@@ -146,7 +154,9 @@ export default function AccountSettings() {
               <div className="font-medium">Email</div>
               <div className="text-slate-400">{session?.user.email}</div>
             </div>
-            <Button variant="secondary">Change email</Button>
+            <Button aria-label="Change email" variant="secondary">
+              Change email
+            </Button>
           </div>
           <div className="pointer-events-none flex items-center justify-between opacity-40">
             <div>
@@ -171,7 +181,9 @@ export default function AccountSettings() {
             </div>
             <AlertRoot>
               <AlertTrigger asChild>
-                <Button variant="secondary">Log out</Button>
+                <Button aria-label="Log out" variant="secondary">
+                  Log out
+                </Button>
               </AlertTrigger>
               <AlertPortal>
                 <AlertOverlay />
@@ -183,7 +195,11 @@ export default function AccountSettings() {
                   </AlertDescription>
                   <div className="flex items-center justify-end gap-2">
                     <AlertAction asChild>
-                      <Button variant="destructive" onClick={onLogoutSessions}>
+                      <Button
+                        aria-label="Log out"
+                        variant="destructive"
+                        onClick={onLogoutSessions}
+                      >
                         Log out
                       </Button>
                     </AlertAction>
@@ -225,12 +241,14 @@ export default function AccountSettings() {
                       control={control}
                       render={({ field }) => (
                         <Input
+                          aria-label="Account name"
                           {...field}
                           placeholder="Enter your account name"
                         />
                       )}
                     />
                     <Button
+                      aria-label="Delete account"
                       type="submit"
                       variant="destructive"
                       disabled={watch("name") === ""}
@@ -238,7 +256,11 @@ export default function AccountSettings() {
                       Delete my account permanently
                     </Button>
                     <AlertCancel asChild>
-                      <Button type="button" variant="secondary">
+                      <Button
+                        aria-label="Cancel"
+                        type="button"
+                        variant="secondary"
+                      >
                         Cancel
                       </Button>
                     </AlertCancel>

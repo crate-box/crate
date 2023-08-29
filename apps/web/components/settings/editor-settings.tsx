@@ -95,6 +95,7 @@ export default function EditorSettings() {
         description="Change editor font family"
       >
         <Input
+          aria-label="Editor font family"
           placeholder="monospace"
           value={editorFontFamily}
           onChange={onUpdateEditorFontFamily}
@@ -102,6 +103,7 @@ export default function EditorSettings() {
       </SettingsOption>
       <SettingsOption title="Font Size" description="Change editor font size">
         <Input
+          aria-label="Editor font size"
           placeholder={DEFAULT_EDITOR_FONT_SIZE.toString()}
           value={editorFontSize}
           onChange={onUpdateEditorFontSize}
@@ -112,6 +114,7 @@ export default function EditorSettings() {
         description="Change editor line height"
       >
         <Input
+          aria-label="Editor line height"
           placeholder={DEFAULT_EDITOR_LINE_HEIGHT.toString()}
           value={editorLineHeight}
           onChange={onUpdateEditorLineHeight}
@@ -122,6 +125,7 @@ export default function EditorSettings() {
         description="Change editor tab size in spaces"
       >
         <Select
+          aria-label="Editor tab size"
           className="min-w-full"
           defaultValue="4"
           value={settings.editorTabSize.toString()}
@@ -138,6 +142,7 @@ export default function EditorSettings() {
         description="Enable active line highlighting"
       >
         <Switch
+          aria-label="Toggle highlight active line"
           checked={settings.editorHighlightActiveLine}
           onCheckedChange={onUpdateEditorHighlightActiveLine}
         />
@@ -147,18 +152,21 @@ export default function EditorSettings() {
         description="Show editor line numbers"
       >
         <Switch
+          aria-label="Toggle line numbers"
           checked={settings.editorLineNumbers}
           onCheckedChange={onUpdateEditorLineNumbers}
         />
       </SettingsOption>
       <SettingsOption title="Autocomplete" description="Enable autocomplete">
         <Switch
+          aria-label="Toggle autocomplete"
           checked={settings.editorAutocomplete}
           onCheckedChange={onUpdateEditorAutocomplete}
         />
       </SettingsOption>
       <SettingsOption title="Line Wrapping" description="Wrap line">
         <Switch
+          aria-label="Toggle line wrapping"
           checked={settings.editorLineWrapping}
           onCheckedChange={onUpdateEditorLineWrapping}
         />

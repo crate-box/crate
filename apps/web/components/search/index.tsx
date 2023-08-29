@@ -27,11 +27,13 @@ export default function Search() {
       >
         <SearchIcon className="absolute left-2 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-500" />
         <Input
+          aria-label="Search query"
           {...register("query")}
           placeholder="Type to search"
           className="pl-8"
         />
         <button
+          aria-label="Clear search"
           type="button"
           className="absolute right-2 top-1/2 inline-flex h-4 w-4 -translate-y-1/2 items-center justify-center rounded-full bg-slate-700 transition-[opacity] duration-200 data-[hidden=true]:opacity-0"
           data-hidden={watch("query") === ""}

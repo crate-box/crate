@@ -111,7 +111,7 @@ export default function SpaceActions({
       <PopoverRoot>
         <Tooltip text={space.members.length + " members"}>
           <PopoverTrigger className="h-8 rounded px-2 transition-colors duration-200 hover:bg-slate-800">
-            <AvatarStack>
+            <AvatarStack aria-label="Space members" role="button">
               {space.members.map((member) => (
                 <Avatar
                   key={member.id}
@@ -130,6 +130,7 @@ export default function SpaceActions({
               <IconButton
                 size="sm"
                 className="absolute right-2 top-2 text-slate-500 hover:text-slate-300"
+                aria-label="Close"
               >
                 <ClearIcon className="h-[18px] w-[18px]" />
               </IconButton>
@@ -168,7 +169,7 @@ export default function SpaceActions({
       <PopoverRoot>
         <Tooltip text="More actions">
           <PopoverTrigger asChild>
-            <IconButton>
+            <IconButton aria-label="More actions">
               <MoreHorizIcon className="h-6 w-6" />
             </IconButton>
           </PopoverTrigger>
@@ -177,6 +178,7 @@ export default function SpaceActions({
           <PopoverContent className="p-2">
             <div className="flex flex-col items-stretch">
               <MenuSwitch
+                aria-label="Toggle pin sidebar"
                 icon={StarIcon}
                 checked={space.pinned}
                 onCheckedChange={onUpdateSpacePinned}
@@ -184,12 +186,18 @@ export default function SpaceActions({
                 Pin to sidebar
               </MenuSwitch>
               <hr className="my-1 text-slate-600" />
-              <MenuButton icon={AddIcon} onClick={onNewPage}>
+              <MenuButton
+                icon={AddIcon}
+                onClick={onNewPage}
+                aria-label="Add new page"
+              >
                 New page
               </MenuButton>
               <PopoverRoot>
                 <PopoverTrigger asChild>
-                  <MenuButton icon={PageIcon}>Add an existing page</MenuButton>
+                  <MenuButton icon={PageIcon} aria-label="Add an existing page">
+                    Add an existing page
+                  </MenuButton>
                 </PopoverTrigger>
                 <PopoverPortal>
                   <PopoverContent side="left" sideOffset={12}>
@@ -198,6 +206,7 @@ export default function SpaceActions({
                       <IconButton
                         size="sm"
                         className="absolute right-2 top-2 text-slate-500 hover:text-slate-300"
+                        aria-label="Close"
                       >
                         <ClearIcon className="h-[18px] w-[18px]" />
                       </IconButton>
@@ -209,6 +218,7 @@ export default function SpaceActions({
               <MenuButton
                 icon={TrashIcon}
                 onClick={() => onUpdateSpaceTrashed(true)}
+                aria-label="Move space to trash"
               >
                 Delete
               </MenuButton>

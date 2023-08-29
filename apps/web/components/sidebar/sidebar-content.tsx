@@ -95,7 +95,9 @@ export default function SidebarContent() {
       <div className="flex flex-col items-stretch gap-0.5">
         <DialogRoot>
           <DialogTrigger asChild>
-            <SidebarButton icon={SearchIcon}>Search</SidebarButton>
+            <SidebarButton icon={SearchIcon} aria-label="Search">
+              Search
+            </SidebarButton>
           </DialogTrigger>
           <DialogPortal>
             <DialogOverlay />
@@ -106,6 +108,7 @@ export default function SidebarContent() {
                 <IconButton
                   size="sm"
                   className="absolute right-2 top-2 text-slate-500 hover:text-slate-300"
+                  aria-label="Close"
                 >
                   <ClearIcon className="h-[18px] w-[18px]" />
                 </IconButton>
@@ -115,7 +118,9 @@ export default function SidebarContent() {
         </DialogRoot>
         <DialogRoot>
           <DialogTrigger asChild>
-            <SidebarButton icon={CogIcon}>Settings</SidebarButton>
+            <SidebarButton icon={CogIcon} aria-label="Settings">
+              Settings
+            </SidebarButton>
           </DialogTrigger>
           <DialogPortal>
             <DialogOverlay />
@@ -126,6 +131,7 @@ export default function SidebarContent() {
                 <IconButton
                   size="sm"
                   className="absolute right-2 top-2 text-slate-500 hover:text-slate-300"
+                  aria-label="Close"
                 >
                   <ClearIcon className="h-[18px] w-[18px]" />
                 </IconButton>
@@ -133,10 +139,18 @@ export default function SidebarContent() {
             </DialogContent>
           </DialogPortal>
         </DialogRoot>
-        <SidebarButton icon={AddIcon} onClick={onCreatePage}>
+        <SidebarButton
+          icon={AddIcon}
+          onClick={onCreatePage}
+          aria-label="New Page"
+        >
           New Page
         </SidebarButton>
-        <SidebarButton icon={RocketIcon} onClick={onCreateSpace}>
+        <SidebarButton
+          icon={RocketIcon}
+          onClick={onCreateSpace}
+          aria-label="New Space"
+        >
           New Space
         </SidebarButton>
       </div>
@@ -146,7 +160,9 @@ export default function SidebarContent() {
       <div className="flex flex-col items-stretch gap-0.5">
         <PopoverRoot>
           <PopoverTrigger asChild>
-            <SidebarButton icon={PageIcon}>Pages</SidebarButton>
+            <SidebarButton icon={PageIcon} aria-label="Pages">
+              Pages
+            </SidebarButton>
           </PopoverTrigger>
           <PopoverPortal>
             <PopoverContent
@@ -159,6 +175,7 @@ export default function SidebarContent() {
                 <IconButton
                   size="sm"
                   className="absolute right-2 top-2 text-slate-500 hover:text-slate-300"
+                  aria-label="Close"
                 >
                   <ClearIcon className="h-[18px] w-[18px]" />
                 </IconButton>
@@ -168,7 +185,9 @@ export default function SidebarContent() {
         </PopoverRoot>
         <PopoverRoot>
           <PopoverTrigger asChild>
-            <SidebarButton icon={DashboardIcon}>Spaces</SidebarButton>
+            <SidebarButton icon={DashboardIcon} aria-label="Spaces">
+              Spaces
+            </SidebarButton>
           </PopoverTrigger>
           <PopoverPortal>
             <PopoverContent
@@ -181,6 +200,7 @@ export default function SidebarContent() {
                 <IconButton
                   size="sm"
                   className="absolute right-2 top-2 text-slate-500 hover:text-slate-300"
+                  aria-label="Close"
                 >
                   <ClearIcon className="h-[18px] w-[18px]" />
                 </IconButton>
@@ -190,7 +210,9 @@ export default function SidebarContent() {
         </PopoverRoot>
         <PopoverRoot>
           <PopoverTrigger asChild>
-            <SidebarButton icon={ImportExportIcon}>Import</SidebarButton>
+            <SidebarButton icon={ImportExportIcon} aria-label="Import">
+              Import
+            </SidebarButton>
           </PopoverTrigger>
           <PopoverPortal>
             <PopoverContent
@@ -203,6 +225,7 @@ export default function SidebarContent() {
                 <IconButton
                   size="sm"
                   className="absolute right-2 top-2 text-slate-500 hover:text-slate-300"
+                  aria-label="Close"
                 >
                   <ClearIcon className="h-[18px] w-[18px]" />
                 </IconButton>
@@ -212,7 +235,9 @@ export default function SidebarContent() {
         </PopoverRoot>
         <PopoverRoot>
           <PopoverTrigger asChild>
-            <SidebarButton icon={TrashIcon}>Trash</SidebarButton>
+            <SidebarButton icon={TrashIcon} aria-label="Trash">
+              Trash
+            </SidebarButton>
           </PopoverTrigger>
           <PopoverPortal>
             <PopoverContent
@@ -225,6 +250,7 @@ export default function SidebarContent() {
                 <IconButton
                   size="sm"
                   className="absolute right-2 top-2 text-slate-500 hover:text-slate-300"
+                  aria-label="Close"
                 >
                   <ClearIcon className="h-[18px] w-[18px]" />
                 </IconButton>

@@ -13,6 +13,7 @@ export default function GithubLoginButton(props: ButtonProps) {
 
   return (
     <Button
+      arial-label="Continue with Github"
       className="justify-start gap-6 bg-slate-800 text-slate-100"
       variant="unstyled"
       size="xl"

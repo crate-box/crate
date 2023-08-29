@@ -176,7 +176,7 @@ export default function PageActions({
       <PopoverRoot>
         <Tooltip text="More actions">
           <PopoverTrigger asChild>
-            <IconButton>
+            <IconButton aria-label="More actions">
               <MoreHorizIcon className="h-5 w-5" />
             </IconButton>
           </PopoverTrigger>
@@ -187,13 +187,16 @@ export default function PageActions({
               <MenuButton
                 icon={mode === "EDIT" ? EyeIcon : CodeIcon}
                 onClick={toggleMode}
+                aria-label="Toggle mode"
               >
                 {mode === "EDIT" ? "Preview" : "Edit"}
               </MenuButton>
               <hr className="my-1 text-slate-600" />
               <PopoverRoot>
                 <PopoverTrigger asChild>
-                  <MenuButton icon={ShortcutIcon}>Move to</MenuButton>
+                  <MenuButton icon={ShortcutIcon} aria-label="Move page">
+                    Move to
+                  </MenuButton>
                 </PopoverTrigger>
                 <PopoverPortal>
                   <PopoverContent side="left" sideOffset={12}>
@@ -207,6 +210,7 @@ export default function PageActions({
                       <IconButton
                         size="sm"
                         className="absolute right-2 top-2 text-slate-500 hover:text-slate-300"
+                        aria-label="Close"
                       >
                         <ClearIcon className="h-[18px] w-[18px]" />
                       </IconButton>
@@ -219,13 +223,22 @@ export default function PageActions({
                 icon={StarIcon}
                 checked={page.pinned}
                 onCheckedChange={onUpdatePagePinned}
+                aria-label="Toggle pin sidebar"
               >
                 Pin to sidebar
               </MenuSwitch>
-              <MenuButton icon={LinkIcon} onClick={onCopyLink}>
+              <MenuButton
+                icon={LinkIcon}
+                onClick={onCopyLink}
+                aria-label="Copy page link"
+              >
                 Copy link
               </MenuButton>
-              <MenuButton icon={CopyIcon} onClick={onDuplicatePage}>
+              <MenuButton
+                icon={CopyIcon}
+                onClick={onDuplicatePage}
+                aria-label="Duplicate page"
+              >
                 Duplicate
               </MenuButton>
               <hr className="my-1 text-slate-600" />
@@ -233,6 +246,7 @@ export default function PageActions({
                 icon={TrashIcon}
                 onClick={() => onUpdatePageTrashed(true)}
                 disabled={page.trashed}
+                aria-label="Move page to trash"
               >
                 Delete
               </MenuButton>

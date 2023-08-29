@@ -66,6 +66,7 @@ export default function AppearanceSettings() {
         description="Change global font family (needs refresh)"
       >
         <Input
+          aria-label="Font family"
           placeholder="Inter, sans-serif"
           value={globalFontFamily}
           onChange={onUpdateGlobalFontFamily}
@@ -76,6 +77,7 @@ export default function AppearanceSettings() {
         description="Change global font size (needs refresh)"
       >
         <Input
+          aria-label="Font size"
           placeholder={DEFAULT_GLOBAL_FONT_SIZE.toString()}
           value={globalFontSize}
           onChange={onUpdateGlobalFontSize}
@@ -86,10 +88,11 @@ export default function AppearanceSettings() {
         description="Change global colorscheme"
       >
         <Select
+          aria-label="Select colorscheme"
           className="min-w-full"
           defaultValue="CruxAlpha"
           value={settings.globalColorscheme}
-          placeholder="Pick a colorscheme"
+          placeholder="Choose a colorscheme"
           options={[{ value: "CruxAlpha", label: "Crux Alpha" }]}
           onValueChange={onUpdateColorscheme}
         />

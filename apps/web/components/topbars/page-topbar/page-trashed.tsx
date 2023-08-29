@@ -71,12 +71,21 @@ export default function PageTrashed({
   return page.trashed ? (
     <div className="flex items-center justify-center gap-2 text-destructive">
       <p>This page is currently in your trash.</p>{" "}
-      <Button size="sm" variant="text" onClick={onRestorePage}>
+      <Button
+        size="sm"
+        variant="text"
+        onClick={onRestorePage}
+        aria-label="Restore page"
+      >
         Restore page
       </Button>
       <AlertRoot>
         <AlertTrigger asChild>
-          <Button variant="destructive" size="sm">
+          <Button
+            variant="destructive"
+            size="sm"
+            aria-label="Delete page permanently"
+          >
             Delete permanently
           </Button>
         </AlertTrigger>
@@ -90,12 +99,18 @@ export default function PageTrashed({
             </AlertDescription>
             <div className="flex items-center justify-end gap-2">
               <AlertAction asChild>
-                <Button variant="destructive" onClick={onDeletePage}>
+                <Button
+                  variant="destructive"
+                  onClick={onDeletePage}
+                  aria-label="Delete"
+                >
                   Delete
                 </Button>
               </AlertAction>
               <AlertCancel asChild>
-                <Button variant="text">Cancel</Button>
+                <Button variant="text" aria-label="Cancel">
+                  Cancel
+                </Button>
               </AlertCancel>
             </div>
           </AlertContent>

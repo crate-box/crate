@@ -75,12 +75,16 @@ export default function PageTitle({
 
   return (
     <div className="flex items-center">
-      <IconButton className="mr-4" onClick={toggleSidebar}>
+      <IconButton
+        className="mr-4"
+        onClick={toggleSidebar}
+        aria-label="Toggle sidebar"
+      >
         <MenuIcon className="h-6 w-6" />
       </IconButton>
       <PopoverRoot>
         <PopoverTrigger asChild>
-          <IconButton>
+          <IconButton aria-label="Change page icon">
             <Icon type="Page" icon={page.icon} />
           </IconButton>
         </PopoverTrigger>
@@ -101,6 +105,7 @@ export default function PageTitle({
               variant="text"
               size="sm"
               className="max-w-[320px] font-medium leading-normal"
+              aria-label="Change page title"
             >
               <span className="truncate">{page.title}</span>
             </Button>
@@ -113,11 +118,12 @@ export default function PageTitle({
               onSubmit={pageTitleForm.handleSubmit(onUpdatePageTitle)}
             >
               <Input
+                aria-label="Page title"
                 {...pageTitleForm.register("title")}
                 placeholder="Page title"
                 className="bg-slate-900"
               />
-              <Button>Save</Button>
+              <Button aria-label="Save">Save</Button>
             </form>
             <PopoverArrow />
           </PopoverContent>
