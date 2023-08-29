@@ -87,12 +87,12 @@ function Avatar({ src, alt, fallback, size = 24 }: AvatarProps) {
   )
 }
 
-interface AvatarStack extends React.PropsWithChildren {
+interface AvatarStack extends React.HTMLAttributes<HTMLDivElement> {
   max?: number
 }
 const AvatarStack = React.forwardRef(
   (
-    { max = 3, children }: AvatarStack,
+    { max = 3, children, ...props }: AvatarStack,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const c = React.Children.toArray(children)
@@ -101,6 +101,7 @@ const AvatarStack = React.forwardRef(
       <div
         ref={ref}
         className="flex items-center [&>*:not(:first-child)]:-ml-2 [&>*]:border [&>*]:border-slate-900"
+        {...props}
       >
         {c.slice(0, max).map((c) => c)}
         {rest > 0 && <Avatar fallback={"+" + rest} />}
