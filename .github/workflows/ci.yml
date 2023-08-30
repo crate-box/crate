@@ -49,8 +49,58 @@ jobs:
       - name: Build, lint and type-check
         run: pnpm turbo run build lint typecheck
 
+  test:
+    runs-on: ubuntu-latest
+
   build-image-and-push:
     runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.4
+
+      - name: Install Node.js 18
+        uses: actions/setup-node@v3
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install deps (with cache)
+        run: pnpm install
+
+      - name: Touch .env file
+        run: |
+          touch .env
+          echo DATABASE_URL="${{ secrets.DEV_DATABASE_URL }}" >> .env
+          echo NEXTAUTH_URL="${{ secrets.DEV_NEXTAUTH_URL }}" >> .env
+          echo NEXTAUTH_SECRET="${{ secrets.DEV_NEXTAUTH_SECRET }}" >> .env
+          echo GITHUB_ID="${{ secrets.DEV_GITHUB_ID }}" >> .env
+          echo GITHUB_SECRET="${{ secrets.DEV_GITHUB_SECRET }}" >> .env
+          echo DISCORD_CLIENT_ID="${{ secrets.DEV_DISCORD_CLIENT_ID }}" >> .env
+          echo DISCORD_CLIENT_SECRET="${{ secrets.DEV_DISCORD_CLIENT_SECRET }}" >> .env
+          cat .env
+
+      - name: Run local postgres database with docker
+        run: docker run --name postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:15.3-alpine3.18
+
+      - name: Run the development server
+        run: pnpm run dev
+
+      - name: Run tests
+        run: pnpm run test
 
     steps:
       - name: Checkout repo
