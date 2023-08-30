@@ -155,4 +155,4 @@ jobs:
             docker pull dangminhngo/crate-web:latest
             docker stop crate-web
             docker rm crate-web
-            docker run --env-file ~/env/crate/.env -p 3000:3000 --name crate-web --network crate_network dangminhngo/crate-web:latest
+            docker run -d --env-file ~/env/crate/.env -p 3000:3000 --name crate-web --network crate_network dangminhngo/crate-web:latest
