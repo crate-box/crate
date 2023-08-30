@@ -11,7 +11,7 @@ interface CreateContextOptions {
   session: Session | null
 }
 
-function createInnerTRPCContext(opts: CreateContextOptions) {
+export function createInnerTRPCContext(opts: CreateContextOptions) {
   return {
     session: opts.session,
     prisma,

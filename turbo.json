@@ -22,7 +22,9 @@
       "dependsOn": ["^typecheck"],
       "outputs": ["node_modules/.cache/tsbuildinfo.json"]
     },
-    "clean": { "cache": false }
+    "clean": { "cache": false },
+    "test": {},
+    "test:watch": { "cache": false }
   },
   "globalEnv": [
     "DATABASE_URL",
