@@ -91,7 +91,7 @@ jobs:
           cat .env
 
       - name: Run local postgres database with docker
-        run: docker run --name postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:15.3-alpine3.18
+        run: docker run -d --name postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:15.3-alpine3.18
 
       - name: Run the development server
         run: pnpm run dev
