@@ -30,7 +30,7 @@ export const spaceRouter = router({
             connect: { id: ctx.session.user.id },
           },
         },
-        select: defaultSpaceSelect,
+        select: singleSpaceSelect,
       })
     }),
   all: protectedProcedure
@@ -158,7 +158,7 @@ export const spaceRouter = router({
           ],
         },
         data: { ...input.data, editorId: ctx.session.user.id },
-        select: defaultSpaceSelect,
+        select: singleSpaceSelect,
       })
     }),
   addMember: protectedProcedure
@@ -183,6 +183,7 @@ export const spaceRouter = router({
           members: { connect: { id: input.memberId } },
           editorId: ctx.session.user.id,
         },
+        select: singleSpaceSelect,
       })
     }),
   removeMember: protectedProcedure
@@ -218,6 +219,7 @@ export const spaceRouter = router({
           members: { disconnect: { id: input.memberId } },
           editorId: ctx.session.user.id,
         },
+        select: singleSpaceSelect,
       })
     }),
   addPage: protectedProcedure
@@ -239,6 +241,7 @@ export const spaceRouter = router({
           ],
         },
         data: { pages: { connect: { id: input.pageId } } },
+        select: singleSpaceSelect,
       })
     }),
   removePage: protectedProcedure
@@ -260,6 +263,7 @@ export const spaceRouter = router({
           ],
         },
         data: { pages: { disconnect: { id: input.pageId } } },
+        select: singleSpaceSelect,
       })
     }),
   delete: protectedProcedure
@@ -282,6 +286,7 @@ export const spaceRouter = router({
 
       return ctx.prisma.space.delete({
         where: { id: input.id, creatorId: ctx.session.user.id },
+        select: defaultSpaceSelect,
       })
     }),
 })

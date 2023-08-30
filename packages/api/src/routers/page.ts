@@ -26,6 +26,7 @@ export const pageRouter = router({
           creatorId: ctx.session.user.id,
           body: input.data.body ?? "",
         },
+        select: singlePageSelect,
       })
     }),
   all: protectedProcedure
@@ -135,7 +136,7 @@ export const pageRouter = router({
           ...input.data,
           editorId: ctx.session.user.id,
         },
-        select: defaultPageSelect,
+        select: singlePageSelect,
       })
     }),
   delete: protectedProcedure
