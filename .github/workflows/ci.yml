@@ -102,7 +102,6 @@ jobs:
       - name: Run tests
         run: pnpm run test
 
-    steps:
       - name: Checkout repo
         uses: actions/checkout@v3
 
