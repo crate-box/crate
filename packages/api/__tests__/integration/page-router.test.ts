@@ -110,7 +110,7 @@ test("should not update page with an invalid title", async () => {
     },
   }
   await expect(caller.page.update(input)).rejects.toThrowError(
-    /Page must not empty/
+    /Page title must not empty/
   )
 })
 
