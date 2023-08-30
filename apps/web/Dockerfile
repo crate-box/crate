@@ -1,4 +1,4 @@
-FROM node:18-alpine3.17 AS base
+FROM node:18-alpine3.18 AS base
 
 FROM base AS builder
 RUN apk add --no-cache libc6-compat openssl && apk update
