@@ -41,7 +41,7 @@ test("should create and get the page", async () => {
   expect(pageById).toMatchObject(input.data)
 })
 
-test("should not create a page with empty string title", async () => {
+test("should not create a page with an invalid title", async () => {
   const { caller } = await createProtectedCaller()
   const input: RouterInputs["page"]["create"] = {
     data: {
@@ -86,6 +86,32 @@ test("should create and update a page", async () => {
   const updatePage = await caller.page.update(updateInput)
   expect(updatePage.id).toBe(updateInput.id)
   expect(updatePage).toMatchObject(updateInput.data)
+})
+
+test("should not update page with an invalid title", async () => {
+  const { caller } = await createProtectedCaller()
+  const input: RouterInputs["page"]["update"] = {
+    id: "some-page-id",
+    data: {
+      title: "",
+    },
+  }
+  await expect(caller.page.update(input)).rejects.toThrowError(
+    /Page title must not empty/
+  )
+})
+
+test("should not update page with an invalid title", async () => {
+  const { caller } = await createProtectedCaller()
+  const input: RouterInputs["page"]["update"] = {
+    id: "some-page-id",
+    data: {
+      title: "",
+    },
+  }
+  await expect(caller.page.update(input)).rejects.toThrowError(
+    /Page must not empty/
+  )
 })
 
 test("should not possible to delete a page if not signed in", async () => {
