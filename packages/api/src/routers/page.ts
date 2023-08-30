@@ -119,9 +119,6 @@ export const pageRouter = router({
             title: z.string().min(1, {
               message: "Page title must not empty",
             }),
-            description: z.string().min(1, {
-              message: "Page description must not empty",
-            }),
             body: z.string(),
             pinned: z.boolean(),
             trashed: z.boolean(),
