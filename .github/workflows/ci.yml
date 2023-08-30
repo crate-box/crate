@@ -52,9 +52,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-  build-image-and-push:
-    runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -102,6 +99,10 @@ jobs:
       - name: Run tests
         run: pnpm run test
 
+  build-image-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Checkout repo
         uses: actions/checkout@v3
 
