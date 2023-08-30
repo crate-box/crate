@@ -90,6 +90,9 @@ jobs:
           echo DISCORD_CLIENT_SECRET="${{ secrets.DEV_DISCORD_CLIENT_SECRET }}" >> .env
           cat .env
 
+      - name: Generate prisma client
+        run: pnpm run db:generate
+
       - name: Run local postgres database with docker
         run: docker run -d --name postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:15.3-alpine3.18
 
