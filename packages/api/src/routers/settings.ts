@@ -28,11 +28,11 @@ export const settingsRouter = router({
             editorFontFamily: z.string(),
             editorFontSize: z
               .number()
-              .int({ message: "Global font size must be integer" })
+              .int({ message: "Editor font size must be integer" })
               .min(8, { message: "Editor font size must be at least 8px" }),
             editorTabSize: z
               .number()
-              .int({ message: "Global font size must be integer" }),
+              .int({ message: "Editor tab size must be integer" }),
             editorHighlightActiveLine: z.boolean(),
             editorLineNumbers: z.boolean(),
             editorAutocomplete: z.boolean(),
