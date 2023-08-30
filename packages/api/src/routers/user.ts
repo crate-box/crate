@@ -44,7 +44,10 @@ export const userRouter = router({
     .input(
       z.object({
         data: z
-          .object({ name: z.string().min(1), email: z.string().email() })
+          .object({
+            name: z.string().min(1, { message: "Account name must not empty" }),
+            email: z.string().email({ message: "Invalid email address" }),
+          })
           .partial(),
       })
     )
