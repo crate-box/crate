@@ -76,12 +76,10 @@ export default {
       "7xl": "4rem",
     },
     screens: {
-      xs: "480px",
-      sm: "640px",
-      md: "768px",
-      lg: "1024px",
-      xl: "1280px",
-      "2xl": "1536px",
+      phone: "480px",
+      tablet: "768px",
+      laptop: "1024px",
+      desktop: "1280px",
     },
     extend: {
       keyframes: {
