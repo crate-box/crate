@@ -137,13 +137,14 @@ export default function PageActions({
   return (
     <div className="flex items-center gap-2">
       {page.space && (
-        <Link
-          href={`/space/${page.space.id}`}
-          className="inline-flex h-7 items-center justify-center gap-3 rounded px-2 font-medium leading-normal transition-colors duration-200 ease-out hover:bg-slate-800"
-        >
-          <Icon type="Space" icon={page.space.icon} />
-          <span className="truncate">{page.space.title}</span>
-        </Link>
+        <Tooltip text={page.space.title}>
+          <Link
+            href={`/space/${page.space.id}`}
+            className="inline-flex h-7 items-center justify-center gap-3 rounded px-2 font-medium leading-normal transition-colors duration-200 ease-out hover:bg-slate-800"
+          >
+            <Icon type="Space" icon={page.space.icon} />
+          </Link>
+        </Tooltip>
       )}
       <HoverCardRoot>
         <HoverCardTrigger asChild>

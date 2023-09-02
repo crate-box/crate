@@ -76,7 +76,7 @@ export default function PageTitle({
   return (
     <div className="flex items-center">
       <IconButton
-        className="mr-4"
+        className="mr-2"
         onClick={toggleSidebar}
         aria-label="Toggle sidebar"
       >
@@ -104,7 +104,7 @@ export default function PageTitle({
             <Button
               variant="text"
               size="sm"
-              className="max-w-[320px] font-medium leading-normal"
+              className="max-w-[320px] px-2 font-medium leading-normal"
               aria-label="Change page title"
             >
               <span className="truncate">{page.title}</span>

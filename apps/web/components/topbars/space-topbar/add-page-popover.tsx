@@ -43,7 +43,7 @@ export default function AddPagePopover({
       {pages?.map((page) => (
         <PopoverClose
           key={page.id}
-          className={`flex h-8 select-none items-center justify-between rounded px-2 leading-none transition-colors duration-200 hover:bg-slate-700 ${
+          className={`flex h-9 select-none items-center justify-between rounded px-2 leading-none transition-colors duration-200 hover:bg-slate-700 ${
             page.space?.id === space.id
               ? "pointer-events-none opacity-30"
               : "pointer-events-auto opacity-100"

@@ -77,7 +77,7 @@ export default function SpaceTitle({
 
   return (
     <div className="flex items-center">
-      <IconButton className="mr-4" aria-label="Toggle sidebar">
+      <IconButton className="mr-2" aria-label="Toggle sidebar">
         <MenuIcon className="h-6 w-6" />
       </IconButton>
       <PopoverRoot>
@@ -103,7 +103,7 @@ export default function SpaceTitle({
               <Button
                 variant="text"
                 size="sm"
-                className="max-w-[320px] font-medium leading-normal"
+                className="max-w-[320px] px-2 font-medium leading-normal"
                 aria-label="Change space title"
               >
                 <span className="truncate">{space.title}</span>
