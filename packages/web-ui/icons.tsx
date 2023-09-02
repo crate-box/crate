@@ -253,7 +253,7 @@ function EyeIcon(props: SVGProps) {
   )
 }
 
-function ImportExportIcon(props: SVGProps) {
+function ImportIcon(props: SVGProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -264,7 +264,7 @@ function ImportExportIcon(props: SVGProps) {
       {...props}
     >
       <path d="M0 0h24v24H0V0z" fill="none" />
-      <path d="M8.65 3.35L5.86 6.14c-.32.31-.1.85.35.85H8V13c0 .55.45 1 1 1s1-.45 1-1V6.99h1.79c.45 0 .67-.54.35-.85L9.35 3.35c-.19-.19-.51-.19-.7 0zM16 17.01V11c0-.55-.45-1-1-1s-1 .45-1 1v6.01h-1.79c-.45 0-.67.54-.35.85l2.79 2.78c.2.19.51.19.71 0l2.79-2.78c.32-.31.09-.85-.35-.85H16z" />
+      <path d="M19 13v5c0 .55-.45 1-1 1H6c-.55 0-1-.45-1-1v-5c0-.55-.45-1-1-1s-1 .45-1 1v6c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-6c0-.55-.45-1-1-1s-1 .45-1 1zm-6-.33l1.88-1.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-3.59 3.59c-.39.39-1.02.39-1.41 0L7.7 12.2c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0L11 12.67V4c0-.55.45-1 1-1s1 .45 1 1v8.67z" />
     </svg>
   )
 }
@@ -318,6 +318,30 @@ function GithubIcon(props: SVGProps) {
         ></path>
         <path d="M26.484 91.806c-.133.3-.605.39-1.035.185-.44-.196-.685-.605-.543-.906.13-.31.603-.395 1.04-.188.44.197.69.61.537.91zm2.446 2.729c-.287.267-.85.143-1.232-.28-.396-.42-.47-.983-.177-1.254.298-.266.844-.14 1.24.28.394.426.472.984.17 1.255zM31.312 98.012c-.37.258-.976.017-1.35-.52-.37-.538-.37-1.183.01-1.44.373-.258.97-.025 1.35.507.368.545.368 1.19-.01 1.452zm3.261 3.361c-.33.365-1.036.267-1.552-.23-.527-.487-.674-1.18-.343-1.544.336-.366 1.045-.264 1.564.23.527.486.686 1.18.333 1.543zm4.5 1.951c-.147.473-.825.688-1.51.486-.683-.207-1.13-.76-.99-1.238.14-.477.823-.7 1.512-.485.683.206 1.13.756.988 1.237zm4.943.361c.017.498-.563.91-1.28.92-.723.017-1.308-.387-1.315-.877 0-.503.568-.91 1.29-.924.717-.013 1.306.387 1.306.88zm4.598-.782c.086.485-.413.984-1.126 1.117-.7.13-1.35-.172-1.44-.653-.086-.498.422-.997 1.122-1.126.714-.123 1.354.17 1.444.663zm0 0"></path>
       </g>
+    </svg>
+  )
+}
+
+function LoadingIndicatorIcon(props: SVGProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <circle
+        className="opacity-30"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        stroke-width="4"
+      ></circle>
+      <path
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+      ></path>
     </svg>
   )
 }
@@ -561,6 +585,23 @@ function UndoIcon(props: SVGProps) {
   )
 }
 
+function WestIcon(props: SVGProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      enableBackground="new 0 0 24 24"
+      height="24px"
+      viewBox="0 0 24 24"
+      width="24px"
+      fill="currentColor"
+      {...props}
+    >
+      <rect fill="none" height="24" width="24" />
+      <path d="M9.7,18.3L9.7,18.3c0.39-0.39,0.39-1.02,0-1.41L5.83,13H21c0.55,0,1-0.45,1-1v0c0-0.55-0.45-1-1-1H5.83l3.88-3.88 c0.39-0.39,0.39-1.02,0-1.41l0,0c-0.39-0.39-1.02-0.39-1.41,0L2.7,11.3c-0.39,0.39-0.39,1.02,0,1.41l5.59,5.59 C8.68,18.68,9.32,18.68,9.7,18.3z" />
+    </svg>
+  )
+}
+
 export {
   AccountSettingsIcon,
   AddIcon,
@@ -578,7 +619,8 @@ export {
   DownloadIcon,
   EyeIcon,
   GithubIcon,
-  ImportExportIcon,
+  ImportIcon,
+  LoadingIndicatorIcon,
   LinkIcon,
   MenuIcon,
   MoreHorizIcon,
@@ -593,4 +635,5 @@ export {
   StarIcon,
   TrashIcon,
   UndoIcon,
+  WestIcon,
 }
