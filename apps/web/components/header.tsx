@@ -17,9 +17,9 @@ export default function Header() {
     <header className="border-b border-slate-800 bg-slate-950">
       <div className="container flex h-16 items-center justify-between gap-8">
         <Link href="/">
-          <Logo className="h-7 w-7 text-primary sm:h-8 sm:w-8" />
+          <Logo className="h-7 w-7 text-primary tablet:h-8 tablet:w-8" />
         </Link>
-        <div className="hidden flex-1 items-center justify-between sm:flex">
+        <div className="hidden flex-1 items-center justify-between tablet:flex">
           <MainNav />
           <div className="ml-auto flex items-center gap-4">
             <Link
@@ -31,7 +31,7 @@ export default function Header() {
           </div>
         </div>
         <button
-          className="inline-flex h-9 w-9 items-center justify-center rounded sm:hidden"
+          className="inline-flex h-9 w-9 items-center justify-center rounded tablet:hidden"
           onClick={() => setIsMobileNavOpen(true)}
         >
           <div className="relative h-4 w-6">

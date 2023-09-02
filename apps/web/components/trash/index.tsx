@@ -23,7 +23,7 @@ export default function Trash() {
     <>
       <h3 className="font-medium">Trash</h3>
       <form
-        className="relative flex items-center"
+        className="relative mt-2 flex items-center"
         onSubmit={(e) => e.preventDefault()}
       >
         <SearchIcon className="absolute left-2 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-500" />

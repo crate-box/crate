@@ -11,30 +11,33 @@ import {
 } from "@acme/web-ui/icons"
 
 import Spinner from "~/components/spinner"
+import { useMediaQueries } from "~/hooks"
 import AccountSettings from "./account-settings"
 import AppearanceSettings from "./appearance-settings"
 import EditorSettings from "./editor-settings"
 import PreviewSettings from "./preview-settings"
 
 export default function Settings() {
+  const [isTablet] = useMediaQueries(["(max-width: 768px)"])
+
   return (
     <div className="mt-2 h-[calc(100%-30px)]">
       <TabsRoot defaultValue="appearance" className="h-full">
         <TabsList>
           <TabsTrigger value="appearance" aria-label="Appearance">
-            <PaletteIcon className="h-5 w-5" />
-            Appearances
+            <PaletteIcon className="h-4 w-4" />
+            {isTablet ? "UI" : "Appearances"}
           </TabsTrigger>
           <TabsTrigger value="editor" aria-label="Editor">
-            <CodeIcon className="h-5 w-5" />
+            <CodeIcon className="h-4 w-4" />
             Editor
           </TabsTrigger>
           <TabsTrigger value="preview" aria-label="Preview">
-            <EyeIcon className="h-5 w-5" />
+            <EyeIcon className="h-4 w-4" />
             Preview
           </TabsTrigger>
           <TabsTrigger value="account" aria-label="Account">
-            <AccountSettingsIcon className="h-5 w-5" />
+            <AccountSettingsIcon className="h-4 w-4" />
             Account
           </TabsTrigger>
         </TabsList>

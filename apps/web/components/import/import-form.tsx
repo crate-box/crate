@@ -104,7 +104,11 @@ export default function ImportForm() {
           className="hidden"
           {...register("files")}
         />
-        <Button aria-label="Import page from local file" variant="outline">
+        <Button
+          aria-label="Import page from local file"
+          variant="secondary"
+          className="bg-slate-700 hover:bg-slate-600 hover:text-slate-100"
+        >
           Import page
         </Button>
       </form>

@@ -22,7 +22,7 @@ const links = [
 export default function MainNav() {
   return (
     <nav>
-      <ul className="flex flex-col items-center gap-8 py-8 text-2xl sm:flex-row sm:py-0 sm:text-base">
+      <ul className="flex flex-col items-center gap-8 py-8 text-lg tablet:flex-row tablet:py-0 tablet:text-base">
         {links.map((link) => (
           <li key={link.label}>
             <NavLink href={link.href}>{link.label}</NavLink>

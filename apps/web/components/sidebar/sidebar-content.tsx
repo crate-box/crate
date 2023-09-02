@@ -24,13 +24,14 @@ import {
   ClearIcon,
   CogIcon,
   DashboardIcon,
-  ImportExportIcon,
+  ImportIcon,
   PageIcon,
   RocketIcon,
   SearchIcon,
   TrashIcon,
 } from "@acme/web-ui/icons"
 
+import { useMediaQueries, useStore } from "~/hooks"
 import { api } from "~/lib/api"
 import Import from "../import"
 import Pages from "../pages"
@@ -43,7 +44,9 @@ import SidebarPinned from "./sidebar-pinned"
 
 export default function SidebarContent() {
   const router = useRouter()
+  const [isTablet] = useMediaQueries(["(max-width: 768px)"])
   const { toast } = useToast()
+  const setIsSidebarOpen = useStore((state) => state.setIsSidebarOpen)
 
   const context = api.useContext()
   const { mutateAsync: createPage } = api.page.create.useMutation({
@@ -73,6 +76,12 @@ export default function SidebarContent() {
     },
   })
 
+  const onPopoverOpenChange = (open: boolean) => {
+    if (open) {
+      setIsSidebarOpen(false)
+    }
+  }
+
   const onCreatePage = async () => {
     await createPage({
       data: {
@@ -101,7 +110,7 @@ export default function SidebarContent() {
           </DialogTrigger>
           <DialogPortal>
             <DialogOverlay />
-            <DialogContent className="flex max-h-[80vh] min-h-[40vh] min-w-[540px] flex-col items-stretch">
+            <DialogContent className="flex flex-col items-stretch">
               <DialogTitle>Search</DialogTitle>
               <Search />
               <DialogClose asChild>
@@ -124,7 +133,7 @@ export default function SidebarContent() {
           </DialogTrigger>
           <DialogPortal>
             <DialogOverlay />
-            <DialogContent className="h-[80vh] min-w-[600px]">
+            <DialogContent className="">
               <DialogTitle>Settings</DialogTitle>
               <Settings />
               <DialogClose asChild>
@@ -158,7 +167,7 @@ export default function SidebarContent() {
         <SidebarPinned />
       </Suspense>
       <div className="flex flex-col items-stretch gap-0.5">
-        <PopoverRoot>
+        <PopoverRoot onOpenChange={onPopoverOpenChange}>
           <PopoverTrigger asChild>
             <SidebarButton icon={PageIcon} aria-label="Pages">
               Pages
@@ -167,8 +176,8 @@ export default function SidebarContent() {
           <PopoverPortal>
             <PopoverContent
               side="right"
-              sideOffset={12}
-              className="flex h-[40vh] min-w-[480px] flex-col items-stretch border border-slate-800 bg-slate-900 shadow-2xl"
+              sideOffset={isTablet ? 8 : 12}
+              className="flex h-screen w-screen flex-col items-stretch border border-slate-800 bg-slate-900 shadow-2xl tablet:h-[50vh] tablet:w-[480px]"
             >
               <Pages />
               <PopoverClose asChild>
@@ -183,7 +192,7 @@ export default function SidebarContent() {
             </PopoverContent>
           </PopoverPortal>
         </PopoverRoot>
-        <PopoverRoot>
+        <PopoverRoot onOpenChange={onPopoverOpenChange}>
           <PopoverTrigger asChild>
             <SidebarButton icon={DashboardIcon} aria-label="Spaces">
               Spaces
@@ -192,8 +201,8 @@ export default function SidebarContent() {
           <PopoverPortal>
             <PopoverContent
               side="right"
-              sideOffset={12}
-              className="flex h-[40vh] min-w-[480px] flex-col items-stretch border border-slate-800 bg-slate-900 shadow-2xl"
+              sideOffset={isTablet ? 8 : 12}
+              className="flex h-screen w-screen flex-col items-stretch border border-slate-800 bg-slate-900 shadow-2xl tablet:h-[50vh] tablet:w-[480px]"
             >
               <Spaces />
               <PopoverClose asChild>
@@ -208,17 +217,17 @@ export default function SidebarContent() {
             </PopoverContent>
           </PopoverPortal>
         </PopoverRoot>
-        <PopoverRoot>
+        <PopoverRoot onOpenChange={onPopoverOpenChange}>
           <PopoverTrigger asChild>
-            <SidebarButton icon={ImportExportIcon} aria-label="Import">
+            <SidebarButton icon={ImportIcon} aria-label="Import">
               Import
             </SidebarButton>
           </PopoverTrigger>
           <PopoverPortal>
             <PopoverContent
               side="right"
-              sideOffset={12}
-              className="flex h-[25vh] min-w-[400px] flex-col items-stretch border border-slate-800 bg-slate-900 shadow-2xl"
+              sideOffset={isTablet ? 8 : 12}
+              className="flex h-screen w-screen flex-col items-stretch border border-slate-800 bg-slate-900 shadow-2xl tablet:h-[50vh] tablet:w-[480px]"
             >
               <Import />
               <PopoverClose asChild>
@@ -233,7 +242,7 @@ export default function SidebarContent() {
             </PopoverContent>
           </PopoverPortal>
         </PopoverRoot>
-        <PopoverRoot>
+        <PopoverRoot onOpenChange={onPopoverOpenChange}>
           <PopoverTrigger asChild>
             <SidebarButton icon={TrashIcon} aria-label="Trash">
               Trash
@@ -242,8 +251,8 @@ export default function SidebarContent() {
           <PopoverPortal>
             <PopoverContent
               side="right"
-              sideOffset={12}
-              className="flex h-[40vh] min-w-[540px] flex-col items-stretch gap-2 border border-slate-800 bg-slate-900 shadow-2xl"
+              sideOffset={isTablet ? 8 : 12}
+              className="flex h-screen w-screen flex-col items-stretch border border-slate-800 bg-slate-900 shadow-2xl tablet:h-[50vh] tablet:w-[480px]"
             >
               <Trash />
               <PopoverClose asChild>

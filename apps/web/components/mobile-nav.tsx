@@ -16,11 +16,11 @@ export default function MobileNav() {
     <div
       className={`fixed left-0 top-0 ${
         isMobileNavOpen ? "translate-x-0" : "-translate-x-full"
-      } z-10 block h-screen w-screen bg-slate-900 transition-transform duration-500 sm:hidden`}
+      } z-10 block h-screen w-screen bg-slate-900 transition-transform duration-500 tablet:hidden`}
     >
       <div className="flex h-16 w-full items-center justify-end px-4">
         <button
-          className="inline-flex h-9 w-9 items-center justify-center rounded sm:hidden"
+          className="inline-flex h-9 w-9 items-center justify-center rounded tablet:hidden"
           onClick={() => setIsMobileNavOpen(false)}
         >
           <ClearIcon className="h-7 w-7" />
@@ -32,7 +32,7 @@ export default function MobileNav() {
           href="/sign-in"
           className={cn(
             buttonVariants({ variant: "primary", size: "lg" }),
-            "w-full"
+            "w-full text-lg tablet:text-base"
           )}
         >
           Sign In

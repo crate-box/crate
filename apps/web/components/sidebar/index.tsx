@@ -5,7 +5,7 @@ import type { ResizeCallback } from "re-resizable"
 import { Resizable } from "re-resizable"
 
 import ProfileButton from "~/components/profile/profile-button"
-import { useStore } from "~/hooks"
+import { useMediaQueries, useStore } from "~/hooks"
 import SidebarSkeleton from "../skeletons/sidebar-skeleton"
 import SidebarContent from "./sidebar-content"
 
@@ -20,6 +20,8 @@ export default function Sidebar() {
     setSidebarWidth(elemRef.getBoundingClientRect().width)
   }
 
+  const [isTablet] = useMediaQueries(["(max-width: 768px)"])
+
   return (
     <div
       className={`absolute left-0 top-0 z-10 h-screen ${
@@ -29,10 +31,13 @@ export default function Sidebar() {
       } transition-all duration-300`}
     >
       <Resizable
-        className="min-w-[240px] max-w-[400px] bg-slate-950 transition-all duration-300"
-        defaultSize={{ width: SIDEBAR_DEFAULT_WIDTH, height: "100%" }}
-        minWidth={SIDEBAR_DEFAULT_WIDTH}
-        maxWidth={SIDEBAR_MAX_WIDTH}
+        className="w-full min-w-[240px] max-w-full bg-slate-950 transition-all duration-300 tablet:w-auto tablet:max-w-[400px]"
+        defaultSize={{
+          width: isTablet ? "100vw" : SIDEBAR_DEFAULT_WIDTH,
+          height: "100%",
+        }}
+        minWidth={isTablet ? "100vw" : SIDEBAR_DEFAULT_WIDTH}
+        maxWidth={isTablet ? "100vw" : SIDEBAR_MAX_WIDTH}
         enable={{
           top: false,
           right: true,

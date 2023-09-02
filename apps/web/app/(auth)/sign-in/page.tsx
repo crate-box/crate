@@ -10,7 +10,7 @@ export default function SignIn({
 }) {
   return (
     <div className="grid h-screen place-items-center bg-slate-950 px-4">
-      <div className="flex w-full flex-col items-center rounded-lg bg-slate-900 p-6 xs:w-[360px]">
+      <div className="flex w-full max-w-[360px] flex-col items-center rounded-lg bg-slate-900 p-8">
         <Logo className="h-12 w-12 text-primary" />
         <h1 className="mt-8 text-center text-3xl font-bold">Welcome back!</h1>
         <p className="text-center text-lg text-slate-300">
@@ -22,7 +22,7 @@ export default function SignIn({
           </p>
         )}
         <div className="mt-8 self-stretch">
-          <div className="flex flex-col items-stretch gap-3">
+          <div className="flex flex-col items-stretch gap-2">
             <GithubLoginButton />
             <DiscordLoginButton />
           </div>
