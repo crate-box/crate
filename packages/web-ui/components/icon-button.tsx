@@ -5,7 +5,7 @@ import type { VariantProps } from "class-variance-authority"
 import { cn } from "../utils"
 
 const iconButtonVariants = cva(
-  "w-7 h-7 inline-flex items-center justify-center bg-transparent hover:bg-slate-800 transition-colors",
+  "w-7 h-7 inline-flex items-center justify-center bg-transparent hover:bg-slate-800 transition-colors focus:outline-none focus-visible:outline-none",
   {
     variants: {
       variant: {

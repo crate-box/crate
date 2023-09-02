@@ -55,7 +55,7 @@ const TabsTrigger = React.forwardRef(
       <RadixTabs.Trigger
         ref={ref}
         className={cn(
-          "inline-flex h-8 cursor-pointer items-center gap-2 rounded-tl rounded-tr px-4 font-medium text-slate-500 transition-colors duration-200 data-[state=active]:bg-slate-800 data-[state=active]:text-slate-200",
+          "tablet:px-4 inline-flex h-8 cursor-pointer items-center gap-2 rounded-tl rounded-tr px-3 font-medium text-slate-500 transition-colors duration-200 focus:outline-none focus-visible:outline-none data-[state=active]:bg-slate-800 data-[state=active]:text-slate-200",
           className
         )}
         {...props}

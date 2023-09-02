@@ -24,7 +24,7 @@ const AlertOverlay = React.forwardRef(
         ref={ref}
         className={cn(
           className,
-          "fixed inset-0 z-20 bg-black/30 data-[state=open]:animate-overlayShow"
+          "fixed inset-0 z-[120] bg-black/30 data-[state=open]:animate-overlayShow"
         )}
         {...props}
       />
@@ -45,7 +45,7 @@ const AlertContent = React.forwardRef(
       <RadixAlert.Content
         ref={ref}
         className={cn(
-          "focus:outline:none fixed left-1/2 top-1/2 z-30 flex max-h-[85vh] w-[90w] max-w-[500px] -translate-x-1/2 -translate-y-1/2 flex-col gap-2 rounded bg-slate-900 p-4 shadow-xl data-[state=open]:animate-contentShow",
+          "focus:outline:none fixed left-1/2 top-1/2 z-[150] flex max-h-[85vh] w-[95vw] max-w-[480px] -translate-x-1/2 -translate-y-1/2 flex-col gap-2 rounded bg-slate-900 p-4 shadow-xl data-[state=open]:animate-contentShow",
           className
         )}
         {...props}
