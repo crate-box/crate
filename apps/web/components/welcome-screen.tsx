@@ -63,10 +63,8 @@ export default function WelcomeScreen() {
       <Topbar />
       <div className="flex h-full w-full flex-1 flex-col items-center justify-center">
         <div className="flex flex-col items-center gap-2">
-          <ProductLaunch className="h-[320px] w-[320px] text-primary" />
-          <p className="text-lg">
-            Welcome back! Ready to boost your workspace?
-          </p>
+          <ProductLaunch className="h-[240px] w-[240px] text-primary tablet:h-[320px] tablet:w-[320px]" />
+          <p className="text-base tablet:text-lg">Welcome back!</p>
         </div>
         <div className="mt-6 flex items-center gap-4">
           <Button onClick={onCreatePage}>New Page</Button>
