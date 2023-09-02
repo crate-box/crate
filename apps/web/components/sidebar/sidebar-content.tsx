@@ -77,7 +77,7 @@ export default function SidebarContent() {
   })
 
   const onPopoverOpenChange = (open: boolean) => {
-    if (open) {
+    if (open && isTablet) {
       setIsSidebarOpen(false)
     }
   }
