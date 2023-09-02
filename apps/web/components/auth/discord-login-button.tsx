@@ -14,7 +14,7 @@ export default function DiscordLoginButton(props: ButtonProps) {
   return (
     <Button
       aria-label="Continue with Discord"
-      className="justify-start gap-6 bg-[#5865f2] text-[#e6edf3]"
+      className="justify-start gap-6 bg-[#5865f2] text-lg text-[#e6edf3]"
       variant="unstyled"
       size="xl"
       onClick={async () => {
@@ -25,7 +25,7 @@ export default function DiscordLoginButton(props: ButtonProps) {
     >
       <span className="inline-flex aspect-square h-5 items-center justify-center">
         {isLoading ? (
-          <Logo className="h-4 w-4 animate-spin" />
+          <Logo className="h-5 w-5 animate-spin" />
         ) : (
           <DiscordIcon className="h-5 w-5" />
         )}
