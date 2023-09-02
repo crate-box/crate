@@ -30,6 +30,7 @@ import {
   TrashIcon,
 } from "@acme/web-ui/icons"
 
+import ListSkeleton from "~/components/skeletons/list-skeleton"
 import type { RouterOutputs } from "~/lib/api"
 import { api } from "~/lib/api"
 import { formatDate } from "~/lib/utils"
@@ -200,8 +201,22 @@ export default function SpaceActions({
                   </MenuButton>
                 </PopoverTrigger>
                 <PopoverPortal>
-                  <PopoverContent side="left" sideOffset={12}>
-                    <AddPagePopover space={space} />
+                  <PopoverContent
+                    side="left"
+                    sideOffset={12}
+                    className="h-[280px]"
+                  >
+                    <h3 className="font-medium">Add an existing page</h3>
+                    <React.Suspense
+                      fallback={
+                        <ListSkeleton
+                          size={6}
+                          elementClassName="bg-slate-700"
+                        />
+                      }
+                    >
+                      <AddPagePopover space={space} />
+                    </React.Suspense>
                     <PopoverClose asChild>
                       <IconButton
                         size="sm"

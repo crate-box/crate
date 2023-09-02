@@ -100,7 +100,7 @@ export default function TrashList({ query }: { query: string }) {
   }
 
   return (
-    <div className="mt-2 flex flex-col items-stretch gap-1 overflow-auto">
+    <div className="flex flex-col items-stretch gap-1 overflow-auto">
       {trashedPages.map((page) => (
         <TrashPage
           key={page.id}

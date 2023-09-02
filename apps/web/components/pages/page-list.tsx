@@ -11,7 +11,7 @@ export default function PageList() {
   const [pages] = api.page.all.useSuspenseQuery()
 
   return (
-    <div className="mt-2 flex flex-col items-stretch gap-1 overflow-auto">
+    <div className="flex flex-col items-stretch gap-1 overflow-auto">
       {pages.length > 0 ? (
         pages.map((page) => (
           <PopoverClose key={page.id} asChild>

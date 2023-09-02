@@ -6,8 +6,8 @@ import { useForm } from "react-hook-form"
 import { Input } from "@acme/web-ui"
 import { ClearIcon, SearchIcon } from "@acme/web-ui/icons"
 
-import Spinner from "~/components/spinner"
 import { useDebounce } from "~/hooks"
+import ListSkeleton from "../skeletons/list-skeleton"
 import TrashList from "./trash-list"
 
 interface TrashSearchFormInputs {
@@ -44,8 +44,8 @@ export default function Trash() {
           <ClearIcon className="h-3.5 w-3.5" />
         </button>
       </form>
-      <div className="h-[calc(40vh-44px)] flex-1">
-        <React.Suspense fallback={<Spinner text="Loading trash" />}>
+      <div className="mt-2 h-[calc(40vh-44px)] flex-1">
+        <React.Suspense fallback={<ListSkeleton />}>
           <TrashList query={debouncedQuery} />
         </React.Suspense>
       </div>

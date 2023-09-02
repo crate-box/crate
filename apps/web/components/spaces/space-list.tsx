@@ -11,7 +11,7 @@ export default function SpaceList() {
   const [spaces] = api.space.all.useSuspenseQuery()
 
   return (
-    <div className="mt-2 flex flex-col items-stretch gap-1 overflow-auto">
+    <div className="flex flex-col items-stretch gap-1 overflow-auto">
       {spaces.length > 0 ? (
         spaces.map((space) => (
           <PopoverClose key={space.id} asChild>
