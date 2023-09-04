@@ -10,21 +10,23 @@ export function useMediaQueries(
 
   const isServer = typeof window === "undefined"
 
-  const queryLists = queries.map((q) => window.matchMedia(q))
+  const queryLists = isServer
+    ? undefined
+    : queries.map((q) => window.matchMedia(q))
   const getValue = () => {
-    return queryLists.map((ql) => ql.matches)
+    return queryLists?.map((ql) => ql.matches)
   }
-  const matches = queryLists.map((ql) => ql.matches)
+  const matches = queryLists?.map((ql) => ql.matches)
 
   const [value, setValue] = useState(isServer ? initialValues : matches)
 
   useLayoutEffect(() => {
     const handler = () => setValue(getValue)
-    queryLists.forEach((ql) => ql.addEventListener("change", handler))
+    queryLists?.forEach((ql) => ql.addEventListener("change", handler))
 
     return () =>
-      queryLists.forEach((ql) => ql.removeEventListener("change", handler))
+      queryLists?.forEach((ql) => ql.removeEventListener("change", handler))
   })
 
-  return value
+  return value ?? initialValues
 }
