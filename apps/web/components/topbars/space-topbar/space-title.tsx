@@ -25,6 +25,7 @@ import { useToast } from "@acme/web-ui/hooks"
 import { MenuIcon } from "@acme/web-ui/icons"
 
 import Icon from "~/components/icon"
+import { useStore } from "~/hooks"
 import type { RouterOutputs } from "~/lib/api"
 import { api } from "~/lib/api"
 
@@ -39,6 +40,12 @@ export default function SpaceTitle({
   space: RouterOutputs["space"]["byId"]
 }) {
   const { toast } = useToast()
+  const isSidebarOpen = useStore((state) => state.isSidebarOpen)
+  const setIsSidebarOpen = useStore((state) => state.setIsSidebarOpen)
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen)
+  }
 
   const context = api.useContext()
 
@@ -77,7 +84,11 @@ export default function SpaceTitle({
 
   return (
     <div className="flex items-center">
-      <IconButton className="mr-2" aria-label="Toggle sidebar">
+      <IconButton
+        className="mr-2"
+        aria-label="Toggle sidebar"
+        onClick={toggleSidebar}
+      >
         <MenuIcon className="h-6 w-6" />
       </IconButton>
       <PopoverRoot>

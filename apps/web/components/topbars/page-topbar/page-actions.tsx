@@ -11,6 +11,7 @@ import {
   HoverCardRoot,
   HoverCardTrigger,
   IconButton,
+  PopoverAnchor,
   PopoverArrow,
   PopoverClose,
   PopoverContent,
@@ -149,7 +150,8 @@ export default function PageActions({
       <HoverCardRoot>
         <HoverCardTrigger asChild>
           <div className="select-none text-slate-400">
-            Edited {formatDate(page.updatedAt)}
+            <span className="hidden phone:inline">Edited </span>
+            {formatDate(page.updatedAt)}
           </div>
         </HoverCardTrigger>
         <HoverCardPortal>
@@ -178,20 +180,22 @@ export default function PageActions({
         <Tooltip text="More actions">
           <PopoverTrigger asChild>
             <IconButton aria-label="More actions">
-              <MoreHorizIcon className="h-5 w-5" />
+              <MoreHorizIcon className="h-6 w-6" />
             </IconButton>
           </PopoverTrigger>
         </Tooltip>
         <PopoverPortal>
           <PopoverContent className="p-2">
             <div className="flex flex-col items-stretch">
-              <MenuButton
-                icon={mode === "EDIT" ? EyeIcon : CodeIcon}
-                onClick={toggleMode}
-                aria-label="Toggle mode"
-              >
-                {mode === "EDIT" ? "Preview" : "Edit"}
-              </MenuButton>
+              <PopoverClose asChild>
+                <MenuButton
+                  icon={mode === "EDIT" ? EyeIcon : CodeIcon}
+                  onClick={toggleMode}
+                  aria-label="Toggle mode"
+                >
+                  {mode === "EDIT" ? "Preview" : "Edit"}
+                </MenuButton>
+              </PopoverClose>
               <hr className="my-1 text-slate-600" />
               <PopoverRoot>
                 <PopoverTrigger asChild>
@@ -199,11 +203,14 @@ export default function PageActions({
                     Move to
                   </MenuButton>
                 </PopoverTrigger>
+                <PopoverAnchor asChild>
+                  <div className="pointer-events-none fixed left-0 top-0 opacity-0 tablet:relative" />
+                </PopoverAnchor>
                 <PopoverPortal>
                   <PopoverContent
                     side="left"
                     sideOffset={12}
-                    className="h-[280px]"
+                    className="-mr-3 h-screen w-screen tablet:mr-0 tablet:h-[280px] tablet:w-[320px]"
                   >
                     <h3 className="font-medium">Move to</h3>
                     <React.Suspense
@@ -229,37 +236,45 @@ export default function PageActions({
                 </PopoverPortal>
               </PopoverRoot>
               <hr className="my-1 text-slate-600" />
-              <MenuSwitch
-                icon={StarIcon}
-                checked={page.pinned}
-                onCheckedChange={onUpdatePagePinned}
-                aria-label="Toggle pin sidebar"
-              >
-                Pin to sidebar
-              </MenuSwitch>
-              <MenuButton
-                icon={LinkIcon}
-                onClick={onCopyLink}
-                aria-label="Copy page link"
-              >
-                Copy link
-              </MenuButton>
-              <MenuButton
-                icon={CopyIcon}
-                onClick={onDuplicatePage}
-                aria-label="Duplicate page"
-              >
-                Duplicate
-              </MenuButton>
+              <PopoverClose asChild>
+                <MenuSwitch
+                  icon={StarIcon}
+                  checked={page.pinned}
+                  onCheckedChange={onUpdatePagePinned}
+                  aria-label="Toggle pin sidebar"
+                >
+                  Pin to sidebar
+                </MenuSwitch>
+              </PopoverClose>
+              <PopoverClose asChild>
+                <MenuButton
+                  icon={LinkIcon}
+                  onClick={onCopyLink}
+                  aria-label="Copy page link"
+                >
+                  Copy link
+                </MenuButton>
+              </PopoverClose>
+              <PopoverClose asChild>
+                <MenuButton
+                  icon={CopyIcon}
+                  onClick={onDuplicatePage}
+                  aria-label="Duplicate page"
+                >
+                  Duplicate
+                </MenuButton>
+              </PopoverClose>
               <hr className="my-1 text-slate-600" />
-              <MenuButton
-                icon={TrashIcon}
-                onClick={() => onUpdatePageTrashed(true)}
-                disabled={page.trashed}
-                aria-label="Move page to trash"
-              >
-                Delete
-              </MenuButton>
+              <PopoverClose asChild>
+                <MenuButton
+                  icon={TrashIcon}
+                  onClick={() => onUpdatePageTrashed(true)}
+                  disabled={page.trashed}
+                  aria-label="Move page to trash"
+                >
+                  Delete
+                </MenuButton>
+              </PopoverClose>
             </div>
             <PopoverArrow />
           </PopoverContent>

@@ -11,7 +11,7 @@ export default function SpaceTopbar({
   space: RouterOutputs["space"]["byId"]
 }) {
   return (
-    <div className="flex h-10 items-center justify-between border-b border-slate-800 px-4 leading-none">
+    <div className="flex h-10 items-center justify-between border-b border-slate-800 px-2 leading-none tablet:px-4">
       <SpaceTitle space={space} />
       <SpaceTrashed space={space} />
       <SpaceActions space={space} />

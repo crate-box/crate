@@ -12,6 +12,7 @@ import {
   HoverCardRoot,
   HoverCardTrigger,
   IconButton,
+  PopoverAnchor,
   PopoverArrow,
   PopoverClose,
   PopoverContent,
@@ -142,7 +143,8 @@ export default function SpaceActions({
       <HoverCardRoot>
         <HoverCardTrigger asChild>
           <div className="select-none text-slate-400">
-            Edited {formatDate(space.updatedAt)}
+            <span className="hidden phone:inline">Edited </span>
+            {formatDate(space.updatedAt)}
           </div>
         </HoverCardTrigger>
         <HoverCardPortal>
@@ -178,33 +180,40 @@ export default function SpaceActions({
         <PopoverPortal>
           <PopoverContent className="p-2">
             <div className="flex flex-col items-stretch">
-              <MenuSwitch
-                aria-label="Toggle pin sidebar"
-                icon={StarIcon}
-                checked={space.pinned}
-                onCheckedChange={onUpdateSpacePinned}
-              >
-                Pin to sidebar
-              </MenuSwitch>
+              <PopoverClose asChild>
+                <MenuSwitch
+                  aria-label="Toggle pin sidebar"
+                  icon={StarIcon}
+                  checked={space.pinned}
+                  onCheckedChange={onUpdateSpacePinned}
+                >
+                  Pin to sidebar
+                </MenuSwitch>
+              </PopoverClose>
               <hr className="my-1 text-slate-600" />
-              <MenuButton
-                icon={AddIcon}
-                onClick={onNewPage}
-                aria-label="Add new page"
-              >
-                New page
-              </MenuButton>
+              <PopoverClose asChild>
+                <MenuButton
+                  icon={AddIcon}
+                  onClick={onNewPage}
+                  aria-label="Add new page"
+                >
+                  New page
+                </MenuButton>
+              </PopoverClose>
               <PopoverRoot>
                 <PopoverTrigger asChild>
                   <MenuButton icon={PageIcon} aria-label="Add an existing page">
                     Add an existing page
                   </MenuButton>
                 </PopoverTrigger>
+                <PopoverAnchor asChild>
+                  <div className="pointer-events-none fixed left-0 top-0 opacity-0 tablet:relative" />
+                </PopoverAnchor>
                 <PopoverPortal>
                   <PopoverContent
                     side="left"
                     sideOffset={12}
-                    className="h-[280px]"
+                    className="-mr-3 h-screen w-screen tablet:mr-0 tablet:h-[280px] tablet:w-[320px]"
                   >
                     <h3 className="font-medium">Add an existing page</h3>
                     <React.Suspense
@@ -230,13 +239,15 @@ export default function SpaceActions({
                 </PopoverPortal>
               </PopoverRoot>
               <hr className="my-1 text-slate-600" />
-              <MenuButton
-                icon={TrashIcon}
-                onClick={() => onUpdateSpaceTrashed(true)}
-                aria-label="Move space to trash"
-              >
-                Delete
-              </MenuButton>
+              <PopoverClose asChild>
+                <MenuButton
+                  icon={TrashIcon}
+                  onClick={() => onUpdateSpaceTrashed(true)}
+                  aria-label="Move space to trash"
+                >
+                  Delete
+                </MenuButton>
+              </PopoverClose>
             </div>
             <PopoverArrow />
           </PopoverContent>

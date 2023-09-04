@@ -1,18 +1,25 @@
 "use client"
 
 import Sidebar from "~/components/sidebar"
-import { useStore } from "~/hooks"
+import { useMediaQueries, useStore } from "~/hooks"
 
 export default function AppInner({ children }: React.PropsWithChildren) {
   const sidebarWidth = useStore((state) => state.sidebarWidth)
   const isSidebarOpen = useStore((state) => state.isSidebarOpen)
+  const [isTablet] = useMediaQueries(["(max-width: 768px)"])
 
   return (
     <>
       <Sidebar />
       <div
         className="flex-1"
-        style={{ marginLeft: isSidebarOpen ? sidebarWidth + "px" : "0px" }}
+        style={{
+          marginLeft: isTablet
+            ? "0px"
+            : isSidebarOpen
+            ? sidebarWidth + "px"
+            : "0px",
+        }}
       >
         {children}
       </div>

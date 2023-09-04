@@ -28,16 +28,16 @@ export default function Sidebar() {
         isSidebarOpen
           ? "pointer-events-auto translate-x-0 opacity-100"
           : "pointer-events-none -translate-x-full opacity-0"
-      } transition-all duration-300`}
+      } shadow-2xl transition-all duration-300 tablet:shadow-none`}
     >
       <Resizable
         className="w-full min-w-[240px] max-w-full bg-slate-950 transition-all duration-300 tablet:w-auto tablet:max-w-[400px]"
         defaultSize={{
-          width: isTablet ? "100vw" : SIDEBAR_DEFAULT_WIDTH,
+          width: isTablet ? "60vw" : SIDEBAR_DEFAULT_WIDTH,
           height: "100%",
         }}
-        minWidth={isTablet ? "100vw" : SIDEBAR_DEFAULT_WIDTH}
-        maxWidth={isTablet ? "100vw" : SIDEBAR_MAX_WIDTH}
+        minWidth={isTablet ? "60vw" : SIDEBAR_DEFAULT_WIDTH}
+        maxWidth={isTablet ? "60vw" : SIDEBAR_MAX_WIDTH}
         enable={{
           top: false,
           right: true,

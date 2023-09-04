@@ -11,7 +11,7 @@ export default function PageTopbar({
   page: RouterOutputs["page"]["byId"]
 }) {
   return (
-    <div className="flex h-10 items-center justify-between border-b border-slate-800 px-4 leading-none">
+    <div className="flex h-10 items-center justify-between border-b border-slate-800 px-2 leading-none tablet:px-4">
       <PageTitle page={page} />
       <PageTrashed page={page} />
       <PageActions page={page} />
