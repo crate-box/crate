@@ -10,7 +10,7 @@ import { cn } from "../utils"
 const ToastProvider = RadixToast.Provider
 
 const toastVariants = cva(
-  "z-[200] relative grid min-w-[400px] max-w-[50vw] grid-cols-[auto_max-content] items-center gap-x-4 rounded px-4 py-2 shadow-xl [grid-template-areas:_'title_action'_'description_action'] data-[swipe=cancel]:translate-x-0 data-[swipe=move]:translate-x-[var(--radix-toast-wipe-move)] data-[state=closed]:animate-hide data-[state=open]:animate-slideIn data-[swipe=end]:animate-swipeOut data-[swipe=cancel]:transition-[transform_200ms_ease-out]",
+  "z-[200] relative grid min-w-[100vw] max-w-[100vw] tablet:min-w-[400px] tablet:max-w-[50vw] grid-cols-[auto_max-content] items-center gap-x-4 rounded px-4 py-2 shadow-xl [grid-template-areas:_'title_action'_'description_action'] data-[swipe=cancel]:translate-x-0 data-[swipe=move]:translate-x-[var(--radix-toast-wipe-move)] data-[state=closed]:animate-hide data-[state=open]:animate-slideIn data-[swipe=end]:animate-swipeOut data-[swipe=cancel]:transition-[transform_200ms_ease-out]",
   {
     variants: {
       variant: {
@@ -116,7 +116,7 @@ const ToastViewport = React.forwardRef(
       <RadixToast.Viewport
         ref={ref}
         className={cn(
-          "fixed bottom-0 right-0 p-[var(--viewport-padding)] [--viewport-padding:_16px]",
+          "fixed bottom-0 right-0 p-0 [--viewport-padding:_16px] tablet:p-[var(--viewport-padding)]",
           className
         )}
         {...props}
