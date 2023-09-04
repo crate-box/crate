@@ -43,6 +43,22 @@ function AddIcon(props: SVGProps) {
   )
 }
 
+function AddImageIcon(props: SVGProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="24px"
+      viewBox="0 0 24 24"
+      width="24px"
+      fill="currentColor"
+      {...props}
+    >
+      <path d="M0 0h24v24H0V0z" fill="none" />
+      <path d="M21.02 5H19V2.98c0-.54-.44-.98-.98-.98h-.03c-.55 0-.99.44-.99.98V5h-2.01c-.54 0-.98.44-.99.98v.03c0 .55.44.99.99.99H17v2.01c0 .54.44.99.99.98h.03c.54 0 .98-.44.98-.98V7h2.02c.54 0 .98-.44.98-.98v-.04c0-.54-.44-.98-.98-.98zM16 9.01V8h-1.01c-.53 0-1.03-.21-1.41-.58-.37-.38-.58-.88-.58-1.44 0-.36.1-.69.27-.98H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8.28c-.3.17-.64.28-1.02.28-1.09-.01-1.98-.9-1.98-1.99zM15.96 19H6c-.41 0-.65-.47-.4-.8l1.98-2.63c.21-.28.62-.26.82.02L10 18l2.61-3.48c.2-.26.59-.27.79-.01l2.95 3.68c.26.33.03.81-.39.81z" />
+    </svg>
+  )
+}
+
 function CheckIcon(props: SVGProps) {
   return (
     <svg
@@ -249,6 +265,22 @@ function EyeIcon(props: SVGProps) {
     >
       <path d="M0 0h24v24H0V0z" fill="none" />
       <path d="M12 4C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+    </svg>
+  )
+}
+
+function ImageIcon(props: SVGProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="24px"
+      viewBox="0 0 24 24"
+      width="24px"
+      fill="currentColor"
+      {...props}
+    >
+      <path d="M0 0h24v24H0V0z" fill="none" />
+      <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.9 13.98l2.1 2.53 3.1-3.99c.2-.26.6-.26.8.01l3.51 4.68c.25.33.01.8-.4.8H6.02c-.42 0-.65-.48-.39-.81L8.12 14c.19-.26.57-.27.78-.02z" />
     </svg>
   )
 }
@@ -605,6 +637,7 @@ function WestIcon(props: SVGProps) {
 export {
   AccountSettingsIcon,
   AddIcon,
+  AddImageIcon,
   CheckIcon,
   ChevronDownIcon,
   ChevronUpIcon,
@@ -619,6 +652,7 @@ export {
   DownloadIcon,
   EyeIcon,
   GithubIcon,
+  ImageIcon,
   ImportIcon,
   LoadingIndicatorIcon,
   LinkIcon,
