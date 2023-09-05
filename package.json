@@ -12,6 +12,8 @@
     "clean:workspaces": "turbo run clean && pnpm run clean",
     "db:push": "pnpm -F db push",
     "db:generate": "pnpm -F db generate",
+    "db:migrate-dev": "pnpm -F db migrate:dev",
+    "db:migrate-deploy": "pnpm -F db migrate:deploy",
     "db:studio": "pnpm -F db studio",
     "lint": "turbo run lint --continue -- --cache --cache-location='node_modules/.cache/.eslintcache'",
     "lint:fix": "turbo run lint --continue -- --fix --cache --cache-location='node_modules/.cache/.eslintcache'",
