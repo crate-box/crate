@@ -44,6 +44,21 @@ model Space {
   pages       Page[]
 }
 
+enum AssetType {
+  IMAGE
+  VIDEO
+  FILE
+}
+
+model Asset {
+  id        String    @id @default(cuid())
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  url       String
+  type      AssetType
+  createdAt DateTime  @default(now())
+}
+
 model Settings {
   id                        String  @id @default(cuid())
   user                      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -103,6 +118,7 @@ model User {
   edittedSpaces Space[]   @relation("SpaceEditor")
   spaces        Space[]   @relation("SpaceMembers")
   settings      Settings?
+  assets        Asset[]
 }
 
 model VerificationToken {
