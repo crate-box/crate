@@ -15,7 +15,7 @@ const SwitchRoot = React.forwardRef(
       <RadixSwitch.Root
         ref={ref}
         className={cn(
-          "relative h-5 w-10 cursor-default rounded-full bg-slate-600 shadow-xl outline-none data-[state=checked]:bg-primary-light",
+          "relative h-5 w-10 cursor-default cursor-pointer rounded-full bg-slate-600 shadow-xl outline-none data-[state=checked]:bg-primary-light",
           className
         )}
         {...props}

@@ -81,7 +81,7 @@ const SelectContent = React.forwardRef(
       <RadixSelect.Content
         ref={ref}
         className={cn(
-          "overflow-hidden rounded bg-slate-800 shadow-xl",
+          "z-[250] overflow-hidden rounded bg-slate-800 shadow-xl",
           className
         )}
         {...props}

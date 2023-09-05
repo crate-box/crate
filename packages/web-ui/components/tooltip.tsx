@@ -22,7 +22,7 @@ const TooltipContent = React.forwardRef(
       <RadixTooltip.Content
         ref={ref}
         className={cn(
-          "rounded bg-slate-700 px-3 py-1 text-sm font-medium shadow-xl data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade data-[state=delayed-open]:data-[side=left]:animate-slideRightAndFade data-[state=delayed-open]:data-[side=right]:animate-slideLeftAndFade data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade",
+          "z-[1000] rounded bg-slate-700 px-3 py-1 text-sm font-medium shadow-xl data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade data-[state=delayed-open]:data-[side=left]:animate-slideRightAndFade data-[state=delayed-open]:data-[side=right]:animate-slideLeftAndFade data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade",
           className
         )}
         {...props}
