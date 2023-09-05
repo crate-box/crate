@@ -93,8 +93,8 @@ jobs:
       - name: Run local postgres database with docker
         run: docker run -d --name postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:15.3-alpine3.18
 
-      - name: Generate prisma client and push to database
-        run: pnpm run db:generate && pnpm run db:push
+      - name: Generate prisma client and migrate database
+        run: pnpm run db:generate && pnpm run db:migrate-deploy
 
       - name: Run the development server
         run: pnpm run dev &
