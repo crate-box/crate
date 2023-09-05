@@ -88,6 +88,7 @@ jobs:
           echo GITHUB_SECRET="${{ secrets.DEV_GITHUB_SECRET }}" >> .env
           echo DISCORD_CLIENT_ID="${{ secrets.DEV_DISCORD_CLIENT_ID }}" >> .env
           echo DISCORD_CLIENT_SECRET="${{ secrets.DEV_DISCORD_CLIENT_SECRET }}" >> .env
+          echo CLOUDINARY_URL="${{ secrets.CLOUDINARY_URL }}" >> .env
           cat .env
 
       - name: Run local postgres database with docker
@@ -119,6 +120,7 @@ jobs:
           echo GITHUB_SECRET="${{ secrets.OAUTH_GITHUB_SECRET }}" >> .env
           echo DISCORD_CLIENT_ID="${{ secrets.DISCORD_CLIENT_ID }}" >> .env
           echo DISCORD_CLIENT_SECRET="${{ secrets.DISCORD_CLIENT_SECRET }}" >> .env
+          echo CLOUDINARY_URL="${{ secrets.CLOUDINARY_URL }}" >> .env
           cat .env
 
       - name: Build the image
@@ -154,6 +156,7 @@ jobs:
             echo GITHUB_SECRET="${{ secrets.OAUTH_GITHUB_SECRET }}" >> ~/env/crate/.env
             echo DISCORD_CLIENT_ID="${{ secrets.DISCORD_CLIENT_ID }}" >> ~/env/crate/.env
             echo DISCORD_CLIENT_SECRET="${{ secrets.DISCORD_CLIENT_SECRET }}" >> ~/env/crate/.env
+            echo CLOUDINARY_URL="${{ secrets.CLOUDINARY_URL }}" >> ~/env/crate/.env
             cat ~/env/crate/.env
             docker pull dangminhngo/crate-web:latest
             docker stop crate-web
