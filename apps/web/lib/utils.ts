@@ -20,3 +20,12 @@ export function setGlobalCssVar(obj: { [key: string]: string }) {
     ;(root as HTMLElement).style.setProperty(key, obj[key]!)
   })
 }
+
+export function getAssetFilename(url: string) {
+  return url.split("/").slice(-1)[0]!
+}
+
+export function getVideoThumbnailUrl(url: string) {
+  const ext = url.split(".").slice(-1)[0]!
+  return url.replace(ext, "png")
+}

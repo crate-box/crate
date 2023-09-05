@@ -147,12 +147,11 @@ const components = {
     />
   ),
   img: ({ className, src, alt }: React.ImgHTMLAttributes<HTMLImageElement>) => (
-    <Image
-      className={cn("mt-6 rounded-md border border-slate-200", className)}
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      className={cn("mt-6 rounded-md", className)}
       src={src ?? ""}
       alt={alt ?? "Image"}
-      width={672}
-      height={378}
     />
   ),
   hr: (props: React.HTMLAttributes<HTMLHRElement>) => (

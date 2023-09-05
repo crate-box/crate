@@ -5,6 +5,13 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 
 import {
+  DialogClose,
+  DialogContent,
+  DialogOverlay,
+  DialogPortal,
+  DialogRoot,
+  DialogTitle,
+  DialogTrigger,
   HoverCardArrow,
   HoverCardContent,
   HoverCardPortal,
@@ -26,6 +33,7 @@ import {
   CodeIcon,
   CopyIcon,
   EyeIcon,
+  ImageIcon,
   LinkIcon,
   MoreHorizIcon,
   ShortcutIcon,
@@ -33,6 +41,7 @@ import {
   TrashIcon,
 } from "@acme/web-ui/icons"
 
+import Assets from "~/components/assets"
 import Icon from "~/components/icon"
 import ListSkeleton from "~/components/skeletons/list-skeleton"
 import { useClipboard, useStore } from "~/hooks"
@@ -196,6 +205,29 @@ export default function PageActions({
                   {mode === "EDIT" ? "Preview" : "Edit"}
                 </MenuButton>
               </PopoverClose>
+              <DialogRoot>
+                <DialogTrigger asChild>
+                  <MenuButton icon={ImageIcon} aria-label="Insert an asset">
+                    Insert an asset
+                  </MenuButton>
+                </DialogTrigger>
+                <DialogPortal>
+                  <DialogOverlay />
+                  <DialogContent>
+                    <DialogTitle>Assets</DialogTitle>
+                    <Assets />
+                    <DialogClose asChild>
+                      <IconButton
+                        size="sm"
+                        className="absolute right-2 top-2 text-slate-500 hover:text-slate-300"
+                        aria-label="Close"
+                      >
+                        <ClearIcon className="h-[18px] w-[18px]" />
+                      </IconButton>
+                    </DialogClose>
+                  </DialogContent>
+                </DialogPortal>
+              </DialogRoot>
               <hr className="my-1 text-slate-600" />
               <PopoverRoot>
                 <PopoverTrigger asChild>

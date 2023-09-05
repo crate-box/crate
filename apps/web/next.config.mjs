@@ -4,6 +4,9 @@ import "@acme/auth/env.mjs"
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
+  images: {
+    domains: ["res.cloudinary.com"],
+  },
   // Enable hot reloading for local packages
   transpilePackages: ["@acme/api", "@acme/auth", "@acme/db", "@acme/web-ui"],
   // Already run lint and typecheck in CI
