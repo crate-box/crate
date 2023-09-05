@@ -68,3 +68,11 @@ export const defaultSettingsSelect = {
   editorLineHeight: true,
   previewCodeblockTheme: true,
 } satisfies Prisma.SettingsSelect
+
+export const defaultAssetSelect = {
+  id: true,
+  userId: true,
+  type: true,
+  url: true,
+  createdAt: true,
+} satisfies Prisma.AssetSelect
