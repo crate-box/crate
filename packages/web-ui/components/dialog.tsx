@@ -22,7 +22,7 @@ const DialogOverlay = React.forwardRef(
       <RadixDialog.Overlay
         ref={ref}
         className={cn(
-          "fixed inset-0 z-20 bg-black/30 data-[state=open]:animate-overlayShow",
+          "fixed inset-0 z-[150] bg-black/30 data-[state=open]:animate-overlayShow",
           className
         )}
         {...props}
@@ -44,7 +44,7 @@ const DialogContent = React.forwardRef(
       <RadixDialog.Content
         ref={ref}
         className={cn(
-          "fixed left-1/2 top-1/2 z-30 flex h-screen max-h-screen w-screen -translate-x-1/2 -translate-y-1/2 flex-col items-stretch rounded bg-slate-900 p-4 shadow-xl focus:outline-none data-[state=open]:animate-contentShow tablet:h-[65vh] tablet:max-h-[65vh] tablet:w-[600px]",
+          "fixed left-1/2 top-1/2 z-[200] flex h-screen max-h-screen w-screen -translate-x-1/2 -translate-y-1/2 flex-col items-stretch rounded bg-slate-900 p-4 shadow-xl focus:outline-none data-[state=open]:animate-contentShow tablet:h-[65vh] tablet:max-h-[65vh] tablet:w-[600px]",
           className
         )}
         {...props}
