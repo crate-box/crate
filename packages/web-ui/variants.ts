@@ -26,3 +26,32 @@ export const buttonVariants = cva(
     },
   }
 )
+
+export const iconButtonVariants = cva(
+  "inline-flex items-center justify-center bg-transparent hover:bg-slate-800 transition-colors focus:outline-none focus-visible:outline-none",
+  {
+    variants: {
+      shape: {
+        rounded: "rounded",
+        circle: "rounded-full",
+      },
+      variant: {
+        default: "text-slate-200",
+        destructive: "text-destructive",
+        primary: "text-primary",
+        success: "text-success",
+        info: "text-info",
+        warn: "text-warn",
+      },
+      size: {
+        base: "w-7 h-7",
+        sm: "w-6 h-6",
+      },
+    },
+    defaultVariants: {
+      shape: "rounded",
+      variant: "default",
+      size: "base",
+    },
+  }
+)
