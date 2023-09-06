@@ -14,7 +14,7 @@ export default function DiscordLoginButton(props: ButtonProps) {
   return (
     <Button
       aria-label="Continue with Discord"
-      className="justify-start gap-6 bg-[#5865f2] text-lg text-[#e6edf3]"
+      className="justify-start gap-6 bg-[#5865f2] px-8 text-lg text-[#e6edf3]"
       variant="unstyled"
       size="xl"
       onClick={async () => {
