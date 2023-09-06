@@ -185,6 +185,15 @@ export default function PageActions({
           </HoverCardContent>
         </HoverCardPortal>
       </HoverCardRoot>
+      <Tooltip text="Change mode">
+        <IconButton aria-label="Change mode" onClick={toggleMode}>
+          {mode === "PREVIEW" ? (
+            <CodeIcon className="h-[18px] w-[18px]" />
+          ) : (
+            <EyeIcon className="h-[18px] w-[18px]" />
+          )}
+        </IconButton>
+      </Tooltip>
       <PopoverRoot>
         <Tooltip text="More actions">
           <PopoverTrigger asChild>
