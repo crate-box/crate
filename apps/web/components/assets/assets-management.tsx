@@ -25,7 +25,7 @@ export default function AssetsManagement() {
             <AssetImage
               asset={asset}
               onClick={() => {
-                insertAtCursor(editorView, `\n\n![](${asset.url})`)
+                insertAtCursor(editorView, `\n![](${asset.url})`)
               }}
             />
           </DialogClose>
@@ -37,7 +37,7 @@ export default function AssetsManagement() {
             <AssetVideo
               asset={asset}
               onClick={() => {
-                insertAtCursor(editorView, `\n\n<Video url="${asset.url}" />`)
+                insertAtCursor(editorView, `\n<Video url="${asset.url}" />`)
               }}
             />
           </DialogClose>
