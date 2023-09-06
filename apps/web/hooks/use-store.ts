@@ -1,8 +1,11 @@
+import type { EditorView } from "@codemirror/view"
 import { create } from "zustand"
 
 type Mode = "EDIT" | "PREVIEW"
 
 interface AppState {
+  editorView: EditorView | null
+  setEditorView: (view: EditorView | null) => void
   mode: Mode
   setMode: (mode: Mode) => void
   isMobileNavOpen: boolean
@@ -14,6 +17,9 @@ interface AppState {
 }
 
 export const useStore = create<AppState>()((set) => ({
+  editorView: null,
+  setEditorView: (view: EditorView | null) =>
+    set((state) => ({ ...state, editorView: view })),
   mode: "EDIT",
   setMode: (mode) => set((state) => ({ ...state, mode })),
   isMobileNavOpen: false,
