@@ -1,10 +1,19 @@
 "use client"
 
+import * as React from "react"
+
 import type { Session } from "@acme/auth"
 import { signOut } from "@acme/auth/react"
 import { Avatar, Button } from "@acme/web-ui"
 
 export default function ProfilePopover({ session }: { session: Session }) {
+  const [isLoggingOut, setIsLoggingOut] = React.useState(false)
+
+  const onLogOut = async () => {
+    setIsLoggingOut(true)
+    await signOut()
+  }
+
   return (
     <>
       <p className="text-slate-300">
@@ -23,8 +32,8 @@ export default function ProfilePopover({ session }: { session: Session }) {
             <p className="mt-1 text-sm text-slate-400">Free Plan</p>
           </div>
         </div>
-        <Button variant="destructive" size="sm" onClick={() => signOut()}>
-          Log Out
+        <Button variant="destructive" size="sm" onClick={onLogOut}>
+          {isLoggingOut ? "Logging Out..." : "Log Out"}
         </Button>
       </div>
     </>
