@@ -11,6 +11,7 @@ export const env = createEnv({
   },
   server: {
     DATABASE_URL: z.string().url(),
+    CLOUDINARY_URL: z.string().url(),
   },
   client: {
     // NEXT_PUBLIC_CLIENT_VAR: z.string().min(1),
@@ -19,6 +20,7 @@ export const env = createEnv({
     VERCEL_URL: process.env.VERCEL_URL,
     PORT: process.env.PORT,
     DATABASE_URL: process.env.DATABASE_URL,
+    CLOUDINARY_URL: process.env.CLOUDINARY_URL,
   },
   skipValidation:
     !!process.env.CI ||
