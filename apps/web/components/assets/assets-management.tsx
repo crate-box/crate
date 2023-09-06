@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { Select } from "@acme/web-ui"
+import { DialogClose, Select } from "@acme/web-ui"
 
 import { useStore } from "~/hooks"
 import { api } from "~/lib/api"
@@ -21,24 +21,26 @@ export default function AssetsManagement() {
     switch (type) {
       case "IMAGE": {
         return assets.map((asset) => (
-          <AssetImage
-            key={asset.id}
-            asset={asset}
-            onClick={() => {
-              insertAtCursor(editorView, `\n\n![](${asset.url})`)
-            }}
-          />
+          <DialogClose key={asset.id} asChild>
+            <AssetImage
+              asset={asset}
+              onClick={() => {
+                insertAtCursor(editorView, `\n\n![](${asset.url})`)
+              }}
+            />
+          </DialogClose>
         ))
       }
       case "VIDEO": {
         return assets.map((asset) => (
-          <AssetVideo
-            key={asset.id}
-            asset={asset}
-            onClick={() => {
-              insertAtCursor(editorView, `\n\n<Video url="${asset.url}" />`)
-            }}
-          />
+          <DialogClose key={asset.id} asChild>
+            <AssetVideo
+              asset={asset}
+              onClick={() => {
+                insertAtCursor(editorView, `\n\n<Video url="${asset.url}" />`)
+              }}
+            />
+          </DialogClose>
         ))
       }
     }
