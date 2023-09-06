@@ -8,6 +8,10 @@ import { MDXRemote } from "next-mdx-remote"
 
 import { cn } from "@acme/web-ui/utils"
 
+import Callout from "./callout"
+import Video from "./video"
+import Youtube from "./youtube"
+
 export default function MdxRenderer({
   source,
 }: {
@@ -201,4 +205,7 @@ const components = {
   Image: ({ className, ...props }: ImageProps) => (
     <Image className={cn("mt-6 rounded-md", className)} {...props} />
   ),
+  Video,
+  Youtube,
+  Callout,
 }
