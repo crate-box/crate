@@ -148,6 +148,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            rm -f ~/env/crate/.env
             touch ~/env/crate/.env
             echo DATABASE_URL="${{ secrets.DATABASE_URL }}" >> ~/env/crate/.env
             echo NEXTAUTH_URL="${{ secrets.NEXTAUTH_URL }}" >> ~/env/crate/.env
