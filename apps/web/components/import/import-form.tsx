@@ -95,7 +95,7 @@ export default function ImportForm() {
           <span>
             {watch("files")?.length > 0
               ? watch("files")[0]?.name
-              : "Choose a file from your local device"}
+              : "Choose a markdown file"}
           </span>
         </label>
         <input
