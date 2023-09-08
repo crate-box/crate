@@ -17,11 +17,12 @@ export default async function Home() {
       <section className="container flex min-h-[calc(100vh-64px)] flex-col items-center justify-center gap-16">
         <div className="flex flex-col items-center gap-4">
           <h1 className="text-center font-heading text-4xl font-bold tracking-tight text-primary tablet:text-6xl">
-            Write Markdown <br />
+            Write MDX <br />
             As A Developer
           </h1>
           <h3 className="text-center text-xl tablet:text-2xl">
-            Crate lets you write and organize your markdowns in a single space.
+            Crate lets you write and organize your MDX contents in a single
+            space.
           </h3>
         </div>
         <div className="flex items-center gap-4">
