@@ -12,7 +12,7 @@ export default function AppInner({ children }: React.PropsWithChildren) {
     <>
       <Sidebar />
       <div
-        className="flex-1"
+        className="w-screen flex-1"
         style={{
           marginLeft: isTablet
             ? "0px"
