@@ -9,14 +9,12 @@ import {
   PopoverRoot,
   PopoverTrigger,
 } from "@acme/web-ui"
-import { ClearIcon, WestIcon } from "@acme/web-ui/icons"
+import { ClearIcon } from "@acme/web-ui/icons"
 
-import { useStore } from "~/hooks"
 import { api } from "~/lib/api"
 import ProfilePopover from "./profile-popover"
 
 export default function ProfileButton() {
-  const setIsSidebarOpen = useStore((state) => state.setIsSidebarOpen)
   const [session] = api.session.get.useSuspenseQuery()
 
   return (
@@ -33,15 +31,6 @@ export default function ProfileButton() {
             fallback={session.user.name ?? ""}
           />
           <p className="font-medium leading-none">{session.user.name}</p>
-          <IconButton
-            className="ml-auto tablet:hidden"
-            onClick={(e) => {
-              e.stopPropagation()
-              setIsSidebarOpen(false)
-            }}
-          >
-            <WestIcon className="h-5 w-5" />
-          </IconButton>
         </div>
       </PopoverTrigger>
       <PopoverPortal>
