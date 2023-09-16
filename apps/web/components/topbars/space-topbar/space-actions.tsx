@@ -126,7 +126,10 @@ export default function SpaceActions({
           </PopoverTrigger>
         </Tooltip>
         <PopoverPortal>
-          <PopoverContent sideOffset={4} className="min-w-[440px]">
+          <PopoverContent
+            sideOffset={4}
+            className="min-w-screen min-h-[calc(100vh-40px)] w-screen tablet:min-h-[25vh] tablet:w-auto tablet:min-w-[440px]"
+          >
             <SpaceMembersPopover space={space} />
             <PopoverClose asChild>
               <IconButton
@@ -207,7 +210,7 @@ export default function SpaceActions({
                   </MenuButton>
                 </PopoverTrigger>
                 <PopoverAnchor asChild>
-                  <div className="pointer-events-none fixed left-0 top-0 opacity-0 tablet:relative" />
+                  <div className="pointer-events-none fixed right-0 top-0 opacity-0 tablet:relative" />
                 </PopoverAnchor>
                 <PopoverPortal>
                   <PopoverContent

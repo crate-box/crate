@@ -245,7 +245,7 @@ export default function PageActions({
                   </MenuButton>
                 </PopoverTrigger>
                 <PopoverAnchor asChild>
-                  <div className="pointer-events-none fixed left-0 top-0 opacity-0 tablet:relative" />
+                  <div className="pointer-events-none fixed right-0 top-0 opacity-0 tablet:relative" />
                 </PopoverAnchor>
                 <PopoverPortal>
                   <PopoverContent
