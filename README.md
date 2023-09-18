@@ -28,8 +28,6 @@
 
 - [Overview](#overview)
 - [Technologies/Libraries](#technologieslibraries)
-- [Implementation](#implementation)
-- [Features](#features)
 - [Contact](#contact)
 
 ## Overview
@@ -38,7 +36,7 @@ This app has been developed by [Dang Minh Ngo](https://dangminhngo.github.io).
 
 This app helps you write and organize your MDX contents. You can access, edit and read your MDX contents in only single application.
 
-- The demo application is living at: [https://crate-web.vercel.app](https://crate-web.vercel.app) (The current version does not support on mobile devices).
+- The demo application is living at: [https://crate-web.vercel.app](https://crate-web.vercel.app) (Now support mobile devices since v0.1.0).
 
 ## Technologies/Libraries
 
