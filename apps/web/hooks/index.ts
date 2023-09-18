@@ -1,6 +1,7 @@
 export * from "./use-clipboard"
 export * from "./use-codemirror"
 export * from "./use-debounce"
+export * from "./use-debug-state"
 export * from "./use-media-queries"
 export * from "./use-mounted"
 export * from "./use-store"
