@@ -5,7 +5,7 @@ import type { ResizeCallback } from "re-resizable"
 import { Resizable } from "re-resizable"
 
 import ProfileButton from "~/components/profile/profile-button"
-import { useMediaQueries, useStore } from "~/hooks"
+import { useMediaQueries, useMounted, useStore } from "~/hooks"
 import SidebarSkeleton from "../skeletons/sidebar-skeleton"
 import SidebarContent from "./sidebar-content"
 
@@ -13,6 +13,7 @@ const SIDEBAR_DEFAULT_WIDTH = 240
 const SIDEBAR_MAX_WIDTH = 360
 
 export default function Sidebar() {
+  const mounted = useMounted()
   const setSidebarWidth = useStore((state) => state.setSidebarWidth)
   const isSidebarOpen = useStore((state) => state.isSidebarOpen)
 
@@ -22,7 +23,7 @@ export default function Sidebar() {
 
   const [isTablet] = useMediaQueries(["(max-width: 768px)"])
 
-  return (
+  return mounted ? (
     <div
       className={`absolute left-0 top-0 z-10 h-screen ${
         isSidebarOpen
@@ -59,5 +60,5 @@ export default function Sidebar() {
         </div>
       </Resizable>
     </div>
-  )
+  ) : null
 }
