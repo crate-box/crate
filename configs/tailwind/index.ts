@@ -114,9 +114,9 @@ export default {
         contentShow: {
           from: {
             opacity: "0",
-            transform: "translate(-50%, -48%) scale(0.96)",
+            transform: "scale(0.8)",
           },
-          to: { opacity: "1", transform: "translate(-50%, -50%) scale(1)" },
+          to: { opacity: "1", transform: "scale(1)" },
         },
         enterFromRight: {
           from: { opacity: "0", transform: "translateX(200px)" },

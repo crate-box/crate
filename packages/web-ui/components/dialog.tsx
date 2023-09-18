@@ -44,7 +44,7 @@ const DialogContent = React.forwardRef(
       <RadixDialog.Content
         ref={ref}
         className={cn(
-          "fixed left-1/2 top-1/2 z-[200] flex h-screen max-h-screen w-screen -translate-x-1/2 -translate-y-1/2 flex-col items-stretch rounded bg-slate-900 p-4 shadow-xl focus:outline-none data-[state=open]:animate-contentShow tablet:h-[65vh] tablet:max-h-[65vh] tablet:w-[600px]",
+          "fixed left-0 top-0 z-[200] flex h-screen max-h-screen w-screen origin-center flex-col items-stretch rounded bg-slate-900 p-4 shadow-xl focus:outline-none data-[state=open]:animate-enterFromLeft tablet:left-1/2 tablet:top-1/2 tablet:h-[65vh] tablet:max-h-[80vh] tablet:w-[600px] tablet:-translate-x-1/2 tablet:-translate-y-1/2 tablet:data-[state=open]:animate-contentShow",
           className
         )}
         {...props}
